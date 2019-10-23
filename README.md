@@ -1,4 +1,4 @@
-# **FAR NEARER**
+# **Who owns our neighbourhood?**
 
 ## **Team Leader**
 Ahmed Abdellatif
@@ -31,7 +31,7 @@ FAR NEARER website enables users to report about any empty buildings and the com
 
 >The user can log in to see which buildings are empty and who owns them.
 
->The user can report buildings that is believed to be empty
+>The user can report buildings that are believed to be empty
 
 
 ## **User Stories**
