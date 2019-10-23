@@ -4,14 +4,14 @@
 Ahmed Abdellatif
 
 ## **Team Members**
- - Fadi Al-Amassi
+ - Fadi Alamassi
  - Mohammed Qarmout
  - Rana Obaid
  - Mai Ubeid
 
 ## **The Challenges** :warning:
-  - The biggest challenge is capacity, communities are very busy with a lot of other problems and they need something simple that doesn't take much time.
-  - User needs to find out information about empty buildings without much effort and time.
+  - The End user needs a way to report potentially empty buildings in their area so that they can bring them into community ownership before they are bought by commercial buyers.
+  - The Product owner needs a way to connect with these communities and gather the initial data so that they can run the initial investigations with the communities.
 
 ## **The Solution** :bulb:
 FAR NEARER website enables users to report about any empty buildings and the community members can access this data with provided credentials.
