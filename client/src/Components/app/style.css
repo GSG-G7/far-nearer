@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap');
+
+* {
+  padding: 0 ;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1vw;
+}
+
+:root {
+  --main-color--light: #1E4766	;
+  --main-color--dark: #000F2E	;  
+  --main-white: #FFFFFF;
+  --main-black: #000000;
+  --content-grey: #333333;
+  --header-font: 'Roboto', sans-serif;
+  --content-font: 'Lato', sans-serif;
+}
