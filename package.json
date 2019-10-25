@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start:server": "NODE_ENV=development nodemon server",
+    "dev": "NODE_ENV=development nodemon server/",
     "start:client": "cd client && npm start",
     "start": "NODE_ENV=production node ./server/index.js",
     "heroku-postbuild": "NODE_ENV=production cd client && npm install && npm run build",
