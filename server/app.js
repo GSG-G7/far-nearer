@@ -1,6 +1,7 @@
 const express = require('express');
 const { join } = require('path');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const compression = require('compression');
 const morgan = require('morgan');
 
@@ -11,8 +12,9 @@ const app = express();
 app.disable('x-powered-by');
 app.set('port', process.env.PORT || 5000);
 
-app.use(compression());
+app.use(cors());
 app.use(express.json());
+app.use(compression());
 app.use(cookieParser());
 
 if (process.env.NODE_ENV === 'development') {
