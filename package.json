@@ -1,7 +1,7 @@
 {
   "name": "far-nearer",
   "version": "1.0.0",
-  "description": "## **Team Leader** Ahmed Abdellatif",
+  "description": "",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -10,7 +10,7 @@
     "dev": "NODE_ENV=development nodemon server/",
     "start:client": "cd client && npm start",
     "start": "NODE_ENV=production node server/",
-    "heroku-postbuild": "NODE_ENV=production cd client && npm install && npm run build",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "NODE_ENV=test tape test/**/*.js | tap-spec",
     "lint": "eslint server/",
     "lint-fix": "eslint server/ --fix",
@@ -31,7 +31,6 @@
     "airtable": "^0.7.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.4",
-    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.6-alpha.6",
