@@ -12,7 +12,7 @@
     "start": "NODE_ENV=production node ./server/index.js",
     "heroku-postbuild": "NODE_ENV=production cd client && npm install && npm run build",
     "test": "NODE_ENV=test tape test/**/*.js | tap-spec",
-    "project-i": "npm install && cd client && npm install",
+    
     "lint": "eslint server/",
     "lint-fix": "eslint server/ --fix",
     "lint:react": "cd client && npm run lint"
