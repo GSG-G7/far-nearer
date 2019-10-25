@@ -21,7 +21,7 @@ app.use('/api/v1/', controllers);
 
 app.use(express.static(join(__dirname, '..', 'client', 'build')));
 
-app.get('*', (_req, res) => {
+app.use((_req, res) => {
   res.sendFile(join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
