@@ -5,6 +5,7 @@ const compression = require('compression');
 const morgan = require('morgan');
 
 const controllers = require('./controllers');
+const { errorHandle } = require('./controllers/middlewars');
 
 const app = express();
 
@@ -25,6 +26,10 @@ app.use(express.static(join(__dirname, '..', 'client', 'build')));
 
 app.use((_req, res) => {
   res.sendFile(join(__dirname, '..', 'client', 'build', 'index.html'));
+});
+
+app.use((err, req, res, next) => {
+  res.send({ statusCode: err.statusCode, error: errorHandle(err.statusCode) });
 });
 
 module.exports = app;
