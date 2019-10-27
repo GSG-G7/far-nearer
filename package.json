@@ -44,9 +44,12 @@
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
+<<<<<<< HEAD
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
     "nock": "^11.6.0",
+=======
+>>>>>>> 8cfb21b86909e8aa284a35eee483318c9d9bd967
     "nodemon": "^1.19.4",
     "pre-commit": "^1.2.2",
     "prettier": "1.18.2",
