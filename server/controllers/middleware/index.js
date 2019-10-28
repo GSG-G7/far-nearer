@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 module.exports = (err, req, res, _next) => {
+  // eslint-disable-next-line no-console
   console.log(err);
   const { statusCode } = err;
   let message = '';
