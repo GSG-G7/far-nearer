@@ -13,7 +13,7 @@ exports.addEmail = async (req, res, next) => {
     if (isExist) {
       res
         
-        .send({ statusCdde: 200, message: 'Email is exist', data: email });
+        .send({ statusCode: 200, message: 'Email already exists', data: { email } });
     } else {
       await addMail(email);
       res.status(201).send({
