@@ -1,0 +1,1 @@
+exports.getEmptyBuildings = require('./get');
