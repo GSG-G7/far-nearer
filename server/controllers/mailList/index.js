@@ -25,7 +25,7 @@ module.exports = async (req, res, next) => {
     }
   } catch (err) {
     if (err.name === 'ValidationError')
-      res.status(400).send({ statusCdde: 400, error: 'Invalid email address' });
+      res.status(400).send({ statusCode: 400, error: 'Invalid email address' });
     else next(err);
   }
 };
