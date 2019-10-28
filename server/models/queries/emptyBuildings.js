@@ -1,6 +1,6 @@
 const base = require('../config');
 
-const reportBuilding = ({
+exports.reportBuilding = ({
   city,
   latitude,
   longitude,
@@ -41,4 +41,19 @@ const reportBuilding = ({
     },
   ]);
 };
-module.exports = reportBuilding;
+
+exports.get = async () => {
+  let allRecords = [];
+  const process = (records, fetchNextPage) => {
+    allRecords = [
+      ...allRecords,
+      ...records.map(record => ({ id: record.id, ...record.fields })),
+    ];
+    fetchNextPage();
+  };
+
+  await base('empty_buildings')
+    .select({ view: 'Grid view' })
+    .eachPage(process);
+  return allRecords;
+};

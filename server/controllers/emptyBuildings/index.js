@@ -1,3 +1,2 @@
-const postEmptyBuilding = require('./post');
-
-module.exports = { postEmptyBuilding };
+exports.postEmptyBuilding = require('./post');
+exports.getEmptyBuildings = require('./get');
