@@ -1,4 +1,5 @@
-const reportBuilding = require('../../models/queries/emptyBuildings');
+const { promisify } = require('util');
+const { reportBuilding } = require('../../models/queries/emptyBuildings');
 const { schemaBuildings } = require('../../validation');
 
 const postEmptyBuilding = async (req, res, next) => {
@@ -6,9 +7,18 @@ const postEmptyBuilding = async (req, res, next) => {
     const newBuild = await schemaBuildings.validate(req.body, {
       abortEarly: false,
     });
-    const { thumbnail } = newBuild;
-    const picture = Date.now() + thumbnail;
-    newBuild.thumbnail = picture;
+    if (req.files) {
+      const file = req.files.filename;
+      const fileName = `${Date.now()}${file.name}`;
+      newBuild.thumbnail = fileName;
+      const move = promisify(file.mv);
+      move(`./server/uploads/${fileName}`)
+        .then(filename => res.send({ statusCode: 201, data: filename }))
+        .catch(() =>
+          res.send({ statusCode: 500, error: 'image could not uploaded' }),
+        );
+    }
+
     await reportBuilding(newBuild);
     res.status(201).send({
       statusCode: 201,
