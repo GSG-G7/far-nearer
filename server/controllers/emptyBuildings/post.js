@@ -6,6 +6,9 @@ const postEmptyBuilding = async (req, res, next) => {
     const newBuild = await schemaBuildings.validate(req.body, {
       abortEarly: false,
     });
+    const { thumbnail } = newBuild;
+    const picture = Date.now() + thumbnail;
+    newBuild.thumbnail = picture;
     await reportBuilding(newBuild);
     res.status(201).send({
       statusCode: 201,
