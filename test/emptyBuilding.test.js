@@ -14,7 +14,7 @@ tape('Test Empty building route | GET', t => {
       } else {
         const expectedKeys = 16;
         t.equals(
-          Object.keys(Object.keys(res.body.data[0])).length,
+          Object.keys(res.body.data[0]).length,
           expectedKeys,
           'Number of the object keys should be 16',
         );
