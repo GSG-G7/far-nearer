@@ -8,21 +8,15 @@ const schemaBuildings = yup.object().shape({
   latitude: yup.number().required(),
   longitude: yup.number().required(),
   address: yup.string().required(),
-  thumbnail: yup.string().required(),
-  owner: yup.string().required(),
+  thumbnail: yup.string().default('house.jpg'),
+  owner: yup.string().default('N/A'),
   isOwnerLocal: yup.mixed().oneOf(['Yes', 'No', 'N/A']),
   previousUse: yup.string().default('N/A'),
-  preferredUse: yup.string(),
-  emptyPeriod: yup.string(),
+  preferredUse: yup.string().default('N/A'),
+  emptyPeriod: yup.string().default('N/A'),
   extraInfo: yup.string(),
-  approved: yup
-    .bool()
-    .required()
-    .default(false),
-  receiveNotifications: yup
-    .bool()
-    .required()
-    .default(false),
+  approved: yup.bool().default(false),
+  receiveNotifications: yup.bool().default(false),
   reporterName: yup.string().required(),
   reporterEmail: yup
     .string()

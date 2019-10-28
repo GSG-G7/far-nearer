@@ -12,7 +12,7 @@ const postEmptyBuilding = async (req, res, next) => {
     });
   } catch (error) {
     if (error.name === 'ValidationError')
-      res.send({ statusCode: 400, error: error.message });
+      res.status(400).send({ statusCode: 400, error: error.message });
     else next(error);
   }
 };

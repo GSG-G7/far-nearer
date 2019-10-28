@@ -7,8 +7,7 @@ test('Testing for /report-building', t => {
     city: 'Morecambe',
     latitude: 54.06835,
     longitude: -2.86108,
-    thumbnail:
-      'https://www.telegraph.co.uk/content/dam/Travel/2018/September/iStock-Morecambe-travel-123.jpg?imwidth=450',
+    thumbnail: 'house.jpg',
     address: 'Morecambe',
     owner: 'Someone',
     isOwnerLocal: 'Yes',
@@ -41,6 +40,40 @@ test('Testing for /report-building', t => {
         t.deepEqual(
           newBuild,
           expected,
+          'Sent data and response should be equal',
+        );
+        t.end();
+      }
+    });
+});
+test('Testing for validation /report-building', t => {
+  const newBuild = {
+    thumbnail: 'house.jpg',
+    owner: 'Someone',
+    isOwnerLocal: 'Yes',
+    previousUse: 'N/A',
+    preferredUse: 'N/A',
+    emptyPeriod: '1 year',
+    extraInfo: 'more info about this building',
+    approved: true,
+    receiveNotifications: false,
+    reporterAddress: 'UK',
+  };
+
+  supertest(app)
+    .post('/api/v1/report-building')
+    .send(newBuild)
+    .expect('Content-Type', /json/)
+    .expect(400)
+    .end((err, res) => {
+      if (err) {
+        t.error(err);
+        t.end();
+      } else {
+        const actual = JSON.parse(res.text);
+        t.deepEqual(
+          actual,
+          { statusCode: 400, error: 'reporterEmail is a required field' },
           'Sent data and response should be equal',
         );
         t.end();
