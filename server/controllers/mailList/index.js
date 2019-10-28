@@ -17,7 +17,7 @@ exports.addEmail = async (req, res, next) => {
     } else {
       await addMail(email);
       res.status(201).send({
-        statusCdde: 201,
+        statusCode: 201,
         message: 'Email is added successfully',
         data: email,
       });
