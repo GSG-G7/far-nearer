@@ -3,7 +3,9 @@ const { schemaBuildings } = require('../../validation');
 
 const postEmptyBuilding = async (req, res, next) => {
   try {
-    const newBuild = await schemaBuildings.validate(req.body);
+    const newBuild = await schemaBuildings.validate(req.body, {
+      abortEarly: false,
+    });
     await reportBuilding(newBuild);
     res.status(201).send({
       statusCode: 201,
@@ -12,7 +14,7 @@ const postEmptyBuilding = async (req, res, next) => {
     });
   } catch (error) {
     if (error.name === 'ValidationError')
-      res.status(400).send({ statusCode: 400, error: error.message });
+      res.status(400).send({ statusCode: 400, error: error.errors });
     else next(error);
   }
 };

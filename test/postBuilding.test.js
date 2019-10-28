@@ -46,7 +46,7 @@ test('Testing for /report-building', t => {
       }
     });
 });
-test('Testing for validation /report-building', t => {
+test('Testing for server-side validation for /report-building route', t => {
   const newBuild = {
     thumbnail: 'house.jpg',
     owner: 'Someone',
@@ -71,11 +71,17 @@ test('Testing for validation /report-building', t => {
         t.end();
       } else {
         const actual = JSON.parse(res.text);
-        t.deepEqual(
-          actual,
-          { statusCode: 400, error: 'reporterEmail is a required field' },
-          'Sent data and response should be equal',
-        );
+        t.deepEqual(actual, {
+          statusCode: 400,
+          error: [
+            'city is a required field',
+            'latitude is a required field',
+            'longitude is a required field',
+            'address is a required field',
+            'reporterName is a required field',
+            'reporterEmail is a required field',
+          ],
+        });
         t.end();
       }
     });
