@@ -1,5 +1,4 @@
 const base = require('../config');
-require('dotenv').config();
 
 exports.get = async () => {
   let allRecords = [];
