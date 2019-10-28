@@ -13,7 +13,7 @@ exports.getEmails = async () => {
   };
 
   await base('mailing_list')
-    .select({ view: 'Grid view', pageSize: 2 })
+    .select({ view: 'Grid view' })
     .eachPage(processPage);
 
   return records;
