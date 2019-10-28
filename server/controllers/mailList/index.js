@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
       res.send({
         statusCode: 201,
         message: 'Email is added successfully',
-        data: email,
+        data: { email },
       });
     }
   } catch (err) {
