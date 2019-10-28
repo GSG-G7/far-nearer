@@ -25,7 +25,7 @@ tape('test mail list route with validation error', t => {
 
 tape('test mail list route with already exist email', t => {
   supertest(app)
-    .get('/api/v1/mailList?email=m@gmail.com')
+    .get('/api/v1/mailList?email=t@gmail.com')
     .expect(200)
     .expect('Content-Type', 'application/json; charset=utf-8')
     .end((err, res) => {

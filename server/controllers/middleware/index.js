@@ -9,5 +9,6 @@ module.exports = (err, req, res, _next) => {
     default:
       message = 'Internal Server Error';
   }
+  console.log(statusCode, ' ', message);
   res.send({ statusCode, error: message });
 };
