@@ -3,6 +3,7 @@ const { join } = require('path');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const morgan = require('morgan');
+const fileupload = require('express-fileupload');
 
 const controllers = require('./controllers');
 const errorHandle = require('./controllers/middleware');
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+app.use(fileupload());
 app.use('/api/v1/', controllers);
 
 app.use(express.static(join(__dirname, '..', 'client', 'build')));

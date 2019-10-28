@@ -1,0 +1,24 @@
+.footer{
+  background: var(--main-color--light);
+  color: var(--main-white);
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+/* .footer * {
+  margin: 0.5rem 0;
+} */
+.footer__container{
+  display: flex;
+  flex-direction: rows;
+  padding: 3rem 2rem;
+}
+.footer__content{
+  width: 30%;
+}
+
+.footer__bottom{
+  text-align: center;
+  background: var(--main-color--dark);
+  height: 4rem;
+}
