@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 module.exports = (err, req, res, _next) => {
+  console.log(err);
   const { statusCode } = err;
   let message = '';
   switch (statusCode) {
@@ -9,6 +10,5 @@ module.exports = (err, req, res, _next) => {
     default:
       message = 'Internal Server Error';
   }
-  console.log(statusCode, ' ', message);
   res.send({ statusCode, error: message });
 };
