@@ -1,3 +1,3 @@
-const { validateEmail } = require('./validateEmail');
+const validateEmail = require('./validateEmail');
 
 module.exports = { validateEmail };

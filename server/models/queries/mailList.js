@@ -6,12 +6,12 @@ exports.addMail = email => {
 
 exports.getEmails = async () => {
   let records = [];
- 
-   const processPage = (partialRecords, fetchNextPage) => {
+
+  const processPage = (partialRecords, fetchNextPage) => {
     records = [...records, ...partialRecords.map(r => r.get('email'))];
     fetchNextPage();
   };
-  
+
   await base('mailing_list')
     .select({ view: 'Grid view', pageSize: 2 })
     .eachPage(processPage);

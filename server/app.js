@@ -5,7 +5,6 @@ const compression = require('compression');
 const morgan = require('morgan');
 
 const controllers = require('./controllers');
-const { errorHandle } = require('./controllers/middlewars');
 
 const app = express();
 
@@ -30,7 +29,16 @@ app.use((_req, res) => {
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, _next) => {
-  res.send({ statusCode: err.statusCode, error: errorHandle(err.statusCode) });
+  const { statusCode } = err;
+  let message = '';
+  switch (statusCode) {
+    case 413:
+      message = 'You exceeded the maximum allowed payload size.';
+      break;
+    default:
+      message = 'Internal Server Error';
+  }
+  res.send({ statusCode, error: message });
 });
 
 module.exports = app;

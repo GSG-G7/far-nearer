@@ -11,9 +11,11 @@ exports.addEmail = async (req, res, next) => {
     const allEmails = await getEmails();
     const isExist = findEmail(allEmails, email);
     if (isExist) {
-      res
-        
-        .send({ statusCode: 200, message: 'Email already exists', data: { email } });
+      res.send({
+        statusCode: 200,
+        message: 'Email already exists',
+        data: { email },
+      });
     } else {
       await addMail(email);
       res.status(201).send({
