@@ -1,11 +1,9 @@
 const router = require('express').Router();
 
 const { getEmptyBuildings } = require('./emptyBuildings');
-
-router.get('/', (req, res) => {
-  res.send({ data: 'Hello from server' });
-});
+const mailList = require('./mailList');
 
 router.get('/empty-buildings', getEmptyBuildings);
+router.get('/mailList', mailList);
 
 module.exports = router;
