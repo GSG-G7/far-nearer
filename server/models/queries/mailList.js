@@ -6,7 +6,8 @@ exports.addMail = email => {
 
 exports.getEmails = async () => {
   let records = [];
-  const processPage = (partialRecords, fetchNextPage) => {
+ 
+   const processPage = (partialRecords, fetchNextPage) => {
     records = [...records, ...partialRecords.map(r => r.get('email'))];
     fetchNextPage();
   };
