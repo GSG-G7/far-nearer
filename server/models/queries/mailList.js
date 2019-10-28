@@ -11,6 +11,7 @@ exports.getEmails = async () => {
     records = [...records, ...partialRecords.map(r => r.get('email'))];
     fetchNextPage();
   };
+  
   await base('mailing_list')
     .select({ view: 'Grid view', pageSize: 2 })
     .eachPage(processPage);
