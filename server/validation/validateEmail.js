@@ -1,6 +1,6 @@
 const yup = require('yup');
 
-exports.validateEmail = yup.object({
+module.exports = yup.object({
   email: yup
     .string()
     .email()
