@@ -1,15 +1,14 @@
 const {
   mailList: { addMail, getEmails },
 } = require('../../models/queries/');
-const { findEmail } = require('../../helpers/findEmail');
 const { validateEmail } = require('../../validation');
 
-exports.addEmail = async (req, res, next) => {
+module.exports = async (req, res, next) => {
   const { email } = req.query;
   try {
     await validateEmail.validate({ email });
     const allEmails = await getEmails();
-    const isExist = findEmail(allEmails, email);
+    const isExist = allEmails.includes(email);
     if (isExist) {
       res.send({
         statusCode: 200,
