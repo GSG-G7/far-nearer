@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { getEmptyBuildings } = require('./emptyBuildings');
+const { getEmptyBuildings, postEmptyBuilding } = require('./emptyBuildings');
 const mailList = require('./mailList');
 
 router.get('/', (req, res) => {
@@ -23,5 +23,7 @@ router.post('/123', (req, res) => {
 
 router.get('/empty-buildings', getEmptyBuildings);
 router.get('/mailList', mailList);
+
+router.post('/report-building', postEmptyBuilding);
 
 module.exports = router;

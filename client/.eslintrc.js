@@ -4,12 +4,7 @@ module.exports = {
     es6: true,
   },
   root: true,
-  extends: [
-    'airbnb',
-    'react-app',
-    'prettier',
-    'prettier/react'
-  ],
+  extends: ['airbnb', 'react-app', 'prettier', 'prettier/react'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -21,13 +16,11 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    'prettier'
-  ],
+  plugins: ['react', 'prettier'],
   rules: {
-    "prettier/prettier": ["error", {"singleQuote": true, "trailingComma": "all"}],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    'prettier/prettier': ['error', { singleQuote: true, trailingComma: 'all' }],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/state-in-constructor': [0, 'always'],
   },
   settings: {
     'import/resolver': {
