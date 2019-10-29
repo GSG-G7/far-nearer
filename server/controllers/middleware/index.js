@@ -11,5 +11,7 @@ module.exports = (err, req, res, _next) => {
     default:
       message = 'Internal Server Error';
   }
+  // eslint-disable-next-line no-console
+  console.log(statusCode);
   res.status(statusCode).send({ statusCode, error: message });
 };
