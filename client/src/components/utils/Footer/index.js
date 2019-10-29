@@ -32,7 +32,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer__bottom">
-        Copyright © {new Date().getFullYear()} Far Nearer. All Rights Reserved.
+        Copyright © 2019 Far Nearer. All Rights Reserved.
       </div>
     </div>
   );
