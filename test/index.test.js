@@ -1,6 +1,6 @@
-const test = require('tape');
+const tape = require('tape');
 
-test('initial test', t => {
+tape('initial test', t => {
   t.equal(1, 1, 'should equal');
   t.end();
 });
