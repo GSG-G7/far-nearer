@@ -8,18 +8,6 @@ class Footer extends Component {
   //   email: '',
   // };
 
-  // handleSubmit = e => {
-  //   const {
-  //     form: { validateFieldsAndScroll },
-  //   } = this.props;
-  //   e.preventDefault();
-  //   validateFieldsAndScroll((err, values) => {
-  //     if (!err) {
-  //       console.log('Received values of form: ', values);
-  //     }
-  //   });
-  // };
-
   render() {
     return (
       <div className="footer">
@@ -60,7 +48,6 @@ class Footer extends Component {
             <h2 className="footer__heading">Join Our Mailing List</h2>
             <Form
               layout="inline"
-              onSubmit={this.handleSubmit}
               className="subscribe__form"
             >
               <Form.Item>
