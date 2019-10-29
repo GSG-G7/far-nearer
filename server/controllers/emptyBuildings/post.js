@@ -22,8 +22,8 @@ const postEmptyBuilding = async (req, res, next) => {
     await reportBuilding(newBuild);
     res.status(201).send({
       statusCode: 201,
-      message: 'Empty building was added successfully',
-      data: { newBuild },
+      message: 'Building was added successfully',
+      data: newBuild,
     });
   } catch (error) {
     if (error.name === 'ValidationError')
