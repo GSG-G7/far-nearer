@@ -1,22 +1,25 @@
 const { promisify } = require('util');
+const { join } = require('path');
 const { reportBuilding } = require('../../models/queries/emptyBuildings');
-const { schemaBuildings } = require('../../validation');
+const { buildingSchema } = require('../../validation');
 
 const postEmptyBuilding = async (req, res, next) => {
+  const { data } = req.body;
   try {
-    const newBuild = await schemaBuildings.validate(req.body, {
+    const newBuild = await buildingSchema.validate(data, {
       abortEarly: false,
     });
-    if (req.files) {
-      const file = req.files.filename;
-      const fileName = `${Date.now()}${file.name}`;
-      newBuild.thumbnail = fileName;
-      const move = promisify(file.mv);
-      move(`./server/uploads/${fileName}`)
-        .then(filename => res.send({ statusCode: 201, data: filename }))
-        .catch(() =>
-          res.send({ statusCode: 500, error: 'image could not uploaded' }),
-        );
+    if (req.files && req.files.thumbnail) {
+      const { thumbnail } = req.files;
+
+      const fileName = `${Date.now()}${thumbnail.name}`;
+      const move = promisify(thumbnail.mv);
+      try {
+        await move(join(__dirname, '..', '..', 'uploads', `${fileName}`));
+        newBuild.thumbnail = fileName;
+      } catch (error) {
+        next(error);
+      }
     }
 
     await reportBuilding(newBuild);

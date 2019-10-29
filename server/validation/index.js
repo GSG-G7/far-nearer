@@ -1,4 +1,4 @@
 const validateEmail = require('./validateEmail');
-const schemaBuildings = require('./schemaBuildings');
+const buildingSchema = require('./buildingSchema');
 
-module.exports = { validateEmail, schemaBuildings };
+module.exports = { validateEmail, buildingSchema };

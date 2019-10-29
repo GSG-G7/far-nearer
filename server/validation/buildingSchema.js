@@ -1,12 +1,20 @@
 const yup = require('yup');
 
-const schemaBuildings = yup.object().shape({
+module.exports = yup.object({
   city: yup
     .mixed()
     .oneOf(['Morecambe', 'Hastings'])
     .required(),
-  latitude: yup.number().required(),
-  longitude: yup.number().required(),
+  latitude: yup
+    .number()
+    .min(-90)
+    .max(90)
+    .required(),
+  longitude: yup
+    .number()
+    .min(-180)
+    .max(180)
+    .required(),
   address: yup.string().required(),
   thumbnail: yup.string().default('house.jpg'),
   owner: yup.string().default('N/A'),
@@ -24,5 +32,3 @@ const schemaBuildings = yup.object().shape({
     .required(),
   reporterAddress: yup.string().required(),
 });
-
-module.exports = schemaBuildings;
