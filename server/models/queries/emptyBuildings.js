@@ -1,3 +1,5 @@
+const camelcaseKeys = require('camelcase-keys');
+
 const base = require('../config');
 
 exports.get = async () => {
@@ -13,5 +15,5 @@ exports.get = async () => {
   await base('empty_buildings')
     .select({ view: 'Grid view' })
     .eachPage(process);
-  return allRecords;
+  return camelcaseKeys(allRecords);
 };
