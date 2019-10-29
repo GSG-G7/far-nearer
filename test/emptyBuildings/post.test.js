@@ -26,7 +26,7 @@ test('Test empty building route | POST | 201', t => {
 
   request(app)
     .post('/api/v1/report-building')
-    .send(emptyBuilding)
+    .field('data', JSON.stringify(emptyBuilding))
     .expect('Content-Type', /json/)
     .expect(201)
     .end((err, res) => {
@@ -148,7 +148,7 @@ test('Test empty building route | POST | 400', t => {
 
   request(app)
     .post('/api/v1/report-building')
-    .send(emptyBuilding)
+    .field('data', JSON.stringify(emptyBuilding))
     .expect('Content-Type', /json/)
     .expect(200)
     .end((err, res) => {
