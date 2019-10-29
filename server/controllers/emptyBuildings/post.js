@@ -14,12 +14,8 @@ const postEmptyBuilding = async (req, res, next) => {
 
       const fileName = `${Date.now()}${thumbnail.name}`;
       const move = promisify(thumbnail.mv);
-      try {
-        await move(join(__dirname, '..', '..', 'uploads', `${fileName}`));
-        newBuild.thumbnail = fileName;
-      } catch (error) {
-        next(error);
-      }
+      await move(join(__dirname, '..', '..', 'uploads', `${fileName}`));
+      newBuild.thumbnail = fileName;
     }
 
     await reportBuilding(newBuild);

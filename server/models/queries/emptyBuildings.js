@@ -33,7 +33,7 @@ exports.reportBuilding = ({
         empty_period: emptyPeriod,
         extra_info: extraInfo,
         approved,
-        recieve_notifications: receiveNotifications,
+        receive_notifications: receiveNotifications,
         reporter_name: reporterName,
         reporter_email: reporterEmail,
         reporter_address: reporterAddress,
