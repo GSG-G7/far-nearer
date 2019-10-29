@@ -27,7 +27,8 @@ module.exports = {
   ],
   rules: {
     "prettier/prettier": ["error", {"singleQuote": true, "trailingComma": "all"}],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    'react/state-in-constructor': [0, 'always'],
   },
   settings: {
     'import/resolver': {
