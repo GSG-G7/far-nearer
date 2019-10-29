@@ -11,7 +11,7 @@
     "start:client": "cd client && npm start",
     "start": "NODE_ENV=production node server/",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "test": "NODE_ENV=test tape test/**/*.js | tap-spec",
+    "test": "NODE_ENV=test tape test/**/*.js tape test/*.js | tap-spec",
     "lint": "eslint server/",
     "lint-fix": "eslint server/ --fix",
     "lint:react": "cd client && npm run lint"
@@ -29,6 +29,7 @@
   "homepage": "https://github.com/GSG-G7/far-nearer#readme",
   "dependencies": {
     "airtable": "^0.7.1",
+    "camelcase-keys": "^6.1.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.2.0",
