@@ -4,9 +4,9 @@ import { Form, Button, Input, Icon } from 'antd';
 import './style.css';
 
 class Footer extends Component {
-  // state = {
-  //   email: '',
-  // };
+  state = {
+    // email: '',
+  };
 
   render() {
     return (
@@ -46,10 +46,7 @@ class Footer extends Component {
           </div>
           <div className="footer__section">
             <h2 className="footer__heading">Join Our Mailing List</h2>
-            <Form
-              layout="inline"
-              className="subscribe__form"
-            >
+            <Form layout="inline" className="subscribe__form">
               <Form.Item>
                 <Input
                   size="large"
