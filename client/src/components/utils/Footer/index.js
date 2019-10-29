@@ -5,7 +5,7 @@ import './style.css';
 
 class Footer extends Component {
   state = {
-    email: '',
+    // email: '',
   };
 
   render() {
