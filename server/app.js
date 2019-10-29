@@ -24,6 +24,7 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(express.static(join(__dirname, '..', 'client', 'build')));
 app.use(express.static(join(__dirname, 'uploads')));
+
 app.use('/api/v1/', controllers);
 
 app.use((_req, res) => {
