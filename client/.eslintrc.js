@@ -29,4 +29,11 @@ module.exports = {
     "prettier/prettier": ["error", {"singleQuote": true, "trailingComma": "all"}],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        moduleDirectory: ['node_modules', 'src/'],
+      },
+    },
+  },
 };
