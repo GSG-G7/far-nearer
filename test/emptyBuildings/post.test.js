@@ -85,7 +85,7 @@ test('Test empty building route | POST | 201', t => {
   request(app)
     .post('/api/v1/report-building')
     .field('data', JSON.stringify(emptyBuilding))
-    .attach('image', join(__dirname, '..', 'testImage.PNG'))
+    .attach('thumbnail', join(__dirname, '..', 'testImage.PNG'))
     .expect('Content-Type', /json/)
     .expect(201)
     .end((err, res) => {
@@ -150,7 +150,7 @@ test('Test empty building route | POST | 400', t => {
     .post('/api/v1/report-building')
     .field('data', JSON.stringify(emptyBuilding))
     .expect('Content-Type', /json/)
-    .expect(200)
+    .expect(400)
     .end((err, res) => {
       if (err) {
         t.error(err);
