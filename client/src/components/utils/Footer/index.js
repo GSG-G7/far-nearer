@@ -1,14 +1,39 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Form, Button, Input, Icon } from 'antd';
+import axios from 'axios';
 
 import './style.css';
 
-class Footer extends Component {
+class Subscribe extends Component {
   state = {
-    // email: '',
+    email: '',
+  };
+
+  componentDidMount = async () => {
+    const {
+      data: { data },
+    } = await axios.get('/api/v1/mailList');
+    this.setState({ email: data });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const {
+      form: { validateFields },
+    } = this.props;
+    const { email } = this.state;
+    validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
   };
 
   render() {
+    const {
+      form: { getFieldDecorator },
+    } = this.props;
     return (
       <div className="footer">
         <div className="container">
@@ -46,15 +71,26 @@ class Footer extends Component {
           </div>
           <div className="footer__section">
             <h2 className="footer__heading">Join Our Mailing List</h2>
-            <Form layout="inline" className="subscribe__form">
-              <Form.Item>
-                <Input
-                  size="large"
-                  placeholder="Type your Email"
-                  className="subscribe__input"
-                  type="email"
-                />
+            <Form
+              layout="inline"
+              onSubmit={this.handleSubmit}
+              className="subscribe__form"
+            >
+              <Form.Item label="">
+                {getFieldDecorator('email', {
+                  rules: [
+                    {
+                      type: 'email',
+                      message: 'The input is not valid E-mail!',
+                    },
+                    {
+                      required: true,
+                      message: 'Please input your E-mail!',
+                    },
+                  ],
+                })(<Input placeholder="Enter your email" size="large" />)}
               </Form.Item>
+
               <Form.Item>
                 <Button type="primary" htmlType="submit" size="large">
                   Subscribe
@@ -73,4 +109,12 @@ class Footer extends Component {
     );
   }
 }
+
+Subscribe.propTypes = {
+  form: PropTypes.objectOf(PropTypes.func).isRequired,
+  getFieldDecorator: PropTypes.func.isRequired,
+};
+
+const Footer = Form.create({ name: 'Subscribe' })(Subscribe);
+
 export default Footer;
