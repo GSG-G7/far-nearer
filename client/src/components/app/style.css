@@ -40,5 +40,5 @@ body {
 .ant-btn-primary:focus {
   background-color: var(--main-color--dark);
   border-color: var(--main-color--dark);
-  box-shadow: var(--main-color--dark);
+  box-shadow: 0.1rem 0.1rem var(--main-black);
 }
