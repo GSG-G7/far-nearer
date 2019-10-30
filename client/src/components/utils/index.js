@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import Loading from './Loading';
 
-export default Loading;
+export { Loading };
