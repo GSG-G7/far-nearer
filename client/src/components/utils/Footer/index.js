@@ -11,10 +11,10 @@ class Subscribe extends Component {
   };
 
   componentDidMount = async () => {
-    const {
-      data: { data },
-    } = await axios.get('/api/v1/mailList');
+    const { email } = this.state;
+    const { data } = await axios.get(`/api/v1/mailList?email=${email}`);
     this.setState({ email: data });
+    // console.log(data);
   };
 
   handleSubmit = e => {
@@ -22,9 +22,10 @@ class Subscribe extends Component {
     const {
       form: { validateFields },
     } = this.props;
-    const { email } = this.state;
+    // let { email } = this.state;
     validateFields((err, values) => {
       if (!err) {
+        // email = values.email;
         console.log('Received values of form: ', values);
       }
     });
