@@ -6,8 +6,7 @@
     align-items: center;
     font-size: 1.5rem ;
   }
-  
+
 .span-icon {
-    color: var(--main-color--light);
-    
+    color: var(--main-color--light);  
   }
