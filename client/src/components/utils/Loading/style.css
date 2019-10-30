@@ -6,7 +6,8 @@
     align-items: center;
     font-size: 1.5rem ;
   }
-  .span-icon {
+  
+.span-icon {
     color: var(--main-color--light);
     
   }
