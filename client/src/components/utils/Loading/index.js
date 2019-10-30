@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Spin, Icon } from 'antd';
 
-import 'antd/dist/antd.css';
 import './style.css';
 
 const Loading = ({ className = '' }) => {
