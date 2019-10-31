@@ -61,7 +61,7 @@ class Subscribe extends Component {
                 <Icon type="phone" /> <span>+44 01 2345 6789</span>
               </p>
               <p>
-                <Icon type="mail" /> <span>email@email.com</span>
+                <Icon type="mail" /> <span>example@example.com</span>
               </p>
             </div>
             <div className="footer__sociallinks">
