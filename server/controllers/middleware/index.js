@@ -2,7 +2,7 @@
 module.exports = (err, req, res, _next) => {
   // eslint-disable-next-line no-console
   console.log(err);
-  const { statusCode } = err;
+  const { statusCode = 500 } = err;
   let message = '';
   switch (statusCode) {
     case 413:
@@ -11,5 +11,5 @@ module.exports = (err, req, res, _next) => {
     default:
       message = 'Internal Server Error';
   }
-  res.send({ statusCode, error: message });
+  res.status(statusCode).send({ statusCode, error: message });
 };
