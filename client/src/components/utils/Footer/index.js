@@ -78,7 +78,7 @@ class Subscribe extends Component {
               onSubmit={this.handleSubmit}
               className="subscribe__form"
             >
-              <Form.Item label="">
+              <Form.Item>
                 {getFieldDecorator('email', {
                   rules: [
                     {
