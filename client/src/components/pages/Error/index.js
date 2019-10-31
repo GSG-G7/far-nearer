@@ -12,7 +12,9 @@ const PageNotFound = () => {
         <h1 className="error-page__heading status">404</h1>
         <h2 className="error-page__heading ">Page not found</h2>
         <Link to="/">
-          <Button type="primary">Back Home</Button>
+          <Button type="primary" className="error-page__btn">
+            Back Home
+          </Button>
         </Link>
       </div>
       <img src={errorImg} alt="404 Error" className="error-page__img" />
