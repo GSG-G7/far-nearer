@@ -114,11 +114,6 @@ class Subscribe extends Component {
 
 Subscribe.propTypes = {
   form: PropTypes.objectOf(PropTypes.func).isRequired,
-  getFieldDecorator: PropTypes.func,
-};
-
-Subscribe.defaultProps = {
-  getFieldDecorator: () => {},
 };
 
 const Footer = Form.create({ name: 'Subscribe' })(Subscribe);
