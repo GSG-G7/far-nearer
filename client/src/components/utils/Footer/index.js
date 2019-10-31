@@ -87,7 +87,7 @@ class Subscribe extends Component {
                     },
                     {
                       required: true,
-                      message: 'Please input your E-mail!',
+                      message: 'Please enter your email!',
                     },
                   ],
                 })(<Input placeholder="Enter your email" size="large" />)}
