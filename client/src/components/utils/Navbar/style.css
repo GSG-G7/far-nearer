@@ -1,6 +1,5 @@
 .navbar {
   overflow: hidden;
-  position: fixed;
   top: 0;
   width: 100vw;
   transition: top 0.6s;
@@ -76,4 +75,12 @@
 
 .transparent--active {
   border-bottom: 2px solid var(--main-white);
+}
+
+.sticky{
+  position: sticky;
+  width: 100%
+}
+.fixed{
+  position: fixed;
 }
