@@ -37,9 +37,9 @@ class Subscribe extends Component {
       form: { getFieldDecorator },
     } = this.props;
     return (
-      <div className="footer">
+      <footer className="footer">
         <div className="container">
-          <div className="footer__section">
+          <section className="footer__section">
             <h2 className="footer__heading">About Us</h2>
             <p className="footer__content">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -50,8 +50,8 @@ class Subscribe extends Component {
             <a href="http://www.farnearer.org/" className="footer__link">
               Farnearer.org
             </a>
-          </div>
-          <div className="footer__section">
+          </section>
+          <section className="footer__section">
             <h2 className="footer__heading">Contact Us</h2>
             <div className="footer__contact">
               <p>
@@ -70,8 +70,8 @@ class Subscribe extends Component {
               <Icon type="slack" />
               <Icon type="skype" />
             </div>
-          </div>
-          <div className="footer__section">
+          </section>
+          <section className="footer__section">
             <h2 className="footer__heading">Join Our Mailing List</h2>
             <Form
               layout="inline"
@@ -102,12 +102,12 @@ class Subscribe extends Component {
             <p className="footer__content">
               Subscribe to our website and recieve updateed news and emails
             </p>
-          </div>
+          </section>
         </div>
         <div className="footer__bottom">
           Copyright © 2019 Far Nearer. All Rights Reserved.
         </div>
-      </div>
+      </footer>
     );
   }
 }
