@@ -6,7 +6,7 @@
 }
 
 .container {
-  display: flex; 
+  display: flex;
   justify-content: center;
 }
 
@@ -34,7 +34,8 @@
   padding: 0.6rem 0.7rem 0 0;
 }
 
-.footer__link, .footer__link:hover {
+.footer__link,
+.footer__link:hover {
   color: var(--main-white);
   text-decoration: none;
   font-family: var(--content-font);
@@ -61,14 +62,13 @@
   padding: 0.5rem;
 }
 
-
-.footer__list{
+.footer__list {
   list-style: none;
   line-height: 2rem;
 }
 
 .subscribe__form {
-  padding-bottom: 1rem; 
+  padding-bottom: 1rem;
 }
 
 .subscribe__input {
@@ -83,11 +83,10 @@
 
 @media (max-width: 600px) {
   .container {
-    flex-direction: column
+    flex-direction: column;
   }
 
   .footer__section {
     width: 100%;
   }
-
 }
