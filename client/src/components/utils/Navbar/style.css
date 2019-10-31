@@ -47,7 +47,6 @@
 
 .navbar__list--item {
   overflow: hidden;
-  
 }
 
 .navbar__list--link {
@@ -56,7 +55,6 @@
   padding: 1.5rem 2rem;
   display: block;
   border-bottom: 2px solid transparent;
-
 }
 
 .active,
