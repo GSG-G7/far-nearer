@@ -6,27 +6,25 @@ import axios from 'axios';
 import './style.css';
 
 class Subscribe extends Component {
-  state = {
-    email: '',
-  };
-
-  componentDidMount = async () => {
-    const { email } = this.state;
-    const { data } = await axios.get(`/api/v1/mailList?email=${email}`);
-    this.setState({ email: data });
-    // console.log(data);
-  };
-
   handleSubmit = e => {
     e.preventDefault();
     const {
       form: { validateFields },
     } = this.props;
-    // let { email } = this.state;
-    validateFields((err, values) => {
-      if (!err) {
-        // email = values.email;
-        console.log('Received values of form: ', values);
+    validateFields(async (err, values) => {
+      try {
+        if (!err) {
+          const { data } = await axios.get('/api/v1/mailList', {
+            params: { email: values.email },
+          });
+          // let message = '';
+          // if (data.error) {
+          //   message = 'Something went';
+          // }
+          console.log(data);
+        }
+      } catch (error) {
+        console.log(error);
       }
     });
   };
@@ -113,7 +111,11 @@ class Subscribe extends Component {
 
 Subscribe.propTypes = {
   form: PropTypes.objectOf(PropTypes.func).isRequired,
-  getFieldDecorator: PropTypes.func.isRequired,
+  getFieldDecorator: PropTypes.func,
+};
+
+Subscribe.defaultProps = {
+  getFieldDecorator: () => {},
 };
 
 const Footer = Form.create({ name: 'Subscribe' })(Subscribe);
