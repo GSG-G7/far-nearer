@@ -1,0 +1,33 @@
+.btn{
+    margin-top: 1rem;
+    background-color: var(--main-color--dark);
+    border-color: var(--main-color--dark);
+}
+
+.error-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error-page__content {
+    width: 50%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.error-page__heading{
+    color: var(--main-color--dark);
+    margin-bottom: 0;
+}
+
+.status{
+    color: var(--main-color--light);
+    font-size: 10rem; 
+    margin-bottom: 0;
+}
+
