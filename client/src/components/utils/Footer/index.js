@@ -83,7 +83,7 @@ class Subscribe extends Component {
                   rules: [
                     {
                       type: 'email',
-                      message: 'The input is not valid E-mail!',
+                      message: 'Invalid email address',
                     },
                     {
                       required: true,
