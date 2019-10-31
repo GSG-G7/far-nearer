@@ -6,7 +6,7 @@
 }
 
 .container {
-  display: flex;
+  display: flex; 
   justify-content: center;
 }
 
@@ -60,6 +60,7 @@
 .footer__sociallinks > * {
   padding: 0.5rem;
 }
+
 
 .footer__list{
   list-style: none;
