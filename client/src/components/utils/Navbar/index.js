@@ -60,7 +60,7 @@ class Navbar extends Component {
     const { transparent, visible } = this.state;
     return (
       <nav className={this.getNavbarClass(visible, transparent)}>
-        <div className="navbar__container">
+        <div className="navbar__container container">
           <div className="image-container">
             <Link to="/">
               <img
