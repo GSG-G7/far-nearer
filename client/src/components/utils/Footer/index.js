@@ -58,7 +58,7 @@ class Subscribe extends Component {
                 <Icon type="environment" /> <span>London, UK</span>
               </p>
               <p>
-                <Icon type="phone" /> <span>0093762362727</span>
+                <Icon type="phone" /> <span>+44 01 2345 6789</span>
               </p>
               <p>
                 <Icon type="mail" /> <span>email@email.com</span>
