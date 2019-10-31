@@ -1,11 +1,11 @@
-.error-page__btn{
+.error-page__btn {
     height: 6vh;
     background-color: var(--main-color--light);
     border-color: var(--main-color--light);
     margin-left: 0.4rem;  
 }
 
-.error-page__btn:hover{
+.error-page__btn:hover {
     background-color: var(--main-color--light);
 }
 
@@ -27,19 +27,19 @@
     flex-direction: column;
 }
 
-.error-page__heading{
+.error-page__heading { 
     color: var(--main-color--light);
     font-size: 1.7rem;
     margin-bottom: 0.5rem;
 }
 
-.status{
+.status {
     color: var(--main-color--light);
     font-size: 10rem; 
     margin-bottom: 0;
 }
 
-.error-page__img{
+.error-page__img {
     width: 30%;
     height: 45vh;
 }
@@ -49,17 +49,17 @@
       flex-direction: column-reverse;
     }
 
-    .error-page__content{
+    .error-page__content {
         height: 30vh;
     }
 
-    .error-page__heading{
+    .error-page__heading {
         font-size: 4rem;
         margin-bottom: 0.8rem;
         font-weight: 500;
     }
 
-    .status{
+    .status {
         color: var(--main-color--light);
         font-size: 18rem; 
         margin-bottom: 0;
