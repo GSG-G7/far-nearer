@@ -14,6 +14,7 @@ class SubscribeForm extends Component {
     const openNotificationWithIcon = (type, message) => {
       notification[type]({
         message,
+        duration: 3,
       });
     };
     validateFields(async (err, values) => {
