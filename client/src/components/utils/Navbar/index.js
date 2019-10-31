@@ -49,17 +49,18 @@ class Navbar extends Component {
 
   getTransparentClass = transparent => (transparent ? ' transparent' : ' ');
 
-  getNavbarClass = (visible, transparent) => {
+  getNavbarClass = (initialStatus, transparent, visible) => {
     let className = 'navbar';
     className += !transparent ? ` light` : '';
+    className += initialStatus ? ` fixed` : ' sticky';
     className += !visible ? ` navbar--hidden` : '';
     return className;
   };
 
   render() {
-    const { transparent, visible } = this.state;
+    const { initialStatus, transparent, visible } = this.state;
     return (
-      <nav className={this.getNavbarClass(visible, transparent)}>
+      <nav className={this.getNavbarClass(initialStatus, transparent, visible)}>
         <div className="navbar__container container">
           <div className="image-container">
             <Link to="/">
