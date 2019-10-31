@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button, Input, Icon } from 'antd';
+import { Form, Button, Input, Icon, notification } from 'antd';
 import axios from 'axios';
 
 import './style.css';
@@ -11,20 +11,23 @@ class Subscribe extends Component {
     const {
       form: { validateFields },
     } = this.props;
+    const openNotificationWithIcon = (type, message) => {
+      notification[type]({
+        message,
+      });
+    };
     validateFields(async (err, values) => {
       try {
         if (!err) {
           const { data } = await axios.get('/api/v1/mailList', {
             params: { email: values.email },
           });
-          // let message = '';
-          // if (data.error) {
-          //   message = 'Something went';
-          // }
-          console.log(data);
+          if (data.statusCode === 400) {
+            openNotificationWithIcon('error', data.error);
+          }
         }
       } catch (error) {
-        console.log(error);
+        openNotificationWithIcon('error', 'Something went wrong');
       }
     });
   };
