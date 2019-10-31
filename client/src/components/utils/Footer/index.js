@@ -22,12 +22,19 @@ class Subscribe extends Component {
           const { data } = await axios.get('/api/v1/mailList', {
             params: { email: values.email },
           });
-          if (data.statusCode === 400) {
+          if (data.statusCode === 201) {
+            openNotificationWithIcon(
+              'success',
+              'Great !! You will recive recieve updated news and emails',
+            );
+          } else if (data.statusCode === 200) {
+            openNotificationWithIcon('info', 'You already subscribed');
+          } else if (data.statusCode === 400) {
             openNotificationWithIcon('error', data.error);
           }
         }
       } catch (error) {
-        openNotificationWithIcon('error', 'Something went wrong');
+        openNotificationWithIcon('error', 'Something went wrong !! Try again');
       }
     });
   };
@@ -100,7 +107,7 @@ class Subscribe extends Component {
               </Form.Item>
             </Form>
             <p className="footer__content">
-              Subscribe to our website and recieve updateed news and emails
+              Subscribe to our website and recieve updated news and emails
             </p>
           </section>
         </div>
