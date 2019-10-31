@@ -1,0 +1,79 @@
+.navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  transition: top 0.6s;
+}
+
+.navbar--hidden {
+  top: -80px;
+}
+
+.light {
+  background: var(--main-white);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.image-container {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  width: 80%;
+  max-width: 156px
+}
+
+.navbar__menu {
+  display: flex;
+  width: 40vw;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navbar__list {
+  display: flex;
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+.navbar__list--item {
+  overflow: hidden;
+}
+
+.navbar__list--link {
+  color: var(--main-black);
+  text-decoration:none;
+  padding: 1.5rem 2rem;
+  display: block;
+  border-bottom: 2px solid transparent;
+}
+
+.active,
+.navbar__list--link:hover {
+  border-bottom: 2px solid var(--main-black);
+  color: var(--main-black);
+  transition: .5S ease-in-out
+}
+
+.transparent {
+  color: var(--main-white);
+  background: transparent;
+}
+
+.transparent:hover {
+  border-bottom: 2px solid var(--main-white);
+  color: var(--main-white);
+}
+
+.transparent--active {
+  border-bottom: 2px solid var(--main-white);
+}
