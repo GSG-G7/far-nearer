@@ -5,7 +5,7 @@
   transition: top 0.6s;
 }
 
-.navbar--hidden {
+.hidden {
   top: -80px;
 }
 
@@ -13,7 +13,7 @@
   background: var(--main-white);
 }
 
-.navbar__container {
+.container {
   display: flex;
   justify-content: space-between;
   height: 80px;
@@ -31,24 +31,24 @@
   max-width: 156px
 }
 
-.navbar__menu {
+.menu {
   display: flex;
   width: 40vw;
   flex-direction: column;
   justify-content: center;
 }
 
-.navbar__list {
+.list {
   display: flex;
   list-style: none;
   font-size: 1.2rem;
 }
 
-.navbar__list--item {
+.list--item {
   overflow: hidden;
 }
 
-.navbar__list--link {
+.list--link {
   color: var(--main-black);
   text-decoration:none;
   padding: 1.5rem 2rem;
@@ -57,7 +57,7 @@
 }
 
 .active,
-.navbar__list--link:hover {
+.list--link:hover {
   border-bottom: 2px solid var(--main-black);
   color: var(--main-black);
   transition: .5S ease-in-out
