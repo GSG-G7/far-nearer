@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './style.css';
 
-import { Footer } from '../utils';
+import { Footer } from 'components/utils';
 import About from '../pages/AboutUs';
 
 function App() {
