@@ -8,7 +8,7 @@ import './style.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="container container__footer">
         <section className="footer__section">
           <h2 className="footer__heading">About Us</h2>
           <p className="footer__content">

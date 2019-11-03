@@ -1,0 +1,29 @@
+.about__heading {
+  font-family: var(--header-font);
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 1.5rem 0;
+}
+
+.about__content {
+  font-family: var(--content-font);
+  padding-bottom: 3rem;
+}
+
+.content__title {
+  font-weight: 700;
+}
+
+.content__description {
+  line-height: 3rem;
+}
+
+@media (max-width: 600px) {
+  .about__heading {
+    font-size: 6rem;
+  }
+
+  .content__description {
+    line-height: 5rem;
+  }
+}
