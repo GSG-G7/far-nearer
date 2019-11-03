@@ -54,7 +54,7 @@
   height: 80px;
   padding: 1.5rem 2rem;
   color: var(--main-black);
-  text-decoration:none;
+  text-decoration: none;
   border-top: 2px solid transparent;
   display: flex;
   flex-direction: column;
@@ -86,6 +86,7 @@
   position: sticky;
   width: 100%
 }
+
 .fixed{
   position: fixed;
 }
