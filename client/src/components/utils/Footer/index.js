@@ -3,26 +3,26 @@ import { Icon } from 'antd';
 
 import Subscribe from './Subscribe';
 
-import './style.css';
+import styles from './footer.module.css';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="container container__footer">
-        <section className="footer__section">
-          <h2 className="footer__heading">About Us</h2>
-          <p className="footer__content">
+    <footer className={styles.footer}>
+      <div className={`${styles.container} container`}>
+        <section className={styles.section}>
+          <h2 className={styles.heading}>About Us</h2>
+          <p className={styles.content}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
             velit ex maxime ipsum amet recusandae Lorem, ipsum dolor.
           </p>
-          <Icon type="global" className="footer__icon" />
-          <a href="http://www.farnearer.org/" className="footer__link">
+          <Icon type="global" className={styles.icon} />
+          <a href="http://www.farnearer.org/" className={styles.link}>
             Farnearer.org
           </a>
         </section>
-        <section className="footer__section">
-          <h2 className="footer__heading">Contact Us</h2>
-          <div className="footer__contact">
+        <section className={styles.section}>
+          <h2 className={styles.heading}>Contact Us</h2>
+          <div className={styles.contact}>
             <p>
               <Icon type="environment" /> <span>London, UK</span>
             </p>
@@ -33,22 +33,22 @@ const Footer = () => {
               <Icon type="mail" /> <span>example@example.com</span>
             </p>
           </div>
-          <div className="footer__sociallinks">
+          <div className={styles.sociallinks}>
             <Icon type="google" />
             <Icon type="twitter" />
             <Icon type="slack" />
             <Icon type="skype" />
           </div>
         </section>
-        <section className="footer__section">
-          <h2 className="footer__heading">Join Our Mailing List</h2>
+        <section className={styles.section}>
+          <h2 className={styles.heading}>Join Our Mailing List</h2>
           <Subscribe />
-          <p className="footer__content">
+          <p className={styles.content}>
             Subscribe to our website and recieve updated news and emails
           </p>
         </section>
       </div>
-      <div className="footer__bottom">
+      <div className={styles.bottom}>
         Copyright © 2019 Far Nearer. All Rights Reserved.
       </div>
     </footer>
