@@ -5,7 +5,7 @@ import 'antd/dist/antd.css';
 import './style.css';
 
 import { Footer } from 'components/utils';
-import About from '../pages/AboutUs';
+import About from 'components/pages/AboutUs';
 
 function App() {
   return (
