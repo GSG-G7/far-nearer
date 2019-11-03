@@ -84,6 +84,9 @@ class Navbar extends Component {
                     transparent ? styles['transparent--active'] : styles.active
                   }
                   to="/"
+                  isActive={(match, { hash }) =>
+                    !!(match && match.isExact && !hash)
+                  }
                 >
                   Home
                 </NavLink>
@@ -112,6 +115,9 @@ class Navbar extends Component {
                     transparent ? styles['transparent--active'] : styles.active
                   }
                   to="/#sharingBuildings"
+                  isActive={(match, { hash }) =>
+                    !!(match && match.isExact && hash)
+                  }
                 >
                   Sharing Buildings
                 </NavLink>
