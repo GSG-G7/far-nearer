@@ -111,7 +111,7 @@ class Navbar extends Component {
                   activeClassName={
                     transparent ? styles['transparent--active'] : styles.active
                   }
-                  to="/sharing-buildings"
+                  to="/#sharingBuildings"
                 >
                   Sharing Buildings
                 </NavLink>
@@ -139,7 +139,11 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-  transparent: PropTypes.bool.isRequired,
+  transparent: PropTypes.bool,
+};
+
+Navbar.defaultProps = {
+  transparent: false,
 };
 
 export default Navbar;
