@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from '../../utils';
+import { Navbar } from 'components/utils';
 
 import styles from './about.module.css';
 
