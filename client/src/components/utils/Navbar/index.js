@@ -81,9 +81,7 @@ class Navbar extends Component {
                     styles['list--link']
                   } ${this.getTransparentClass(transparent)}`}
                   activeClassName={
-                    transparent
-                      ? ` ${styles['transparent--active']}`
-                      : styles.active
+                    transparent ? styles['transparent--active'] : styles.active
                   }
                   to="/"
                 >
@@ -97,9 +95,7 @@ class Navbar extends Component {
                     styles['list--link']
                   } ${this.getTransparentClass(transparent)}`}
                   activeClassName={
-                    transparent
-                      ? ` ${styles['transparent--active']}`
-                      : styles.active
+                    transparent ? styles['transparent--active'] : styles.active
                   }
                   to="/about"
                 >
@@ -113,9 +109,7 @@ class Navbar extends Component {
                     styles['list--link']
                   } ${this.getTransparentClass(transparent)}`}
                   activeClassName={
-                    transparent
-                      ? ` ${styles['transparent--active']}`
-                      : styles.active
+                    transparent ? styles['transparent--active'] : styles.active
                   }
                   to="/sharing-buildings"
                 >
@@ -129,9 +123,7 @@ class Navbar extends Component {
                     styles['list--link']
                   } ${this.getTransparentClass(transparent)}`}
                   activeClassName={
-                    transparent
-                      ? ` ${styles['transparent--active']}`
-                      : styles.active
+                    transparent ? styles['transparent--active'] : styles.active
                   }
                   to="/view-buildings"
                 >
