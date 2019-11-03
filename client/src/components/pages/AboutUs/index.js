@@ -1,12 +1,12 @@
 import React from 'react';
-import { Navbar, Footer } from '../../utils';
+import { Navbar } from '../../utils';
 
 import styles from './about.module.css';
 
 const About = () => {
   return (
     <div>
-      <Navbar transparent={false} />
+      <Navbar />
       <div className="container">
         <h1 className={styles.heading}>About Us</h1>
         <div className={styles.content}>
@@ -34,7 +34,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
