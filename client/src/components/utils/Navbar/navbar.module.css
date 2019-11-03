@@ -2,6 +2,7 @@
   overflow: hidden;
   top: 0;
   width: 100vw;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
   transition: top 0.6s;
 }
 
@@ -42,6 +43,7 @@
   display: flex;
   list-style: none;
   font-size: 1.2rem;
+  margin-bottom: 0;
 }
 
 .list--item {
@@ -49,18 +51,21 @@
 }
 
 .list--link {
+  height: 80px;
+  padding: 1.5rem 2rem;
   color: var(--main-black);
   text-decoration:none;
-  padding: 1.5rem 2rem;
-  display: block;
-  border-bottom: 2px solid transparent;
+  border-top: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .active,
 .list--link:hover {
-  border-bottom: 2px solid var(--main-black);
+  border-top: 2px solid var(--main-black);
   color: var(--main-black);
-  transition: .5S ease-in-out
+  transition: ease-in-out 0.4s;
 }
 
 .transparent {
@@ -69,12 +74,12 @@
 }
 
 .transparent:hover {
-  border-bottom: 2px solid var(--main-white);
+  border-top: 2px solid var(--main-white);
   color: var(--main-white);
 }
 
 .transparent--active {
-  border-bottom: 2px solid var(--main-white);
+  border-top: 2px solid var(--main-white);
 }
 
 .sticky{
