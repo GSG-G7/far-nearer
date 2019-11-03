@@ -1,12 +1,12 @@
 .navbar {
   overflow: hidden;
-  position: fixed;
   top: 0;
   width: 100vw;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
   transition: top 0.6s;
 }
 
-.navbar--hidden {
+.hidden {
   top: -80px;
 }
 
@@ -14,7 +14,7 @@
   background: var(--main-white);
 }
 
-.navbar__container {
+.container {
   display: flex;
   justify-content: space-between;
   height: 80px;
@@ -32,36 +32,40 @@
   max-width: 156px
 }
 
-.navbar__menu {
+.menu {
   display: flex;
   width: 40vw;
   flex-direction: column;
   justify-content: center;
 }
 
-.navbar__list {
+.list {
   display: flex;
   list-style: none;
   font-size: 1.2rem;
+  margin-bottom: 0;
 }
 
-.navbar__list--item {
+.list--item {
   overflow: hidden;
 }
 
-.navbar__list--link {
-  color: var(--main-black);
-  text-decoration:none;
+.list--link {
+  height: 80px;
   padding: 1.5rem 2rem;
-  display: block;
-  border-bottom: 2px solid transparent;
+  color: var(--main-black);
+  text-decoration: none;
+  border-top: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .active,
-.navbar__list--link:hover {
-  border-bottom: 2px solid var(--main-black);
+.list--link:hover {
+  border-top: 2px solid var(--main-black);
   color: var(--main-black);
-  transition: .5S ease-in-out
+  transition: ease-in-out 0.4s;
 }
 
 .transparent {
@@ -70,10 +74,19 @@
 }
 
 .transparent:hover {
-  border-bottom: 2px solid var(--main-white);
+  border-top: 2px solid var(--main-white);
   color: var(--main-white);
 }
 
 .transparent--active {
-  border-bottom: 2px solid var(--main-white);
+  border-top: 2px solid var(--main-white);
+}
+
+.sticky{
+  position: sticky;
+  width: 100%
+}
+
+.fixed{
+  position: fixed;
 }

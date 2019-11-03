@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import logoImageLight from 'assets/FNLogoLightV2.png';
 import logoImageDark from 'assets/FNLogodarkV2.png';
-import './style.css';
+import styles from './navbar.module.css';
 
 class Navbar extends Component {
   state = {
@@ -47,81 +47,83 @@ class Navbar extends Component {
     });
   };
 
-  getTransparentClass = transparent => (transparent ? ' transparent' : ' ');
+  getTransparentClass = transparent =>
+    transparent ? ` ${styles.transparent}` : '';
 
-  getNavbarClass = (visible, transparent) => {
-    let className = 'navbar';
-    className += !transparent ? ` light` : '';
-    className += !visible ? ` navbar--hidden` : '';
+  getNavbarClass = (initialStatus, transparent, visible) => {
+    let className = styles.navbar;
+    className += !transparent ? ` ${styles.light}` : '';
+    className += initialStatus ? ` ${styles.fixed}` : ` ${styles.sticky}`;
+    className += !visible ? ` ${styles.hidden}` : '';
     return className;
   };
 
   render() {
-    const { transparent, visible } = this.state;
+    const { initialStatus, transparent, visible } = this.state;
     return (
-      <nav className={this.getNavbarClass(visible, transparent)}>
-        <div className="navbar__container">
-          <div className="image-container">
+      <nav className={this.getNavbarClass(initialStatus, transparent, visible)}>
+        <div className={`${styles.container} container`}>
+          <div className={styles['image-container']}>
             <Link to="/">
               <img
-                className="logo"
+                className={styles.logo}
                 src={transparent ? logoImageLight : logoImageDark}
                 alt="logo"
               />
             </Link>
           </div>
-          <div className="navbar__menu">
-            <ul className="navbar__list">
-              <li key="home" className="navbar__list--item">
+          <div className={styles.menu}>
+            <ul className={styles.list}>
+              <li key="home" className={styles['list--item']}>
                 <NavLink
                   exact
-                  className={`navbar__list--link ${this.getTransparentClass(
-                    transparent,
-                  )}`}
+                  className={`${
+                    styles['list--link']
+                  } ${this.getTransparentClass(transparent)}`}
                   activeClassName={
-                    transparent ? ' transparent--active' : 'active'
+                    transparent ? styles['transparent--active'] : styles.active
                   }
                   to="/"
                 >
                   Home
                 </NavLink>
               </li>
-              <li className="navbar__list--item">
+              <li className={styles['list--item']}>
                 <NavLink
                   exact
-                  className={`navbar__list--link ${this.getTransparentClass(
-                    transparent,
-                  )}`}
+                  className={`${
+                    styles['list--link']
+                  } ${this.getTransparentClass(transparent)}`}
                   activeClassName={
-                    transparent ? ' transparent--active' : 'active'
+                    transparent ? styles['transparent--active'] : styles.active
                   }
                   to="/about"
                 >
                   About
                 </NavLink>
               </li>
-              <li className="navbar__list--item">
+              <li className={styles['list--item']}>
                 <NavLink
                   exact
-                  className={`navbar__list--link ${this.getTransparentClass(
-                    transparent,
-                  )}`}
+                  className={`${
+                    styles['list--link']
+                  } ${this.getTransparentClass(transparent)}`}
                   activeClassName={
-                    transparent ? ' transparent--active' : 'active'
+                    transparent ? styles['transparent--active'] : styles.active
                   }
-                  to="/sharing-buildings"
+                  to="/#sharingBuildings"
                 >
                   Sharing Buildings
                 </NavLink>
               </li>
-              <li className="navbar__list--item">
+              <li className={styles['list--item']}>
                 <NavLink
                   exact
-                  className={`navbar__list--link ${this.getTransparentClass(
-                    transparent,
-                  )}`}
+                  className={`${
+                    styles['list--link']
+                  } ${this.getTransparentClass(transparent)}`}
                   activeClassName={
-                    transparent ? ' transparent--active' : 'active'
+                    transparent ? styles['transparent--active'] : styles.active
                   }
                   to="/view-buildings"
                 >
@@ -137,7 +139,11 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-  transparent: PropTypes.bool.isRequired,
+  transparent: PropTypes.bool,
+};
+
+Navbar.defaultProps = {
+  transparent: false,
 };
 
 export default Navbar;
