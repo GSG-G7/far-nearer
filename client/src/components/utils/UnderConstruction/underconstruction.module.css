@@ -1,12 +1,7 @@
 .underconstruct {
   width: 80%;
   min-height: 50vh;
-  margin: 0 auto;
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 5rem auto;
   background: rgba(196, 196, 196, 0.7);
   border-radius: 15px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
