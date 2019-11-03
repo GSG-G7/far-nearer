@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Form, Button, Input, notification } from 'antd';
 import axios from 'axios';
 
-import './style.css';
+import styles from './footer.module.css';
 
 class SubscribeForm extends Component {
   handleSubmit = e => {
@@ -48,7 +48,7 @@ class SubscribeForm extends Component {
       <Form
         layout="inline"
         onSubmit={this.handleSubmit}
-        className="subscribe__form"
+        className={styles.form}
       >
         <Form.Item>
           {getFieldDecorator('email', {

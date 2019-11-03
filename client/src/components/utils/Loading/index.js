@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Spin, Icon } from 'antd';
 
-import './style.css';
+import styles from './loading.module.css';
 
 const Loading = ({ className = '' }) => {
   const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
   return (
-    <div className={`load-Com ${className}`}>
-      <Spin className="span-icon" indicator={antIcon} />
+    <div className={`${styles.loader} ${className}`}>
+      <Spin className={styles['span-icon']} indicator={antIcon} />
     </div>
   );
 };
