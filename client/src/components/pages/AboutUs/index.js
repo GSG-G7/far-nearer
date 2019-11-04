@@ -5,7 +5,7 @@ import styles from './about.module.css';
 
 const About = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <div className="container">
         <h1 className={styles.heading}>About Us</h1>
@@ -34,7 +34,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
