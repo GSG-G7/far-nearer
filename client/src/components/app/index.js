@@ -10,17 +10,15 @@ import Error from 'components/pages/Error';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/" component={UnderConstruction} />
-          <Route exact path="/about" component={About} />
-          <Route path="/view-buildings" component={UnderConstruction} />
-          <Route component={Error} />
-        </Switch>
-      </Router>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={UnderConstruction} />
+        <Route exact path="/about" component={About} />
+        <Route path="/view-buildings" component={UnderConstruction} />
+        <Route component={Error} />
+      </Switch>
       <Footer />
-    </div>
+    </Router>
   );
 }
 
