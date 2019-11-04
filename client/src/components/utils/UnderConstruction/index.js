@@ -5,7 +5,7 @@ import styles from './underconstruction.module.css';
 
 const UnderConstruction = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <div className={styles.underconstruct}>
         <h2 className={styles.heading}>this page is under construction</h2>
@@ -13,7 +13,7 @@ const UnderConstruction = () => {
           Our developers are currently working on this page
         </p>
       </div>
-    </div>
+    </>
   );
 };
 
