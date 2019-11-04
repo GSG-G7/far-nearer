@@ -1,0 +1,16 @@
+.view {
+  text-align: center;
+  padding: 3rem;
+}
+
+.heading {
+  font-family: var(--header-font);
+  font-size: 3rem;
+  font-weight: 500;
+  padding: 1.5rem 0;
+}
+
+.content {
+  font-family: var(--content-font);
+  padding-bottom: 3rem;
+}
