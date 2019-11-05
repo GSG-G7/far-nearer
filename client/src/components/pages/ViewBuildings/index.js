@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import { Navbar } from 'components/utils';
 import styles from './view.module.css';
+import TableInfo from './Table';
 
 class viewBuildings extends Component {
-  state = {};
+  state = { buildingInfo: [] };
+
+  async componentDidMount() {
+    try {
+      const {
+        data: { data },
+      } = await axios.get('/api/v1//empty-buildings');
+      this.setState({ buildingInfo: data });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   render() {
+    const { buildingInfo } = this.state;
     return (
       <>
         <Navbar />
@@ -20,11 +34,9 @@ class viewBuildings extends Component {
               adipisicing elit. Temporibus, aliquam!
             </p>
           </div>
-          <div className="map">
-            <h1>Working On Map</h1>
-          </div>
+          <div className="map" />
           <div className="table">
-            <h1>Working On Table</h1>
+            <TableInfo buildingInfo={buildingInfo} />
           </div>
         </div>
       </>
