@@ -16,7 +16,7 @@ function App() {
         <Route exact path="/" component={UnderConstruction} />
         <Route exact path="/about" component={About} />
         <Route path="/view-buildings" component={viewBuildings} />
-        <Route path="*" component={Error} />
+        <Route component={Error} />
       </Switch>
       <Footer />
     </Router>
