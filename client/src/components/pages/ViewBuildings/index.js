@@ -45,7 +45,9 @@ class viewBuildings extends Component {
             </p>
           </div>
           <MapComponent buildingInfo={buildingInfo} />
-          <TableInfo buildingInfo={buildingInfo} className={styles.table} />
+          <div className={styles.table}>
+            <TableInfo buildingInfo={buildingInfo} />
+          </div>
         </div>
       </>
     );
