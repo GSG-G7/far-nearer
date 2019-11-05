@@ -6,6 +6,7 @@ import { Navbar } from 'components/utils';
 
 import styles from './view.module.css';
 import MapComponent from './Map';
+import TableInfo from './Table';
 
 class viewBuildings extends Component {
   state = { buildingInfo: [] };
@@ -44,9 +45,7 @@ class viewBuildings extends Component {
             </p>
           </div>
           <MapComponent buildingInfo={buildingInfo} />
-          <div className="table">
-            <h1>Working On Table</h1>
-          </div>
+          <TableInfo buildingInfo={buildingInfo} className={styles.table} />
         </div>
       </>
     );
