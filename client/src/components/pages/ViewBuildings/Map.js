@@ -7,7 +7,7 @@ import styles from './view.module.css';
 const MapComponent = props => {
   const { buildingInfo } = props;
   const markerBuild = () => {
-    const positions = buildingInfo.map(building => {
+    const buildings = buildingInfo.map(building => {
       const {
         id,
         thumbnail,
@@ -16,8 +16,9 @@ const MapComponent = props => {
         previousUse,
         owner,
         emptyPeriod,
+        longitude,
+        latitude,
       } = building;
-      const { longitude, latitude } = building;
       const position = [latitude, longitude];
       return {
         position,
@@ -30,7 +31,7 @@ const MapComponent = props => {
         emptyPeriod,
       };
     });
-    const markers = positions.map(element => {
+    const markers = buildings.map(element => {
       const {
         id,
         position,

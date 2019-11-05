@@ -43,9 +43,7 @@ class viewBuildings extends Component {
               adipisicing elit. Temporibus, aliquam!
             </p>
           </div>
-          <div>
-            <MapComponent buildingInfo={buildingInfo} />
-          </div>
+          <MapComponent buildingInfo={buildingInfo} />
           <div className="table">
             <h1>Working On Table</h1>
           </div>
