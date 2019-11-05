@@ -1,0 +1,16 @@
+.about {
+  padding: 2rem 0;
+}
+
+.title {
+text-align: center;
+font-size: 3rem;
+color: var(--main-black);
+}
+
+.description {
+  font-family: var(--content-font);
+  font-size: 1.5rem;
+  color: var(--content-grey);
+  text-align: center;
+}
