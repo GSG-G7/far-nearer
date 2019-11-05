@@ -1,12 +1,71 @@
 import React, { Component } from 'react';
+import { Table } from 'antd';
+import axios from 'axios';
 
 import { Navbar } from 'components/utils';
 import styles from './view.module.css';
 
 class viewBuildings extends Component {
-  state = {};
+  state = { buildingInfo: [], filteredInfo: [] };
+
+  async componentDidMount() {
+    try {
+      const {
+        data: { data },
+      } = await axios.get('/api/v1//empty-buildings');
+      this.setState({ buildingInfo: data });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  handleChange = (pagination, filters) => {
+    this.setState({
+      filteredInfo: filters,
+    });
+  };
 
   render() {
+    let { filteredInfo } = this.state;
+    const { buildingInfo } = this.state;
+    filteredInfo = filteredInfo || {};
+    const columns = [
+      {
+        title: 'Address',
+        dataIndex: 'address',
+        key: 'address',
+        filters: [
+          { text: 'Morecambe', value: 'Morecambe' },
+          { text: 'Hastings', value: 'Hastings' },
+        ],
+        filteredValue: filteredInfo.address || null,
+        onFilter: (value, record) => record.address.includes(value),
+      },
+      {
+        title: 'Previous use',
+        dataIndex: 'previousUse',
+        key: 'previousUse',
+        filters: [
+          { text: 'Residential building', value: 'Residential building' },
+          { text: 'Retail building', value: 'Retail building' },
+          { text: 'Office building', value: 'Office building' },
+          { text: 'Community building', value: 'Community building' },
+        ],
+        filteredValue: filteredInfo.previousUse || null,
+        onFilter: (value, record) => record.previousUse.includes(value),
+      },
+      {
+        title: 'Owner',
+        dataIndex: 'owner',
+        key: 'owner',
+      },
+      {
+        title: 'Empty period',
+        dataIndex: 'emptyPeriod',
+        key: 'emptyPeriod',
+      },
+    ];
+
     return (
       <>
         <Navbar />
@@ -20,11 +79,14 @@ class viewBuildings extends Component {
               adipisicing elit. Temporibus, aliquam!
             </p>
           </div>
-          <div className="map">
-            <h1>Working On Map</h1>
-          </div>
+          <div className="map" />
           <div className="table">
-            <h1>Working On Table</h1>
+            <Table
+              columns={columns}
+              dataSource={buildingInfo}
+              onChange={this.handleChange}
+              rowKey={record => record.id}
+            />
           </div>
         </div>
       </>
