@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { notification } from 'antd';
 
 import { Navbar } from 'components/utils';
+
 import styles from './view.module.css';
+import MapComponent from './Map';
 import TableInfo from './Table';
 
 class viewBuildings extends Component {
   state = { buildingInfo: [] };
 
   async componentDidMount() {
+    const openNotificationWithIcon = (type, message) => {
+      notification[type]({
+        message,
+        duration: 2,
+      });
+    };
     try {
       const {
         data: { data },
-      } = await axios.get('/api/v1//empty-buildings');
-      this.setState({ buildingInfo: data });
-    } catch (error) {
-      console.log(error);
+      } = await axios.get('/api/v1/empty-buildings');
+      if (data) this.setState({ buildingInfo: data });
+      else throw new Error();
+    } catch (err) {
+      openNotificationWithIcon('error', 'Something went wrong !! Try again');
     }
   }
 
@@ -34,10 +44,8 @@ class viewBuildings extends Component {
               adipisicing elit. Temporibus, aliquam!
             </p>
           </div>
-          <div className="map" />
-          <div className="table">
-            <TableInfo buildingInfo={buildingInfo} />
-          </div>
+          <MapComponent buildingInfo={buildingInfo} />
+          <TableInfo buildingInfo={buildingInfo} className={styles.table} />
         </div>
       </>
     );
