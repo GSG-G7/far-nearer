@@ -3,10 +3,10 @@ import axios from 'axios';
 import { notification } from 'antd';
 
 import { Navbar } from 'components/utils';
-
-import styles from './view.module.css';
 import MapComponent from './Map';
 import TableInfo from './Table';
+
+import styles from './view.module.css';
 
 class viewBuildings extends Component {
   state = { buildingInfo: [] };

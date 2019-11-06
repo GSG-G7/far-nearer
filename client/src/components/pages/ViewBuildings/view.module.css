@@ -24,7 +24,12 @@
   width: 100%;
   max-height: 150px;
   display: block;
-  margin: auto;
+  margin: 0;
+  border-radius: 12px 12px 3px 3px;
+}
+
+.popup__content {
+  padding: 1rem;
 }
 
 .building__city {
@@ -33,6 +38,18 @@
 
 .building__title {
   font-weight: bold;
+}
+
+.ownerLocal {
+  margin-left: 1rem;
+}
+
+.ownerLocal__active {
+  color: var(--main-color--light);
+}
+
+.notApproved {
+  color: #f5222d;
 }
 
 .table {

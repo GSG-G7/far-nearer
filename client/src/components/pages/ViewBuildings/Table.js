@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Table } from 'antd';
+import { Table, Icon } from 'antd';
 import PropTypes from 'prop-types';
+
+import styles from './view.module.css';
 
 class TableInfo extends Component {
   state = { filteredInfo: {} };
@@ -50,6 +52,17 @@ class TableInfo extends Component {
         title: 'Empty period',
         dataIndex: 'emptyPeriod',
         key: 'emptyPeriod',
+      },
+      {
+        title: 'Approved',
+        dataIndex: 'approved',
+        key: 'approved',
+        render: record =>
+          record ? (
+            <Icon type="check" theme="outlined" />
+          ) : (
+            <Icon type="close" className={styles.notApproved} />
+          ),
       },
     ];
     return (

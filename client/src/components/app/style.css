@@ -15,9 +15,9 @@ body {
 }
 
 :root {
-  --main-color--light: #1E4766	;
-  --main-color--dark: #000F2E	;  
-  --main-white: #FFFFFF;
+  --main-color--light: #1e4766;
+  --main-color--dark: #000f2e;
+  --main-white: #ffffff;
   --main-black: #000000;
   --content-grey: #333333;
   --header-font: 'Roboto', sans-serif;
@@ -41,4 +41,12 @@ body {
   background-color: var(--main-color--dark);
   border-color: var(--main-color--dark);
   box-shadow: 0.1rem 0.1rem var(--main-black);
+}
+
+.leaflet-popup-content {
+  margin: 0;
+}
+
+.leaflet-popup-close-button {
+  color: var(--main-color--dark) !important;
 }
