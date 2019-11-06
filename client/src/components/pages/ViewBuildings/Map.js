@@ -113,7 +113,6 @@ const MapComponent = props => {
       ]}
     >
       <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright%22%3EOpenStreetMap</a> contributors'
         url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
         id="mapbox.streets"
         accessToken="pk.eyJ1IjoiZmFkeW1hemVuIiwiYSI6ImNrMXRxY3JjZDBpMGYzbXF5YmV0c2g5a24ifQ.C6ZZQF61IMwDVQmu7Xxpzg"
