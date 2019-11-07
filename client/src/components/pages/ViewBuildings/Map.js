@@ -32,7 +32,7 @@ const MapComponent = ({ buildingInfo }) => {
           <Popup>
             <img
               src={thumbnail}
-              alt="buildingImage"
+              alt="building"
               className={styles.building__img}
             />
             <div className={styles.popup__content}>
