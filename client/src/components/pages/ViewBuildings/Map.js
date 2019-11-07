@@ -39,7 +39,7 @@ const MapComponent = ({ buildingInfo }) => {
               <h2 className={styles.building__city}>
                 {city}
                 <span className={styles.ownerLocal}>
-                  {isOwnerLocal === 'Yes' ? (
+                  {isOwnerLocal.toLowerCase() === 'Yes' ? (
                     <Tag className={styles.ownerLocal__active}>Local Owner</Tag>
                   ) : (
                     ''
