@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import { Tag } from 'antd';
 import styles from './view.module.css';
 
-const MapComponent = props => {
-  const { buildingInfo } = props;
+const MapComponent = ({ buildingInfo }) => {
   const markerBuild = () => {
     const buildings = buildingInfo.map(building => {
       const build = { ...building };
@@ -32,27 +31,25 @@ const MapComponent = props => {
           <Popup>
             <img
               src={thumbnail}
-              alt="buildingImage"
+              alt="building"
               className={styles.building__img}
             />
             <div className={styles.popup__content}>
               <h2 className={styles.building__city}>
                 {city}
                 <span className={styles.ownerLocal}>
-                  {isOwnerLocal === 'Yes' ? (
+                  {isOwnerLocal.toLowerCase() === 'yes' ? (
                     <Tag className={styles.ownerLocal__active}>Local Owner</Tag>
-                  ) : (
-                    ''
-                  )}
+                  ) : null}
                 </span>
               </h2>
 
               <h4>
-                <span className={styles.building__title}>Address:</span>
+                <span className={styles.building__title}>Address:</span>{' '}
                 {address}
               </h4>
               <h4>
-                <span className={styles.building__title}>Previous Use:</span>
+                <span className={styles.building__title}>Previous Use:</span>{' '}
                 {previousUse}
               </h4>
               <h4>
@@ -93,7 +90,7 @@ const MapComponent = props => {
       <TileLayer
         url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
         id="mapbox.streets"
-        accessToken="pk.eyJ1IjoiZmFkeW1hemVuIiwiYSI6ImNrMXRxY3JjZDBpMGYzbXF5YmV0c2g5a24ifQ.C6ZZQF61IMwDVQmu7Xxpzg"
+        accessToken={process.env.REACT_APP_MAP_ACCESS_TOKEN}
       />
       {buildingInfo.length ? markerBuild() : null}
     </Map>
