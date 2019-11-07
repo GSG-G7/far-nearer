@@ -1,0 +1,29 @@
+.form {
+  flex-basis: 45%;
+  height: 90vh;
+  background-color:var(--main-white);
+  padding:  2% 4%;
+  position: relative;
+}
+
+.steps {
+  margin-bottom: 4%;
+}
+
+.item {
+  margin-bottom: 3%;
+}
+
+.cityItem {
+  margin-bottom: 0;
+}
+
+.white:hover {
+  color:var(--main-white);
+}
+
+.action {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
