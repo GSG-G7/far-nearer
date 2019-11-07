@@ -5,9 +5,9 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 import styles from './header.module.css';
 
-const Header = ({ onMenuClick }) => {
+const Header = ({ onCityChange }) => {
   const menu = (
-    <Menu onClick={onMenuClick}>
+    <Menu onClick={onCityChange}>
       <Menu.Item key="1">
         <Link smooth to="/#sharingBuildings">
           Morecambe
@@ -36,7 +36,7 @@ const Header = ({ onMenuClick }) => {
 };
 
 Header.propTypes = {
-  onMenuClick: PropTypes.func.isRequired,
+  onCityChange: PropTypes.func.isRequired,
 };
 
 export default Header;
