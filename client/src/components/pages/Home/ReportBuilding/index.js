@@ -51,13 +51,15 @@ class ReportBuilding extends Component {
               ante. Sollicitudin orci, ac velit ultricies.
             </p>
           </header>
-          <Map
-            city={city}
-            onCityClick={this.handleCityClick}
-            address={address}
-            markerCoordinates={markerCoordinates}
-          />
-          <Form onCityChange={this.onCityChange} />
+          <div className={styles['form--container']}>
+            <Map
+              city={city}
+              onCityClick={this.handleCityClick}
+              address={address}
+              markerCoordinates={markerCoordinates}
+            />
+            <Form onCityChange={this.onCityChange} />
+          </div>
         </div>
       </section>
     );

@@ -11,7 +11,7 @@
 
 .leaflet-container {
   height: 400px;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 } 
 
@@ -30,4 +30,11 @@
   font-size: 1.5rem;
   color: var(--content-grey);
   text-align: center;
+}
+
+.form--container {
+  min-height: 93vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
