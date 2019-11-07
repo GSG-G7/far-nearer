@@ -2,39 +2,15 @@ import React from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import PropTypes from 'prop-types';
 import { Tag } from 'antd';
-
 import styles from './view.module.css';
 
 const MapComponent = props => {
   const { buildingInfo } = props;
   const markerBuild = () => {
     const buildings = buildingInfo.map(building => {
-      const {
-        id,
-        thumbnail,
-        city,
-        address,
-        previousUse,
-        owner,
-        emptyPeriod,
-        longitude,
-        latitude,
-        isOwnerLocal,
-        approved,
-      } = building;
-      const position = [latitude, longitude];
-      return {
-        position,
-        id,
-        thumbnail,
-        city,
-        address,
-        previousUse,
-        owner,
-        emptyPeriod,
-        isOwnerLocal,
-        approved,
-      };
+      const build = { ...building };
+      build.position = [build.latitude, build.longitude];
+      return build;
     });
     const markers = buildings.map(element => {
       const {
