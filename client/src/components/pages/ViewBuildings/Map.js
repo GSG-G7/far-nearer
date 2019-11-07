@@ -53,7 +53,7 @@ const MapComponent = props => {
               </h4>
               <h4>
                 <span className={styles.building__title}>Previous Use:</span>
-                {previousUse}
+                {' '}{previousUse}
               </h4>
               <h4>
                 <span className={styles.building__title}>Owner: </span> {owner}
