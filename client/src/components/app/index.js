@@ -7,6 +7,7 @@ import './style.css';
 import { Footer, UnderConstruction } from 'components/utils';
 import About from 'components/pages/AboutUs';
 import Error from 'components/pages/Error';
+import viewBuildings from 'components/pages/ViewBuildings';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={UnderConstruction} />
         <Route exact path="/about" component={About} />
-        <Route path="/view-buildings" component={UnderConstruction} />
+        <Route path="/view-buildings" component={viewBuildings} />
         <Route component={Error} />
       </Switch>
       <Footer />
