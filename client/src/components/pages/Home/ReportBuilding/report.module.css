@@ -1,0 +1,33 @@
+.report {
+  background-color: rgba(30,71,102, .05);
+  padding: 2rem 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.leaflet-container {
+  height: 400px;
+  width: 80%;
+  margin: 0 auto;
+} 
+
+.header {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--main-black);
+}
+
+.description {
+  font-family: var(--content-font);
+  font-size: 1.5rem;
+  color: var(--content-grey);
+  text-align: center;
+}
