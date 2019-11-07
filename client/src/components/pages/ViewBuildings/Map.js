@@ -5,7 +5,7 @@ import { Tag } from 'antd';
 import styles from './view.module.css';
 
 const MapComponent = ({ buildingInfo }) => {
-  const { buildingInfo } = props;
+  
   const markerBuild = () => {
     const buildings = buildingInfo.map(building => {
       const build = { ...building };
