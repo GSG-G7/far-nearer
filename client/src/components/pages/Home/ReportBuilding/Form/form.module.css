@@ -1,8 +1,8 @@
 .form {
   flex-basis: 45%;
-  height: 90vh;
+  height: 100%;
   background-color:var(--main-white);
-  padding:  2% 4%;
+  padding:  2% 4% 7%;
   position: relative;
 }
 
@@ -26,4 +26,13 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  left: 0;
+  padding: 0px 3.40rem;
+}
+
+.ml-0 {
+  margin-left: 0 !important ;
 }
