@@ -1,0 +1,9 @@
+.map {
+  flex-basis: 45%;
+  height: 90vh;
+  z-index:0;
+}
+
+.popup {
+  width: 200px;
+}
