@@ -10,6 +10,8 @@ const MapComponent = props => {
     const buildings = buildingInfo.map(building => {
       const build = { ...building };
       build.position = [build.latitude, build.longitude];
+      delete build.latitude;
+      delete build.longitude;
       return build;
     });
     const markers = buildings.map(element => {
