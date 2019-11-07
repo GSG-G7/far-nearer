@@ -25,7 +25,6 @@ class Home extends Component {
         <Header onCityChange={this.handleCityChange} />
         <About />
         <ReportBuilding city={city} onCityChange={this.handleCityChange} />
-        <Footer />
       </>
     );
   }
