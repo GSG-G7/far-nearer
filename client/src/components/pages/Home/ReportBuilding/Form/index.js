@@ -3,6 +3,7 @@ import { Steps, Button, message } from 'antd';
 
 import FirstStep from './FirstStep';
 import SecondStep from './SecondStep';
+import ThirdStep from './ThirdStep';
 import styles from './form.module.css';
 
 const { Step } = Steps;
@@ -45,6 +46,8 @@ class Form extends Component {
         return <FirstStep onCityChange={this.onCityChange} />;
       case 1:
         return <SecondStep />;
+      case 2:
+        return <ThirdStep />;
       default:
         return <FirstStep />;
     }
@@ -90,7 +93,7 @@ class Form extends Component {
             <Button
               style={{ marginLeft: 8 }}
               onClick={() => this.prev()}
-              className={styles.white}
+              className={`${styles.white} ${styles['ml-0']}`}
             >
               Previous
             </Button>
