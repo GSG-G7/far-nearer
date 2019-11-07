@@ -49,7 +49,7 @@ const MapComponent = ({ buildingInfo }) => {
 
               <h4>
                 <span className={styles.building__title}>Address:</span>
-                {address}
+                {' '}{address}
               </h4>
               <h4>
                 <span className={styles.building__title}>Previous Use:</span>
