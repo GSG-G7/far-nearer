@@ -18,7 +18,7 @@ module.exports = async (req, res, next) => {
       });
     } else {
       await addMail(email);
-      await sendEmail(email);
+      sendEmail(email);
 
       res.status(201).send({
         statusCode: 201,
