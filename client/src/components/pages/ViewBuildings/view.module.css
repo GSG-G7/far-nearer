@@ -1,0 +1,57 @@
+.view {
+  text-align: center;
+  padding: 3rem;
+}
+
+.heading {
+  font-family: var(--header-font);
+  font-size: 3rem;
+  font-weight: 500;
+  padding: 1.5rem 0;
+}
+
+.content {
+  font-family: var(--content-font);
+  padding-bottom: 3rem;
+}
+
+.map {
+  height: 500px;
+  width: 100%;
+}
+
+.building__img {
+  width: 100%;
+  max-height: 150px;
+  display: block;
+  margin: 0;
+  border-radius: 12px 12px 3px 3px;
+}
+
+.popup__content {
+  padding: 1rem;
+}
+
+.building__city {
+  font-weight: 600;
+}
+
+.building__title {
+  font-weight: bold;
+}
+
+.ownerLocal {
+  margin-left: 1rem;
+}
+
+.ownerLocal__active {
+  color: var(--main-color--light);
+}
+
+.notApproved {
+  color: #f5222d;
+}
+
+.table {
+  margin-top: 3rem;
+}
