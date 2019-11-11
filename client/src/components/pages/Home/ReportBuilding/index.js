@@ -53,7 +53,7 @@ class ReportBuilding extends Component {
 
 ReportBuilding.propTypes = {
   city: PropTypes.string.isRequired,
-  markerCoordinates: PropTypes.objectOf(PropTypes.string).isRequired,
+  markerCoordinates: PropTypes.objectOf(PropTypes.number).isRequired,
   address: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
   handleAddressChange: PropTypes.func.isRequired,

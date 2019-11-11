@@ -7,20 +7,39 @@ import styles from './form.module.css';
 const { TextArea } = Input;
 
 const SecondStep = props => {
-  const { form } = props;
-  const handleSubmit = e => {
+  const {
+    submittedValues,
+    handleNext,
+    handleBack,
+    getFieldsValue,
+    form: { getFieldDecorator, validateFields },
+  } = props;
+
+  const validateInput = e => {
     e.preventDefault();
+    validateFields((err, values) => {
+      if (!err) {
+        submittedValues(values);
+        handleNext();
+      }
+    });
   };
+
+  const storeValues = () => {
+    const values = getFieldsValue();
+    submittedValues(values);
+    handleBack();
+  };
+
   const normFile = e => {
     if (Array.isArray(e)) {
       return e;
     }
     return e && e.fileList;
   };
-  const { getFieldDecorator } = form;
 
   return (
-    <FormAnt onSubmit={handleSubmit} layout="vertical">
+    <FormAnt onSubmit={validateInput} layout="vertical">
       <FormAnt.Item
         className={styles.item}
         label={<span>How Long has it been empty ?</span>}
@@ -76,12 +95,29 @@ const SecondStep = props => {
           </Upload>,
         )}
       </FormAnt.Item>
+      <FormAnt.Item>
+        <Button
+          type="primary"
+          htmlType="submit"
+          className={`${styles.white} ${styles['ml-0']}`}
+          onClick={validateInput}
+        >
+          Previous
+        </Button>
+        <Button type="primary" htmlType="submit" onClick={storeValues}>
+          Next
+        </Button>
+      </FormAnt.Item>
     </FormAnt>
   );
 };
 
 SecondStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,
+  submittedValues: PropTypes.func.isRequired,
+  handleNext: PropTypes.func.isRequired,
+  handleBack: PropTypes.func.isRequired,
+  getFieldsValue: PropTypes.func.isRequired,
 };
 
 const WrappedStep = FormAnt.create({ name: 'validate_other' })(SecondStep);

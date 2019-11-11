@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Steps, Button, message } from 'antd';
+import { Steps, Button } from 'antd';
 import PropTypes from 'prop-types';
 
 import FirstStep from './FirstStep';
@@ -24,21 +24,65 @@ const steps = [
 class Form extends Component {
   state = {
     current: 0,
+    stepOneValues: {
+      city: '',
+      address: '',
+      previousUse: '',
+      owner: '',
+      isOwnerLocal: '',
+    },
+    stepTwoValues: {
+      emptyPeriod: '',
+      extraInfo: '',
+      preferredUse: '',
+      thumbnail: '',
+    },
+  };
+
+  getStepOneValues = values => {
+    const { stepOneValues } = this.state;
+    this.setState({
+      stepOneValues: {
+        ...stepOneValues,
+        ...values,
+      },
+    });
+  };
+
+  getStepTwoValues = values => {
+    const { stepTwoValues } = this.state;
+    this.setState({
+      stepOneValues: {
+        ...stepTwoValues,
+        ...values,
+      },
+    });
   };
 
   getStep = current => {
+    const { stepOneValues, stepTwoValues } = this.state;
     const { city, address, onCityChange } = this.props;
     switch (current) {
       case 0:
         return (
           <FirstStep
+            {...stepOneValues}
             city={city}
             address={address}
             onCityChange={onCityChange}
+            submittedValues={this.getStepOneValues}
+            handleNext={() => this.next()}
           />
         );
       case 1:
-        return <SecondStep />;
+        return (
+          <SecondStep
+            {...stepTwoValues}
+            submittedValues={this.getStepTwoValues}
+            handleNext={() => this.next()}
+            handleBack={() => this.prev()}
+          />
+        );
       case 2:
         return <ThirdStep />;
       default:
@@ -69,20 +113,20 @@ class Form extends Component {
         </Steps>
         <div className="steps-content">{this.getStep(current)}</div>
         <div className={`${styles.action} steps-action`}>
-          {current < steps.length - 1 && (
+          {/* {current < steps.length - 1 && (
             <Button type="primary" onClick={() => this.next()}>
               Next
             </Button>
-          )}
-          {current === steps.length - 1 && (
+          )} */}
+          {/* {current === steps.length - 1 && (
             <Button
               type="primary"
               onClick={() => message.success('Processing complete!')}
             >
               Done
             </Button>
-          )}
-          {current > 0 && (
+          )} */}
+          {/* {current > 0 && (
             <Button
               style={{ marginLeft: 8 }}
               onClick={() => this.prev()}
@@ -90,7 +134,7 @@ class Form extends Component {
             >
               Previous
             </Button>
-          )}
+          )} */}
         </div>
       </div>
     );

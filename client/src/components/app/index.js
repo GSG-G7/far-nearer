@@ -4,16 +4,17 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './style.css';
 
-import { Footer, UnderConstruction } from 'components/utils';
+import { Footer } from 'components/utils';
 import About from 'components/pages/AboutUs';
 import Error from 'components/pages/Error';
 import viewBuildings from 'components/pages/ViewBuildings';
+import Home from 'components/pages/Home';
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={UnderConstruction} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
         <Route path="/view-buildings" component={viewBuildings} />
         <Route component={Error} />

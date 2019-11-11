@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { message } from 'antd';
-import PropTypes from 'prop-types';
 
 import Header from './Header';
 import About from './About';
@@ -11,20 +9,12 @@ class Home extends Component {
   state = {
     city: 'Morecambe',
     address: '',
-    longitude: '',
-    latitude: '',
+    longitude: 0,
+    latitude: 0,
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    const {
-      form: { validateFields },
-    } = this.props;
-    validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
   };
 
   handleAddressChange = (markerCoordinates, address) => {
@@ -37,7 +27,6 @@ class Home extends Component {
   handleCityChange = ({ key }) => {
     const city = +key === 1 ? 'Morecambe' : 'Hastings';
     this.setState({ city });
-    message.success(`${city} selected `);
   };
 
   render() {
@@ -58,9 +47,5 @@ class Home extends Component {
     );
   }
 }
-
-Home.propTypes = {
-  form: PropTypes.objectOf(PropTypes.func).isRequired,
-};
 
 export default Home;
