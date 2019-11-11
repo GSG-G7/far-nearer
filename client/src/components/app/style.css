@@ -50,3 +50,7 @@ body {
 .leaflet-popup-close-button {
   color: var(--main-color--dark) !important;
 }
+
+.ant-form-inline .ant-form-item-with-help {
+  margin: 0;
+}
