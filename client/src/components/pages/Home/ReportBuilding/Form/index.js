@@ -58,7 +58,7 @@ class Form extends Component {
   getStepTwoValues = values => {
     const { stepTwoValues } = this.state;
     this.setState({
-      stepOneValues: {
+      stepTwoValues: {
         ...stepTwoValues,
         ...values,
       },

@@ -9,10 +9,10 @@ const { Option } = Select;
 const FirstStep = props => {
   const {
     onCityChange,
-    city,
     address,
     submittedValues,
     handleNext,
+    previousUse,
     form: { getFieldDecorator, validateFields },
   } = props;
   const validateInput = e => {
@@ -63,7 +63,7 @@ const FirstStep = props => {
         <FormAnt.Item label="Previous use " hasFeedback>
           {getFieldDecorator('previousUse', {
             rules: [{ required: true, message: 'Please select previous use ' }],
-            initialValue: '',
+            initialValue: previousUse,
           })(
             <Select placeholder="Previous use">
               <Option value="Residential building">Residential building</Option>
@@ -108,11 +108,11 @@ const FirstStep = props => {
 
 FirstStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,
-  city: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
   submittedValues: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired,
+  previousUse: PropTypes.string.isRequired,
 };
 
 const WrappedStep = FormAnt.create({ name: 'validate_other' })(FirstStep);
