@@ -11,6 +11,7 @@ const SecondStep = props => {
     submittedValues,
     handleNext,
     handleBack,
+    stepTwoValues: { emptyPeriod, extraInfo, preferedUse, thumbnail },
     form: { getFieldDecorator, validateFields, getFieldsValue },
   } = props;
 
@@ -50,6 +51,7 @@ const SecondStep = props => {
               message: 'Please specify how Long has it been empty',
             },
           ],
+          initialValue: emptyPeriod,
         })(<Input placeholder="" />)}
       </FormAnt.Item>
       <FormAnt.Item
@@ -63,6 +65,7 @@ const SecondStep = props => {
       >
         {getFieldDecorator('extraInfo', {
           rules: [{ required: false, message: 'Please add extra information' }],
+          initialValue: extraInfo,
         })(<TextArea rows={3} placeholder="" />)}
       </FormAnt.Item>
       <FormAnt.Item
@@ -76,6 +79,7 @@ const SecondStep = props => {
       >
         {getFieldDecorator('preferedUse', {
           rules: [{ required: false, message: 'Please add the prefered use' }],
+          initialValue: preferedUse,
         })(<TextArea rows={3} placeholder="" />)}
       </FormAnt.Item>
       <FormAnt.Item
@@ -90,6 +94,7 @@ const SecondStep = props => {
         {getFieldDecorator('thumbnail', {
           valuePropName: 'fileList',
           getValueFromEvent: normFile,
+          initialValue: thumbnail,
         })(
           <Upload name="logo" action="/upload.do" listType="picture">
             <Button className={styles.white}>
@@ -118,6 +123,7 @@ SecondStep.propTypes = {
   submittedValues: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired,
   handleBack: PropTypes.func.isRequired,
+  stepTwoValues: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 const WrappedStep = FormAnt.create({ name: 'validate_other' })(SecondStep);

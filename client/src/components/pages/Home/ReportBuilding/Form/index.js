@@ -42,6 +42,7 @@ class Form extends Component {
       reporterEmail: '',
       reporterAddress: '',
       receiveNotifications: '',
+      shareData: '',
     },
   };
 
@@ -82,7 +83,7 @@ class Form extends Component {
       case 0:
         return (
           <FirstStep
-            {...stepOneValues}
+            stepOneValues={stepOneValues}
             city={city}
             address={address}
             onCityChange={onCityChange}
@@ -93,7 +94,7 @@ class Form extends Component {
       case 1:
         return (
           <SecondStep
-            {...stepTwoValues}
+            stepTwoValues={stepTwoValues}
             submittedValues={this.getStepTwoValues}
             handleNext={() => this.next()}
             handleBack={() => this.prev()}
@@ -102,7 +103,7 @@ class Form extends Component {
       case 2:
         return (
           <ThirdStep
-            {...stepThreeValues}
+            stepThreeValues={stepThreeValues}
             submittedValues={this.getStepThreeValues}
             handleBack={() => this.prev()}
           />

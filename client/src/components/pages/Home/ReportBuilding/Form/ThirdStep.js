@@ -8,6 +8,13 @@ const ThirdStep = props => {
   const {
     submittedValues,
     handleBack,
+    stepThreeValues: {
+      reporterName,
+      reporterEmail,
+      reporterAddress,
+      receiveNotifications,
+      shareData,
+    },
     form: { getFieldDecorator, validateFields, getFieldsValue },
   } = props;
 
@@ -36,6 +43,7 @@ const ThirdStep = props => {
                 message: 'Please add your name',
               },
             ],
+            initialValue: reporterName,
           })(<Input placeholder="Write your name" />)}
         </FormAnt.Item>
         <FormAnt.Item label="Email">
@@ -44,8 +52,10 @@ const ThirdStep = props => {
               {
                 required: true,
                 message: 'Please add your email',
+                type: 'email',
               },
             ],
+            initialValue: reporterEmail,
           })(<Input placeholder="Write your email" />)}
         </FormAnt.Item>
         <FormAnt.Item label="Post code">
@@ -56,14 +66,25 @@ const ThirdStep = props => {
                 message: 'Please add your post code',
               },
             ],
+            initialValue: reporterAddress,
           })(<Input placeholder="Write your post code" />)}
         </FormAnt.Item>
         <FormAnt.Item>
-          <Checkbox value="share data">I agree to sharing this data</Checkbox>
+          {getFieldDecorator('shareData', {
+            initialValue: shareData,
+          })(
+            <Checkbox value="share data">
+              I agree to sharing this data
+            </Checkbox>,
+          )}
           <br />
-          <Checkbox value="receive updates">
-            I would like to receive updates
-          </Checkbox>
+          {getFieldDecorator('receiveNotifications', {
+            initialValue: receiveNotifications,
+          })(
+            <Checkbox value="receive updates">
+              I would like to receive updates
+            </Checkbox>,
+          )}
         </FormAnt.Item>
         <FormAnt.Item>
           <Button
@@ -86,6 +107,7 @@ ThirdStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,
   submittedValues: PropTypes.func.isRequired,
   handleBack: PropTypes.func.isRequired,
+  stepThreeValues: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 const WrappedStep = FormAnt.create({ name: 'validate_other' })(ThirdStep);
