@@ -135,9 +135,6 @@ class Form extends Component {
           ))}
         </Steps>
         <div className="steps-content">{this.getStep(current)}</div>
-        {/* <div className={`${styles.action} steps-action`}>
-          
-        </div> */}
       </div>
     );
   }

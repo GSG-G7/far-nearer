@@ -65,7 +65,7 @@ const FirstStep = props => {
             rules: [{ required: true, message: 'Please select previous use ' }],
             initialValue: previousUse,
           })(
-            <Select placeholder="Previous use">
+            <Select placeholder="Previous Use">
               <Option value="Residential building">Residential building</Option>
               <Option value="Retail building">Retail building</Option>
               <Option value="Office building">Office building</Option>
