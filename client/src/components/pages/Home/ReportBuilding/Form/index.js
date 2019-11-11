@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Steps, Button, message } from 'antd';
+import PropTypes from 'prop-types';
 
 import FirstStep from './FirstStep';
 import SecondStep from './SecondStep';
@@ -23,27 +24,19 @@ const steps = [
 class Form extends Component {
   state = {
     current: 0,
-    thumbnail: '',
-    city: '',
-    address: '',
-    longitude: '',
-    latitude: '',
-    previousUse: '',
-    owner: '',
-    isOwnerLocal: '',
-    emptyPeriod: '',
-    extraInfo: '',
-    preferredUse: '',
-    receiveNotifications: '',
-    reporterName: '',
-    reporterEmail: '',
-    reporterAddress: '',
   };
 
   getStep = current => {
+    const { city, address, onCityChange } = this.props;
     switch (current) {
       case 0:
-        return <FirstStep onCityChange={this.onCityChange} />;
+        return (
+          <FirstStep
+            city={city}
+            address={address}
+            onCityChange={onCityChange}
+          />
+        );
       case 1:
         return <SecondStep />;
       case 2:
@@ -103,5 +96,11 @@ class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  city: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  onCityChange: PropTypes.func.isRequired,
+};
 
 export default Form;
