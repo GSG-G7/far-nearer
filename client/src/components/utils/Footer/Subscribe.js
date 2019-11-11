@@ -9,7 +9,7 @@ class SubscribeForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const {
-      form: { validateFields },
+      form: { validateFields, resetFields },
     } = this.props;
     const openNotificationWithIcon = (type, message) => {
       notification[type]({
@@ -28,6 +28,7 @@ class SubscribeForm extends Component {
               'success',
               'Great !! You will recive updated news and emails',
             );
+            resetFields();
           } else if (data.statusCode === 200) {
             openNotificationWithIcon('info', 'You already subscribed');
           } else if (data.statusCode === 400) {
@@ -62,6 +63,7 @@ class SubscribeForm extends Component {
                 message: 'Please enter your email!',
               },
             ],
+            initialValue: '',
           })(<Input placeholder="Enter your email" size="large" />)}
         </Form.Item>
 
