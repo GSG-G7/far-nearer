@@ -43,7 +43,7 @@ const SecondStep = props => {
         className={styles.item}
         label={<span>How Long has it been empty ?</span>}
       >
-        {getFieldDecorator('username', {
+        {getFieldDecorator('emptyPeriod', {
           rules: [
             {
               required: true,
@@ -83,7 +83,7 @@ const SecondStep = props => {
           </span>
         }
       >
-        {getFieldDecorator('upload', {
+        {getFieldDecorator('thumbnail', {
           valuePropName: 'fileList',
           getValueFromEvent: normFile,
         })(
@@ -96,14 +96,12 @@ const SecondStep = props => {
       </FormAnt.Item>
       <FormAnt.Item>
         <Button
-          type="primary"
-          htmlType="submit"
           className={`${styles.white} ${styles['ml-0']}`}
           onClick={storeValues}
         >
           Previous
         </Button>
-        <Button type="primary" htmlType="submit" onClick={validateInput}>
+        <Button type="primary" onClick={validateInput}>
           Next
         </Button>
       </FormAnt.Item>

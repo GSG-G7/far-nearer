@@ -1,21 +1,35 @@
 import React from 'react';
-import { Form as FormAnt, Checkbox, Input } from 'antd';
+import { Form as FormAnt, Checkbox, Input, Button } from 'antd';
 import PropTypes from 'prop-types';
 
 import styles from './form.module.css';
 
 const ThirdStep = props => {
-  const { form, onCityChange } = props;
+  const {
+    submittedValues,
+    handleBack,
+    form: { getFieldDecorator, validateFields, getFieldsValue },
+  } = props;
+
   const handleSubmit = e => {
     e.preventDefault();
+    validateFields((err, values) => {
+      if (!err) {
+        submittedValues(values);
+      }
+    });
   };
-  const { getFieldDecorator } = form;
 
+  const storeValues = () => {
+    const values = getFieldsValue();
+    submittedValues(values);
+    handleBack();
+  };
   return (
     <FormAnt onSubmit={handleSubmit} layout="vertical">
       <>
         <FormAnt.Item label="Name">
-          {getFieldDecorator('name', {
+          {getFieldDecorator('reporterName', {
             rules: [
               {
                 required: true,
@@ -25,7 +39,7 @@ const ThirdStep = props => {
           })(<Input placeholder="Write your name" />)}
         </FormAnt.Item>
         <FormAnt.Item label="Email">
-          {getFieldDecorator('email', {
+          {getFieldDecorator('reporterEmail', {
             rules: [
               {
                 required: true,
@@ -35,7 +49,7 @@ const ThirdStep = props => {
           })(<Input placeholder="Write your email" />)}
         </FormAnt.Item>
         <FormAnt.Item label="Post code">
-          {getFieldDecorator('postCode', {
+          {getFieldDecorator('reporterAddress', {
             rules: [
               {
                 required: true,
@@ -51,6 +65,18 @@ const ThirdStep = props => {
             I would like to receive updates
           </Checkbox>
         </FormAnt.Item>
+        <FormAnt.Item>
+          <Button
+            htmlType="submit"
+            className={`${styles.white} ${styles['ml-0']}`}
+            onClick={storeValues}
+          >
+            Previous
+          </Button>
+          <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </FormAnt.Item>
       </>
     </FormAnt>
   );
@@ -58,7 +84,8 @@ const ThirdStep = props => {
 
 ThirdStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,
-  onCityChange: PropTypes.func.isRequired,
+  submittedValues: PropTypes.func.isRequired,
+  handleBack: PropTypes.func.isRequired,
 };
 
 const WrappedStep = FormAnt.create({ name: 'validate_other' })(ThirdStep);

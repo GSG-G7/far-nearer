@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Steps, Button } from 'antd';
+import { Steps } from 'antd';
 import PropTypes from 'prop-types';
 
 import FirstStep from './FirstStep';
@@ -37,6 +37,12 @@ class Form extends Component {
       preferredUse: '',
       thumbnail: '',
     },
+    stepThreeValues: {
+      reporterName: '',
+      reporterEmail: '',
+      reporterAddress: '',
+      receiveNotifications: '',
+    },
   };
 
   getStepOneValues = values => {
@@ -59,8 +65,18 @@ class Form extends Component {
     });
   };
 
+  getStepThreeValues = values => {
+    const { stepThreeValues } = this.state;
+    this.setState({
+      stepThreeValues: {
+        ...stepThreeValues,
+        ...values,
+      },
+    });
+  };
+
   getStep = current => {
-    const { stepOneValues, stepTwoValues } = this.state;
+    const { stepOneValues, stepTwoValues, stepThreeValues } = this.state;
     const { city, address, onCityChange } = this.props;
     switch (current) {
       case 0:
@@ -84,7 +100,13 @@ class Form extends Component {
           />
         );
       case 2:
-        return <ThirdStep />;
+        return (
+          <ThirdStep
+            {...stepThreeValues}
+            submittedValues={this.getStepThreeValues}
+            handleBack={() => this.prev()}
+          />
+        );
       default:
         return <FirstStep />;
     }
@@ -112,30 +134,9 @@ class Form extends Component {
           ))}
         </Steps>
         <div className="steps-content">{this.getStep(current)}</div>
-        <div className={`${styles.action} steps-action`}>
-          {/* {current < steps.length - 1 && (
-            <Button type="primary" onClick={() => this.next()}>
-              Next
-            </Button>
-          )} */}
-          {/* {current === steps.length - 1 && (
-            <Button
-              type="primary"
-              onClick={() => message.success('Processing complete!')}
-            >
-              Done
-            </Button>
-          )} */}
-          {/* {current > 0 && (
-            <Button
-              style={{ marginLeft: 8 }}
-              onClick={() => this.prev()}
-              className={`${styles.white} ${styles['ml-0']}`}
-            >
-              Previous
-            </Button>
-          )} */}
-        </div>
+        {/* <div className={`${styles.action} steps-action`}>
+          
+        </div> */}
       </div>
     );
   }

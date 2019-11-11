@@ -63,6 +63,7 @@ const FirstStep = props => {
         <FormAnt.Item label="Previous use " hasFeedback>
           {getFieldDecorator('previousUse', {
             rules: [{ required: true, message: 'Please select previous use ' }],
+            initialValue: '',
           })(
             <Select placeholder="Previous use">
               <Option value="Residential building">Residential building</Option>
@@ -81,6 +82,7 @@ const FirstStep = props => {
                 message: 'Please add the owner',
               },
             ],
+            initialValue: '',
           })(<Input placeholder="Please input the owner" />)}
           <Checkbox value="Don’t know">Don’t know</Checkbox>
         </FormAnt.Item>
