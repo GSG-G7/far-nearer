@@ -84,7 +84,7 @@ const FirstStep = props => {
             ],
             initialValue: '',
           })(<Input placeholder="Please input the owner" />)}
-          <Checkbox value="Don’t know">Don’t know</Checkbox>
+          <Checkbox value="N/A">Don’t know</Checkbox>
         </FormAnt.Item>
 
         <FormAnt.Item label="Are they local ?">

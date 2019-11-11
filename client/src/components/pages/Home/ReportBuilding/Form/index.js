@@ -34,7 +34,7 @@ class Form extends Component {
     stepTwoValues: {
       emptyPeriod: '',
       extraInfo: '',
-      preferredUse: '',
+      preferedUse: '',
       thumbnail: '',
     },
     stepThreeValues: {

@@ -61,7 +61,9 @@ const SecondStep = props => {
           </span>
         }
       >
-        <TextArea rows={3} placeholder="" />
+        {getFieldDecorator('extraInfo', {
+          rules: [{ required: false, message: 'Please add extra information' }],
+        })(<TextArea rows={3} placeholder="" />)}
       </FormAnt.Item>
       <FormAnt.Item
         className={styles.item}
@@ -72,7 +74,9 @@ const SecondStep = props => {
           </span>
         }
       >
-        <TextArea rows={3} placeholder="" />
+        {getFieldDecorator('preferedUse', {
+          rules: [{ required: false, message: 'Please add the prefered use' }],
+        })(<TextArea rows={3} placeholder="" />)}
       </FormAnt.Item>
       <FormAnt.Item
         className={styles.item}
