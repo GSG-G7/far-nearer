@@ -25,7 +25,6 @@ const steps = [
 class Form extends Component {
   state = {
     current: 0,
-    sendFinalValues: false,
     stepOneValues: {
       city: '',
       address: '',
@@ -118,7 +117,7 @@ class Form extends Component {
             reporterAddress,
           };
           console.log(data);
-          await axios.post('/api/v1/report-building', data);
+          // await axios.post('/api/v1/report-building', data);
         } catch (err) {
           console.log(err);
         }
@@ -127,12 +126,7 @@ class Form extends Component {
   };
 
   getStep = current => {
-    const {
-      stepOneValues,
-      stepTwoValues,
-      stepThreeValues,
-      sendFinalValues,
-    } = this.state;
+    const { stepOneValues, stepTwoValues, stepThreeValues } = this.state;
 
     const { city, address, onCityChange } = this.props;
 
