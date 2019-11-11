@@ -11,7 +11,7 @@ const SecondStep = props => {
     submittedValues,
     handleNext,
     handleBack,
-    stepTwoValues: { emptyPeriod, extraInfo, preferedUse, thumbnail },
+    stepTwoValues: { emptyPeriod, extraInfo, preferredUse, thumbnail },
     form: { getFieldDecorator, validateFields, getFieldsValue },
   } = props;
 
@@ -77,9 +77,9 @@ const SecondStep = props => {
           </span>
         }
       >
-        {getFieldDecorator('preferedUse', {
+        {getFieldDecorator('preferredUse', {
           rules: [{ required: false, message: 'Please add the prefered use' }],
-          initialValue: preferedUse,
+          initialValue: preferredUse,
         })(<TextArea rows={3} placeholder="" />)}
       </FormAnt.Item>
       <FormAnt.Item

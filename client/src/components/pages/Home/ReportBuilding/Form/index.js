@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Steps } from 'antd';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import FirstStep from './FirstStep';
 import SecondStep from './SecondStep';
@@ -24,6 +25,7 @@ const steps = [
 class Form extends Component {
   state = {
     current: 0,
+    sendFinalValues: false,
     stepOneValues: {
       city: '',
       address: '',
@@ -34,7 +36,7 @@ class Form extends Component {
     stepTwoValues: {
       emptyPeriod: '',
       extraInfo: '',
-      preferedUse: '',
+      preferredUse: '',
       thumbnail: '',
     },
     stepThreeValues: {
@@ -76,9 +78,64 @@ class Form extends Component {
     });
   };
 
+  handleConfirm = values => {
+    const { stepThreeValues } = this.state;
+    this.setState(
+      {
+        stepThreeValues: {
+          ...stepThreeValues,
+          ...values,
+        },
+      },
+      async () => {
+        this.setState({ sendFinalValues: true });
+
+        try {
+          const {
+            stepOneValues: { city, address, previousUse, owner, isOwnerLocal },
+            stepTwoValues: { emptyPeriod, extraInfo, preferredUse },
+            stepThreeValues: {
+              reporterName,
+              reporterEmail,
+              reporterAddress,
+              receiveNotifications,
+            },
+          } = this.state;
+          const data = {
+            city,
+            longitude: 0,
+            latitude: 0,
+            address,
+            owner,
+            isOwnerLocal,
+            previousUse,
+            preferredUse,
+            emptyPeriod,
+            extraInfo,
+            receiveNotifications,
+            reporterName,
+            reporterEmail,
+            reporterAddress,
+          };
+          console.log(data);
+          await axios.post('/api/v1/report-building', data);
+        } catch (err) {
+          console.log(err);
+        }
+      },
+    );
+  };
+
   getStep = current => {
-    const { stepOneValues, stepTwoValues, stepThreeValues } = this.state;
+    const {
+      stepOneValues,
+      stepTwoValues,
+      stepThreeValues,
+      sendFinalValues,
+    } = this.state;
+
     const { city, address, onCityChange } = this.props;
+
     switch (current) {
       case 0:
         return (
@@ -106,6 +163,7 @@ class Form extends Component {
             stepThreeValues={stepThreeValues}
             submittedValues={this.getStepThreeValues}
             handleBack={() => this.prev()}
+            handleConfirm={this.handleConfirm}
           />
         );
       default:

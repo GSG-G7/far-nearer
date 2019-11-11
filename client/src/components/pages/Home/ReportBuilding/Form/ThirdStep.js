@@ -8,6 +8,7 @@ const ThirdStep = props => {
   const {
     submittedValues,
     handleBack,
+    handleConfirm,
     stepThreeValues: {
       reporterName,
       reporterEmail,
@@ -22,7 +23,7 @@ const ThirdStep = props => {
     e.preventDefault();
     validateFields((err, values) => {
       if (!err) {
-        submittedValues(values);
+        handleConfirm(values);
       }
     });
   };
@@ -32,6 +33,7 @@ const ThirdStep = props => {
     submittedValues(values);
     handleBack();
   };
+
   return (
     <FormAnt onSubmit={handleSubmit} layout="vertical">
       <>
@@ -107,6 +109,7 @@ ThirdStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,
   submittedValues: PropTypes.func.isRequired,
   handleBack: PropTypes.func.isRequired,
+  handleConfirm: PropTypes.func.isRequired,
   stepThreeValues: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
