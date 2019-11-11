@@ -2,6 +2,7 @@ const {
   mailList: { addMail, getEmails },
 } = require('../../models/queries/');
 const { validateEmail } = require('../../validation');
+const { sendEmail } = require('./sendEmail');
 
 module.exports = async (req, res, next) => {
   const { email } = req.query;
@@ -17,6 +18,8 @@ module.exports = async (req, res, next) => {
       });
     } else {
       await addMail(email);
+      sendEmail(email);
+
       res.status(201).send({
         statusCode: 201,
         message: 'Email is added successfully',
