@@ -90,7 +90,7 @@ const MapComponent = ({ buildingInfo }) => {
       <TileLayer
         url="https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}"
         id="mapbox.streets"
-        accessToken={process.env.REACT_APP_MAP_ACCESS_TOKEN}
+        accessToken="pk.eyJ1IjoiZmFkeW1hemVuIiwiYSI6ImNrMXRxY3JjZDBpMGYzbXF5YmV0c2g5a24ifQ.C6ZZQF61IMwDVQmu7Xxpzg"
       />
       {buildingInfo.length ? buildMarkers(buildingInfo) : null}
     </Map>
