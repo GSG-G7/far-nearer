@@ -11,8 +11,7 @@ const SecondStep = props => {
     submittedValues,
     handleNext,
     handleBack,
-    getFieldsValue,
-    form: { getFieldDecorator, validateFields },
+    form: { getFieldDecorator, validateFields, getFieldsValue },
   } = props;
 
   const validateInput = e => {
@@ -100,11 +99,11 @@ const SecondStep = props => {
           type="primary"
           htmlType="submit"
           className={`${styles.white} ${styles['ml-0']}`}
-          onClick={validateInput}
+          onClick={storeValues}
         >
           Previous
         </Button>
-        <Button type="primary" htmlType="submit" onClick={storeValues}>
+        <Button type="primary" htmlType="submit" onClick={validateInput}>
           Next
         </Button>
       </FormAnt.Item>
@@ -117,7 +116,6 @@ SecondStep.propTypes = {
   submittedValues: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired,
   handleBack: PropTypes.func.isRequired,
-  getFieldsValue: PropTypes.func.isRequired,
 };
 
 const WrappedStep = FormAnt.create({ name: 'validate_other' })(SecondStep);
