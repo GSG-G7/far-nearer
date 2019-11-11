@@ -7,39 +7,24 @@ import Form from './Form';
 import styles from './report.module.css';
 
 class ReportBuilding extends Component {
-  state = {
-    markerCoordinates: undefined,
-    address: undefined,
-  };
-
   handleCityClick = ({ latlng }) => {
+    const { handleAddressChange } = this.props;
+
     geocoder
       .geocodeService()
       .reverse()
       .latlng(latlng)
       .run((error, result) => {
         if (error) {
-          this.setState({
-            markerCoordinates: undefined,
-            address: undefined,
-          });
+          handleAddressChange(undefined, undefined);
           return;
         }
-
-        this.setState({
-          markerCoordinates: latlng,
-          address: result.address.Match_addr,
-        });
+        handleAddressChange(latlng, result.address.Match_addr);
       });
   };
 
-  handleAddressChange = address => {
-    this.setState({ address });
-  };
-
   render() {
-    const { city } = this.props;
-    const { markerCoordinates, address } = this.state;
+    const { city, onCityChange, markerCoordinates, address } = this.props;
     return (
       <section id="sharingBuildings" className={styles.report}>
         <div className={`${styles.container} container`}>
@@ -58,7 +43,7 @@ class ReportBuilding extends Component {
               address={address}
               markerCoordinates={markerCoordinates}
             />
-            <Form onCityChange={this.onCityChange} />
+            <Form city={city} address={address} onCityChange={onCityChange} />
           </div>
         </div>
       </section>
@@ -68,6 +53,10 @@ class ReportBuilding extends Component {
 
 ReportBuilding.propTypes = {
   city: PropTypes.string.isRequired,
+  markerCoordinates: PropTypes.objectOf(PropTypes.string).isRequired,
+  address: PropTypes.string.isRequired,
+  onCityChange: PropTypes.func.isRequired,
+  handleAddressChange: PropTypes.func.isRequired,
 };
 
 export default ReportBuilding;
