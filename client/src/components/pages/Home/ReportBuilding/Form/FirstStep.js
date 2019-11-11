@@ -7,10 +7,15 @@ import styles from './form.module.css';
 const { Option } = Select;
 
 const FirstStep = props => {
-  const { form, onCityChange } = props;
+  const { form, onCityChange, city, address } = props;
   const handleSubmit = e => {
     e.preventDefault();
   };
+
+  const {
+    form: { validateFields },
+  } = props;
+
   const { getFieldDecorator } = form;
 
   return (
@@ -22,23 +27,32 @@ const FirstStep = props => {
           label="Choose a City:"
           className={styles.cityItem}
         >
-          {getFieldDecorator('radio-group')(
-            <Radio.Group onChange={onCityChange}>
+          {getFieldDecorator('city-radio-group', {
+            initialValue: 'Morecambe',
+            normalize: (value, pv, av) => {
+              const key = value === 'Morecambe' ? 1 : 2;
+              onCityChange({ key });
+              return value;
+            },
+          })(
+            <Radio.Group key="$city" name="city">
               <Radio value="Morecambe">Morecambe</Radio>
               <Radio value="Hastings">Hastings</Radio>
             </Radio.Group>,
           )}
         </FormAnt.Item>
         <FormAnt.Item label="Address">
-          {getFieldDecorator('username', {
+          {getFieldDecorator('address', {
             rules: [
               {
                 required: true,
                 message: 'Please pin on the map the address',
               },
             ],
+            initialValue: address,
           })(<Input disabled placeholder="Click on map to have address" />)}
         </FormAnt.Item>
+
         <FormAnt.Item label="Previous use " hasFeedback>
           {getFieldDecorator('select', {
             rules: [{ required: true, message: 'Please select previous use ' }],
@@ -47,19 +61,26 @@ const FirstStep = props => {
               <Option value="Residential building">Residential building</Option>
               <Option value="Retail building">Retail building</Option>
               <Option value="Office building">Office building</Option>
-              <Option value="community building">community building</Option>
-              <Option value="Others">Others</Option>
+              <Option value="community building">Community building</Option>
             </Select>,
           )}
         </FormAnt.Item>
+
         <FormAnt.Item label="Owner">
-          <Input placeholder="Please input the owner" />
+          {getFieldDecorator('owner', {
+            rules: [
+              {
+                required: false,
+                message: 'Please add the owner',
+              },
+            ],
+          })(<Input placeholder="Please input the owner" />)}
           <Checkbox value="Don’t know">Don’t know</Checkbox>
         </FormAnt.Item>
 
         <FormAnt.Item label="Are they local ?">
-          {getFieldDecorator('radio-group')(
-            <Radio.Group>
+          {getFieldDecorator('owner-radio-group')(
+            <Radio.Group key="$owner.local" name="owner-local">
               <Radio value="Yes">Yes</Radio>
               <Radio value="No">No</Radio>
               <Radio value="Don’t know">Don’t know</Radio>
@@ -73,6 +94,8 @@ const FirstStep = props => {
 
 FirstStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,
+  city: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
 };
 
