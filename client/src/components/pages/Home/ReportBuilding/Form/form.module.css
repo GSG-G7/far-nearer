@@ -1,8 +1,8 @@
 .form {
   flex-basis: 48%;
   height: 100%;
-  background-color:var(--main-white);
-  padding:  2% 4% 7%;
+  background-color: var(--main-white);
+  padding: 2% 4% 7%;
   position: relative;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .white:hover {
-  color:var(--main-white);
+  color: var(--main-white);
 }
 
 .action {
@@ -30,7 +30,7 @@
   bottom: 5%;
   width: 100%;
   left: 0;
-  padding: 0px 3.40rem;
+  padding: 0px 3.4rem;
 }
 
 .ml-0 {
