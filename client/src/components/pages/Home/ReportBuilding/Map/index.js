@@ -20,12 +20,13 @@ const Map = props => {
   );
   const { city, onCityClick, markerCoordinates, address } = props;
   const cityBoundary = city === 'Morecambe' ? Morecambe : Hastings;
+  const zoom = city === 'Morecambe' ? 13 : 12;
   return (
     <div className={styles.map}>
       <LeafletMap
         className={styles.map}
         center={[51.505, -0.09]}
-        zoom={13}
+        zoom={zoom}
         maxBounds={cityBoundary}
       >
         <TileLayer

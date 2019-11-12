@@ -10,6 +10,7 @@ const FirstStep = props => {
   const {
     onCityChange,
     address,
+    city,
     submittedValues,
     handleNext,
     stepOneValues: { previousUse, owner, isOwnerLocal },
@@ -35,7 +36,7 @@ const FirstStep = props => {
           className={styles.cityItem}
         >
           {getFieldDecorator('city', {
-            initialValue: 'Morecambe',
+            initialValue: city === 'Morecambe' ? 'Morecambe' : 'Hastings',
             normalize: (value, pv, av) => {
               const key = value === 'Morecambe' ? 1 : 2;
               onCityChange({ key });
@@ -63,7 +64,7 @@ const FirstStep = props => {
         <FormAnt.Item label="Previous use " hasFeedback>
           {getFieldDecorator('previousUse', {
             rules: [{ required: true, message: 'Please select previous use ' }],
-            initialValue: previousUse,
+            initialValue: '',
           })(
             <Select placeholder="Previous Use">
               <Option value="Residential building">Residential building</Option>
@@ -109,6 +110,7 @@ const FirstStep = props => {
 FirstStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,
   address: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
   submittedValues: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired,
