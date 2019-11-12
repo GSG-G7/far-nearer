@@ -105,25 +105,29 @@ class Form extends Component {
 
     const { longitude, latitude } = this.props;
 
+    const formData = new FormData();
     const building = {
-      data: {
-        ...stepOneValues,
-        longitude,
-        latitude,
-        emptyPeriod,
-        extraInfo,
-        preferredUse,
-        ...stepThreeValues,
-      },
-      thumbnail,
+      ...stepOneValues,
+      longitude,
+      latitude,
+      emptyPeriod,
+      extraInfo,
+      preferredUse,
+      ...stepThreeValues,
     };
+
+    formData.append('data', JSON.stringify(building));
+    formData.append('thumbnail', thumbnail[0].originFileObj);
+
+    const config = { headers: { 'Content-Type': 'multipart/form-data' } };
     try {
-      await axios.post('/api/v1/report-building', building);
+      await axios.post('/api/v1/report-building', formData, config);
       openNotificationWithIcon(
         'success',
         'Great !! You added the empty building successfully',
       );
     } catch (err) {
+      console.error({ err });
       openNotificationWithIcon('error', 'Something went wrong !! Try again');
     }
   };

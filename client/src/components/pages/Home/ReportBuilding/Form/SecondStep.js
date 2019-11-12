@@ -96,7 +96,13 @@ const SecondStep = props => {
           getValueFromEvent: normFile,
           initialValue: thumbnail,
         })(
-          <Upload name="logo" action="/upload.do" listType="picture">
+          <Upload
+            name="logo"
+            accept="image/*"
+            multiple={false}
+            customRequest={() => {}}
+            listType="picture"
+          >
             <Button className={styles.white}>
               <Icon type="upload" /> Picture
             </Button>
