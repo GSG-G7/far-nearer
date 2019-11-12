@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { notification } from 'antd';
 import * as geocoder from 'esri-leaflet-geocoder';
 
 import Map from './Map';
@@ -9,6 +10,12 @@ import styles from './report.module.css';
 class ReportBuilding extends Component {
   handleCityClick = ({ latlng }) => {
     const { handleAddressChange } = this.props;
+    const openNotificationWithIcon = (type, message) => {
+      notification[type]({
+        message,
+        duration: 3,
+      });
+    };
 
     geocoder
       .geocodeService()
@@ -17,6 +24,11 @@ class ReportBuilding extends Component {
       .run((error, result) => {
         if (error) {
           handleAddressChange(undefined, undefined);
+          openNotificationWithIcon(
+            'error',
+            'Something went wrong !! Check your connection and try again',
+          );
+
           return;
         }
         handleAddressChange(latlng, result.address.Match_addr);
