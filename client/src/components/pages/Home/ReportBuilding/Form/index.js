@@ -99,7 +99,7 @@ class Form extends Component {
     };
     console.log('data: ', data);
     try {
-      await axios.post('/api/v1/report-building', {
+      const dummy = {
         city: 'Morecambe',
         latitude: 52.06835,
         longitude: -1.86108,
@@ -114,7 +114,8 @@ class Form extends Component {
         reporterName: 'Som',
         reporterEmail: 'ahmed@gmail.com',
         reporterAddress: 'gaza',
-      });
+      };
+      await axios.post('/api/v1/report-building', dummy);
     } catch (err) {
       console.log(err);
     }
