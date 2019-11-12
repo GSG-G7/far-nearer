@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form as FormAnt, Radio, Select, Checkbox, Input, Button } from 'antd';
+import { Form as FormAnt, Radio, Select, Input, Button } from 'antd';
 import PropTypes from 'prop-types';
 
 import styles from './form.module.css';
@@ -75,7 +75,15 @@ const FirstStep = props => {
           )}
         </FormAnt.Item>
 
-        <FormAnt.Item label="Owner">
+        <FormAnt.Item
+          className={styles.item}
+          label={
+            <span>
+              Owner
+              <span style={{ color: '#888' }}> (Optional)</span>
+            </span>
+          }
+        >
           {getFieldDecorator('owner', {
             rules: [
               {
@@ -85,7 +93,6 @@ const FirstStep = props => {
             ],
             initialValue: owner,
           })(<Input placeholder="Please input the owner" />)}
-          <Checkbox>Don’t know</Checkbox>
         </FormAnt.Item>
 
         <FormAnt.Item label="Are they local ?">
