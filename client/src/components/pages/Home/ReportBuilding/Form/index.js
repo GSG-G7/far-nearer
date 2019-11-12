@@ -78,30 +78,14 @@ class Form extends Component {
   };
 
   handleConfirm = values => {
-    const { stepOneValues, stepTwoValues, stepThreeValues } = this.state;
-    this.setState(
-      {
-        stepThreeValues: {
-          ...stepThreeValues,
-          ...values,
-        },
+    const { stepThreeValues } = this.state;
+    this.setState({
+      stepThreeValues: {
+        ...stepThreeValues,
+        ...values,
       },
-      async () => {
-        this.setState({ sendFinalValues: true });
-
-        try {
-          const data = {
-            ...stepOneValues,
-            ...stepTwoValues,
-            ...stepThreeValues,
-          };
-          console.log(data);
-          // await axios.post('/api/v1/report-building', data);
-        } catch (err) {
-          console.log(err);
-        }
-      },
-    );
+    });
+    console.log(this.state);
   };
 
   getStep = current => {
