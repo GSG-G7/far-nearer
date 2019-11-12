@@ -103,7 +103,7 @@ class Form extends Component {
       stepThreeValues,
     } = this.state;
 
-    const { longitude, latitude } = this.props;
+    const { longitude, latitude, redirectToView } = this.props;
 
     const formData = new FormData();
     const building = {
@@ -126,6 +126,7 @@ class Form extends Component {
         'success',
         'Great !! You added the empty building successfully',
       );
+      redirectToView();
     } catch (err) {
       openNotificationWithIcon('error', 'Something went wrong !! Try again');
     }
@@ -202,6 +203,7 @@ Form.propTypes = {
   city: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
+  redirectToView: PropTypes.func.isRequired,
   longitude: PropTypes.number.isRequired,
   latitude: PropTypes.number.isRequired,
 };

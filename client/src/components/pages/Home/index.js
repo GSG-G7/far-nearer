@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Header from './Header';
 import About from './About';
@@ -11,6 +12,12 @@ class Home extends Component {
     address: '',
     longitude: 0,
     latitude: 0,
+  };
+
+  redirectToView = () => {
+    const { history } = this.props;
+    if (history) history.push('/view-buildings');
+    console.log('history', history);
   };
 
   handleSubmit = e => {
@@ -31,6 +38,7 @@ class Home extends Component {
 
   render() {
     const { city, latitude, longitude, address } = this.state;
+
     return (
       <>
         <Navbar transparent />
@@ -39,6 +47,7 @@ class Home extends Component {
         <ReportBuilding
           longitude={longitude}
           latitude={latitude}
+          redirectToView={this.redirectToView}
           city={city}
           address={address}
           markerCoordinates={{ lat: latitude, lng: longitude }}
@@ -49,5 +58,9 @@ class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default Home;
