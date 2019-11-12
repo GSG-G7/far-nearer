@@ -109,8 +109,9 @@ class Form extends Component {
         preferredUse,
         ...stepThreeValues,
       },
-      thumbnail,
+      thumbnail: thumbnail[0].name,
     };
+    console.log('data :');
     try {
       await axios.post('/api/v1/report-building', building);
     } catch (err) {

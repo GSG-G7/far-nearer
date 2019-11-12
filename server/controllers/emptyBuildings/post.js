@@ -6,6 +6,7 @@ const { buildingSchema } = require('../../validation');
 
 const postEmptyBuilding = async (req, res, next) => {
   const { data } = req.body;
+  console.log('data', data);
   try {
     const newBuild = await buildingSchema.validate(data, {
       abortEarly: false,
