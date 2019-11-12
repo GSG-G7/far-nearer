@@ -17,7 +17,6 @@ class Home extends Component {
   redirectToView = () => {
     const { history } = this.props;
     if (history) history.push('/view-buildings');
-    console.log('history', history);
   };
 
   handleSubmit = e => {
