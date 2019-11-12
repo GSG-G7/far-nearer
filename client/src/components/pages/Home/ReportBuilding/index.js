@@ -28,7 +28,6 @@ class ReportBuilding extends Component {
             'error',
             'Something went wrong !! Check your connection and try again',
           );
-
           return;
         }
         handleAddressChange(latlng, result.address.Match_addr);

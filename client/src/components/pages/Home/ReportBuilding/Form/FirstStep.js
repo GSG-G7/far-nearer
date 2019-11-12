@@ -16,6 +16,7 @@ const FirstStep = props => {
     stepOneValues: { previousUse, owner, isOwnerLocal },
     form: { getFieldDecorator, validateFields },
   } = props;
+
   const validateInput = e => {
     e.preventDefault();
     validateFields((err, values) => {
@@ -58,6 +59,7 @@ const FirstStep = props => {
               },
             ],
             initialValue: address,
+            hidden: true,
           })(<Input disabled placeholder="Click on map to have address" />)}
         </FormAnt.Item>
 
