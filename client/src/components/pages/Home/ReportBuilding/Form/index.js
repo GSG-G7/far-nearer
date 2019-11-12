@@ -79,13 +79,45 @@ class Form extends Component {
 
   handleConfirm = values => {
     const { stepThreeValues } = this.state;
-    this.setState({
-      stepThreeValues: {
-        ...stepThreeValues,
-        ...values,
+    this.setState(
+      {
+        stepThreeValues: {
+          ...stepThreeValues,
+          ...values,
+        },
       },
-    });
-    console.log(this.state);
+      () => this.sendData(),
+    );
+  };
+
+  sendData = async () => {
+    const { stepOneValues, stepTwoValues, stepThreeValues } = this.state;
+    const data = {
+      ...stepOneValues,
+      ...stepTwoValues,
+      ...stepThreeValues,
+    };
+    console.log('data: ', data);
+    try {
+      await axios.post('/api/v1/report-building', {
+        city: 'Morecambe',
+        latitude: 52.06835,
+        longitude: -1.86108,
+        address: 'Morecambe',
+        owner: 'Someone',
+        isOwnerLocal: 'Yes',
+        preferredUse: 'N/A',
+        emptyPeriod: '1 year',
+        extraInfo: 'more info about this building',
+        approved: true,
+        receiveNotifications: false,
+        reporterName: 'Som',
+        reporterEmail: 'ahmed@gmail.com',
+        reporterAddress: 'gaza',
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   getStep = current => {
