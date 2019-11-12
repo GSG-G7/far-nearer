@@ -84,7 +84,6 @@ ReportBuilding.propTypes = {
   address: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
   redirectToView: PropTypes.func.isRequired,
-
   handleAddressChange: PropTypes.func.isRequired,
   longitude: PropTypes.number.isRequired,
   latitude: PropTypes.number.isRequired,
