@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Steps } from 'antd';
+import { Steps, notification } from 'antd';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
@@ -91,6 +91,12 @@ class Form extends Component {
   };
 
   sendData = async () => {
+    const openNotificationWithIcon = (type, message) => {
+      notification[type]({
+        message,
+        duration: 3,
+      });
+    };
     const {
       stepOneValues,
       stepTwoValues: { emptyPeriod, extraInfo, preferredUse, thumbnail },
@@ -113,6 +119,10 @@ class Form extends Component {
     };
     try {
       await axios.post('/api/v1/report-building', building);
+      openNotificationWithIcon(
+        'success',
+        'Great !! You added the empty building successfully',
+      );
     } catch (err) {
       console.log(err);
     }
