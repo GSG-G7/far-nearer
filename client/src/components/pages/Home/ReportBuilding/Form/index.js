@@ -116,8 +116,7 @@ class Form extends Component {
       ...stepThreeValues,
     };
 
-    formData.append('data', building);
-    console.log(thumbnail);
+    formData.append('data', JSON.stringify(building));
     formData.append('thumbnail', thumbnail[0].originFileObj);
 
     const config = { headers: { 'Content-Type': 'multipart/form-data' } };
