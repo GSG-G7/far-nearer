@@ -42,6 +42,7 @@ class ReportBuilding extends Component {
       markerCoordinates,
       address,
       longitude,
+      redirectToView,
       latitude,
     } = this.props;
     return (
@@ -68,6 +69,7 @@ class ReportBuilding extends Component {
               onCityChange={onCityChange}
               longitude={longitude}
               latitude={latitude}
+              redirectToView={redirectToView}
             />
           </div>
         </div>
@@ -81,6 +83,8 @@ ReportBuilding.propTypes = {
   markerCoordinates: PropTypes.objectOf(PropTypes.number).isRequired,
   address: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
+  redirectToView: PropTypes.func.isRequired,
+
   handleAddressChange: PropTypes.func.isRequired,
   longitude: PropTypes.number.isRequired,
   latitude: PropTypes.number.isRequired,

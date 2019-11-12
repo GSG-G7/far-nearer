@@ -15,6 +15,7 @@ const ThirdStep = props => {
       reporterAddress,
       receiveNotifications,
       shareData,
+      redirectToView,
     },
     form: { getFieldDecorator, validateFields, getFieldsValue },
   } = props;
@@ -25,6 +26,7 @@ const ThirdStep = props => {
       if (!err) {
         handleConfirm(values);
       }
+      redirectToView();
     });
   };
 
