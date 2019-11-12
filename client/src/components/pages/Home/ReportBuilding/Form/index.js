@@ -121,11 +121,21 @@ class Form extends Component {
 
     const config = { headers: { 'Content-Type': 'multipart/form-data' } };
     try {
-      await axios.post('/api/v1/report-building', formData, config);
-      openNotificationWithIcon(
-        'success',
-        'Great !! You added the empty building successfully',
+      const { data } = await axios.post(
+        '/api/v1/report-building',
+        formData,
+        config,
       );
+      if (data.statusCode === 201) {
+        openNotificationWithIcon(
+          'success',
+          'Great !! You added the empty building successfully',
+        );
+      } else if (data.statusCode === 400) {
+        openNotificationWithIcon('error', data.error);
+      } else if (data.statusCode === 409) {
+        openNotificationWithIcon('info', 'The building is already exist');
+      }
     } catch (err) {
       openNotificationWithIcon('error', 'Something went wrong !! Try again');
     }
