@@ -37,6 +37,8 @@ class Home extends Component {
         <Header onCityChange={this.handleCityChange} />
         <About />
         <ReportBuilding
+          longitude={longitude}
+          latitude={latitude}
           city={city}
           address={address}
           markerCoordinates={{ lat: latitude, lng: longitude }}

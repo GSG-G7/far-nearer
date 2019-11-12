@@ -92,8 +92,13 @@ class Form extends Component {
 
   sendData = async () => {
     const { stepOneValues, stepTwoValues, stepThreeValues } = this.state;
+
+    const { longitude, latitude } = this.props;
+
     const data = {
       ...stepOneValues,
+      longitude,
+      latitude,
       ...stepTwoValues,
       ...stepThreeValues,
     };
@@ -192,6 +197,8 @@ Form.propTypes = {
   city: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
+  longitude: PropTypes.number.isRequired,
+  latitude: PropTypes.number.isRequired,
 };
 
 export default Form;

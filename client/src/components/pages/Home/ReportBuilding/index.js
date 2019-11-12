@@ -24,7 +24,14 @@ class ReportBuilding extends Component {
   };
 
   render() {
-    const { city, onCityChange, markerCoordinates, address } = this.props;
+    const {
+      city,
+      onCityChange,
+      markerCoordinates,
+      address,
+      longitude,
+      latitude,
+    } = this.props;
     return (
       <section id="sharingBuildings" className={styles.report}>
         <div className={`${styles.container} container`}>
@@ -43,7 +50,13 @@ class ReportBuilding extends Component {
               address={address}
               markerCoordinates={markerCoordinates}
             />
-            <Form city={city} address={address} onCityChange={onCityChange} />
+            <Form
+              city={city}
+              address={address}
+              onCityChange={onCityChange}
+              longitude={longitude}
+              latitude={latitude}
+            />
           </div>
         </div>
       </section>
@@ -57,6 +70,8 @@ ReportBuilding.propTypes = {
   address: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
   handleAddressChange: PropTypes.func.isRequired,
+  longitude: PropTypes.number.isRequired,
+  latitude: PropTypes.number.isRequired,
 };
 
 export default ReportBuilding;
