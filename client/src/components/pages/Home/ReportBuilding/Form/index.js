@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Steps } from 'antd';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import FirstStep from './FirstStep';
 import SecondStep from './SecondStep';
@@ -34,7 +35,7 @@ class Form extends Component {
     stepTwoValues: {
       emptyPeriod: '',
       extraInfo: '',
-      preferedUse: '',
+      preferredUse: '',
       thumbnail: '',
     },
     stepThreeValues: {
@@ -42,6 +43,7 @@ class Form extends Component {
       reporterEmail: '',
       reporterAddress: '',
       receiveNotifications: '',
+      shareData: '',
     },
   };
 
@@ -75,14 +77,60 @@ class Form extends Component {
     });
   };
 
+  handleConfirm = values => {
+    const { stepThreeValues } = this.state;
+    this.setState(
+      {
+        stepThreeValues: {
+          ...stepThreeValues,
+          ...values,
+        },
+      },
+      () => this.sendData(),
+    );
+  };
+
+  sendData = async () => {
+    const { stepOneValues, stepTwoValues, stepThreeValues } = this.state;
+    const data = {
+      ...stepOneValues,
+      ...stepTwoValues,
+      ...stepThreeValues,
+    };
+    console.log('data: ', data);
+    try {
+      const dummy = {
+        city: 'Morecambe',
+        latitude: 52.06835,
+        longitude: -1.86108,
+        address: 'Morecambe',
+        owner: 'Someone',
+        isOwnerLocal: 'Yes',
+        preferredUse: 'N/A',
+        emptyPeriod: '1 year',
+        extraInfo: 'more info about this building',
+        approved: true,
+        receiveNotifications: false,
+        reporterName: 'Som',
+        reporterEmail: 'ahmed@gmail.com',
+        reporterAddress: 'gaza',
+      };
+      await axios.post('/api/v1/report-building', dummy);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   getStep = current => {
     const { stepOneValues, stepTwoValues, stepThreeValues } = this.state;
+
     const { city, address, onCityChange } = this.props;
+
     switch (current) {
       case 0:
         return (
           <FirstStep
-            {...stepOneValues}
+            stepOneValues={stepOneValues}
             city={city}
             address={address}
             onCityChange={onCityChange}
@@ -93,7 +141,7 @@ class Form extends Component {
       case 1:
         return (
           <SecondStep
-            {...stepTwoValues}
+            stepTwoValues={stepTwoValues}
             submittedValues={this.getStepTwoValues}
             handleNext={() => this.next()}
             handleBack={() => this.prev()}
@@ -102,9 +150,10 @@ class Form extends Component {
       case 2:
         return (
           <ThirdStep
-            {...stepThreeValues}
+            stepThreeValues={stepThreeValues}
             submittedValues={this.getStepThreeValues}
             handleBack={() => this.prev()}
+            handleConfirm={this.handleConfirm}
           />
         );
       default:
@@ -134,9 +183,6 @@ class Form extends Component {
           ))}
         </Steps>
         <div className="steps-content">{this.getStep(current)}</div>
-        {/* <div className={`${styles.action} steps-action`}>
-          
-        </div> */}
       </div>
     );
   }

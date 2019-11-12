@@ -13,6 +13,7 @@ const FirstStep = props => {
     city,
     submittedValues,
     handleNext,
+    stepOneValues: { previousUse, owner, isOwnerLocal },
     form: { getFieldDecorator, validateFields },
   } = props;
   const validateInput = e => {
@@ -65,7 +66,7 @@ const FirstStep = props => {
             rules: [{ required: true, message: 'Please select previous use ' }],
             initialValue: '',
           })(
-            <Select placeholder="Previous use">
+            <Select placeholder="Previous Use">
               <Option value="Residential building">Residential building</Option>
               <Option value="Retail building">Retail building</Option>
               <Option value="Office building">Office building</Option>
@@ -82,13 +83,13 @@ const FirstStep = props => {
                 message: 'Please add the owner',
               },
             ],
-            initialValue: '',
+            initialValue: owner,
           })(<Input placeholder="Please input the owner" />)}
           <Checkbox value="N/A">Don’t know</Checkbox>
         </FormAnt.Item>
 
         <FormAnt.Item label="Are they local ?">
-          {getFieldDecorator('isOwnerLocal')(
+          {getFieldDecorator('isOwnerLocal', { initialValue: isOwnerLocal })(
             <Radio.Group key="$owner.local" name="owner-local">
               <Radio value="Yes">Yes</Radio>
               <Radio value="No">No</Radio>
@@ -113,6 +114,7 @@ FirstStep.propTypes = {
   onCityChange: PropTypes.func.isRequired,
   submittedValues: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired,
+  stepOneValues: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 const WrappedStep = FormAnt.create({ name: 'validate_other' })(FirstStep);
