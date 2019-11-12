@@ -111,7 +111,6 @@ class Form extends Component {
       },
       thumbnail: thumbnail[0].name,
     };
-    console.log('data :');
     try {
       await axios.post('/api/v1/report-building', building);
     } catch (err) {
