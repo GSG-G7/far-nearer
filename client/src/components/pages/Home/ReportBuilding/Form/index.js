@@ -42,8 +42,8 @@ class Form extends Component {
       reporterName: '',
       reporterEmail: '',
       reporterAddress: '',
-      receiveNotifications: '',
-      shareData: '',
+      receiveNotifications: false,
+      shareData: false,
     },
   };
 
