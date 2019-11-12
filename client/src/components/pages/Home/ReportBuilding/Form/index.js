@@ -91,36 +91,28 @@ class Form extends Component {
   };
 
   sendData = async () => {
-    const { stepOneValues, stepTwoValues, stepThreeValues } = this.state;
+    const {
+      stepOneValues,
+      stepTwoValues: { emptyPeriod, extraInfo, preferredUse, thumbnail },
+      stepThreeValues,
+    } = this.state;
 
     const { longitude, latitude } = this.props;
 
-    const data = {
-      ...stepOneValues,
-      longitude,
-      latitude,
-      ...stepTwoValues,
-      ...stepThreeValues,
+    const building = {
+      data: {
+        ...stepOneValues,
+        longitude,
+        latitude,
+        emptyPeriod,
+        extraInfo,
+        preferredUse,
+        ...stepThreeValues,
+      },
+      thumbnail,
     };
-    console.log('data: ', data);
     try {
-      const dummy = {
-        city: 'Morecambe',
-        latitude: 52.06835,
-        longitude: -1.86108,
-        address: 'Morecambe',
-        owner: 'Someone',
-        isOwnerLocal: 'Yes',
-        preferredUse: 'N/A',
-        emptyPeriod: '1 year',
-        extraInfo: 'more info about this building',
-        approved: true,
-        receiveNotifications: false,
-        reporterName: 'Som',
-        reporterEmail: 'ahmed@gmail.com',
-        reporterAddress: 'gaza',
-      };
-      await axios.post('/api/v1/report-building', dummy);
+      await axios.post('/api/v1/report-building', building);
     } catch (err) {
       console.log(err);
     }
