@@ -124,7 +124,7 @@ class Form extends Component {
         'Great !! You added the empty building successfully',
       );
     } catch (err) {
-      console.log(err);
+      openNotificationWithIcon('error', 'Something went wrong !! Try again');
     }
   };
 
