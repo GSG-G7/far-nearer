@@ -78,7 +78,7 @@ class Form extends Component {
   };
 
   handleConfirm = values => {
-    const { stepThreeValues } = this.state;
+    const { stepOneValues, stepTwoValues, stepThreeValues } = this.state;
     this.setState(
       {
         stepThreeValues: {
@@ -90,31 +90,10 @@ class Form extends Component {
         this.setState({ sendFinalValues: true });
 
         try {
-          const {
-            stepOneValues: { city, address, previousUse, owner, isOwnerLocal },
-            stepTwoValues: { emptyPeriod, extraInfo, preferredUse },
-            stepThreeValues: {
-              reporterName,
-              reporterEmail,
-              reporterAddress,
-              receiveNotifications,
-            },
-          } = this.state;
           const data = {
-            city,
-            longitude: 0,
-            latitude: 0,
-            address,
-            owner,
-            isOwnerLocal,
-            previousUse,
-            preferredUse,
-            emptyPeriod,
-            extraInfo,
-            receiveNotifications,
-            reporterName,
-            reporterEmail,
-            reporterAddress,
+            ...stepOneValues,
+            ...stepTwoValues,
+            ...stepThreeValues,
           };
           console.log(data);
           // await axios.post('/api/v1/report-building', data);
