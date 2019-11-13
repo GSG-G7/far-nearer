@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { NavHashLink as NavLink } from 'react-router-hash-link';
 import PropTypes from 'prop-types';
 
 import logoImageLight from 'assets/FNLogoLightV2.png';
@@ -108,6 +109,7 @@ class Navbar extends Component {
               <li className={styles['list--item']}>
                 <NavLink
                   exact
+                  smooth
                   className={`${
                     styles['list--link']
                   } ${this.getTransparentClass(transparent)}`}

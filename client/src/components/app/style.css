@@ -19,6 +19,7 @@ body {
   --main-color--dark: #000f2e;
   --main-white: #ffffff;
   --main-black: #000000;
+  --main-black--hover: #555555;
   --content-grey: #333333;
   --header-font: 'Roboto', sans-serif;
   --content-font: 'Lato', sans-serif;
@@ -40,7 +41,7 @@ body {
 .ant-btn-primary:focus {
   background-color: var(--main-color--dark);
   border-color: var(--main-color--dark);
-  box-shadow: 0.1rem 0.1rem var(--main-black);
+  box-shadow: 0.1rem 0.1rem var(--main-black--hover);
 }
 
 .leaflet-popup-content {
@@ -53,4 +54,24 @@ body {
 
 .ant-form-inline .ant-form-item-with-help {
   margin: 0;
+}
+
+.next {
+  display: flex;
+  flex-flow: row-reverse;
+}
+
+.nextButton {
+  float: right;
+}
+
+@media (max-width: 600px) {
+  .nextButton,
+  .prevButton {
+    display: flex;
+    margin: auto !important;
+    justify-content: center;
+    float: none;
+    line-height: 1rem;
+  }
 }
