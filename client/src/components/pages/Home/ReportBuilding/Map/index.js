@@ -39,7 +39,9 @@ const Map = props => {
           fillOpacity={0}
           onclick={onCityClick}
         />
-        {markerCoordinates && markerCoordinates.lat && markerCoordinates.lng &&
+        {markerCoordinates &&
+          markerCoordinates.lat &&
+          markerCoordinates.lng &&
           createMarker(markerCoordinates, address)}
       </LeafletMap>
     </div>

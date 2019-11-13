@@ -22,15 +22,12 @@ class ReportBuilding extends Component {
       .reverse()
       .latlng(latlng)
       .run((error, result) => {
-        if (error) {
-          handleAddressChange(undefined, undefined);
+        if (error)
           openNotificationWithIcon(
             'error',
             'Something went wrong !! Check your connection and try again',
           );
-          return;
-        }
-        handleAddressChange(latlng, result.address.Match_addr);
+        else handleAddressChange(latlng, result.address.Match_addr);
       });
   };
 
