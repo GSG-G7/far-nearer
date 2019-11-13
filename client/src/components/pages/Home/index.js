@@ -31,8 +31,10 @@ class Home extends Component {
   };
 
   handleCityChange = ({ key }) => {
-    const city = +key === 1 ? 'Morecambe' : 'Hastings';
-    this.setState({ city });
+    if (+key) {
+      const city = +key === 1 ? 'Morecambe' : 'Hastings';
+      this.setState({ city });
+    }
   };
 
   render() {

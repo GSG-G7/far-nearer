@@ -117,7 +117,8 @@ class Form extends Component {
     };
 
     formData.append('data', JSON.stringify(building));
-    formData.append('thumbnail', thumbnail[0].originFileObj);
+    if (thumbnail && thumbnail[0])
+      formData.append('thumbnail', thumbnail[0].originFileObj);
 
     const config = { headers: { 'Content-Type': 'multipart/form-data' } };
     try {
