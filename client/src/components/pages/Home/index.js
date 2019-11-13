@@ -19,10 +19,6 @@ class Home extends Component {
     if (history) history.push('/view-buildings');
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-  };
-
   handleAddressChange = (markerCoordinates, address) => {
     if (markerCoordinates && address) {
       const { lat: latitude, lng: longitude } = markerCoordinates;
