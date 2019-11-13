@@ -59,14 +59,14 @@ const FirstStep = props => {
               },
             ],
             initialValue: address,
-            hidden: true,
+            // hidden: true,
           })(<Input disabled placeholder="Click on map to have address" />)}
         </FormAnt.Item>
 
         <FormAnt.Item label="Previous use " hasFeedback>
           {getFieldDecorator('previousUse', {
             rules: [{ required: true, message: 'Please select previous use ' }],
-            initialValue: previousUse,
+            defaultValue: previousUse,
           })(
             <Select placeholder="Previous Use">
               <Option value="Residential building">Residential building</Option>
@@ -93,7 +93,7 @@ const FirstStep = props => {
                 message: 'Please add the owner',
               },
             ],
-            initialValue: owner,
+            defaultValue: owner,
           })(<Input placeholder="Please input the owner" />)}
         </FormAnt.Item>
 

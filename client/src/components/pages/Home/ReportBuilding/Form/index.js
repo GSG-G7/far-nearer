@@ -29,7 +29,7 @@ class Form extends Component {
       city: '',
       address: '',
       previousUse: '',
-      owner: '',
+      owner: 'N/A',
       isOwnerLocal: '',
     },
     stepTwoValues: {
