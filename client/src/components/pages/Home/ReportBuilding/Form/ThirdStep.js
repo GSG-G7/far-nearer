@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import styles from './form.module.css';
 
 const ThirdStep = props => {
+  const [isSubmitLoading, triggerLoading] = React.useState(false);
   const {
     submittedValues,
     handleBack,
@@ -15,7 +16,6 @@ const ThirdStep = props => {
       reporterAddress,
       receiveNotifications,
       shareData,
-      redirectToView,
     },
     form: { getFieldDecorator, validateFields, getFieldsValue },
   } = props;
@@ -26,7 +26,6 @@ const ThirdStep = props => {
       if (!err) {
         handleConfirm(values);
       }
-      redirectToView();
     });
   };
 
@@ -44,7 +43,7 @@ const ThirdStep = props => {
             rules: [
               {
                 required: true,
-                message: 'Please add your name',
+                message: 'This field is required',
               },
             ],
             initialValue: reporterName,
@@ -62,16 +61,16 @@ const ThirdStep = props => {
             initialValue: reporterEmail,
           })(<Input placeholder="Write your email" />)}
         </FormAnt.Item>
-        <FormAnt.Item label="Post code">
+        <FormAnt.Item label="Address">
           {getFieldDecorator('reporterAddress', {
             rules: [
               {
                 required: true,
-                message: 'Please add your post code',
+                message: 'This field is required',
               },
             ],
             initialValue: reporterAddress,
-          })(<Input placeholder="Write your post code" />)}
+          })(<Input placeholder="Write your address" />)}
         </FormAnt.Item>
         <FormAnt.Item>
           {getFieldDecorator('shareData', {
@@ -94,7 +93,7 @@ const ThirdStep = props => {
         <FormAnt.Item>
           <Button
             htmlType="submit"
-            className={`prevButton  ${styles.white} ${styles['ml-0']}`}
+            className={`prevButton ${styles.white} ${styles['ml-0']}`}
             onClick={storeValues}
             size="large"
           >
