@@ -55,7 +55,7 @@ const ThirdStep = props => {
             rules: [
               {
                 required: true,
-                message: 'Please add your email',
+                message: 'Please enter a valid email',
                 type: 'email',
               },
             ],
