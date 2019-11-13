@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import styles from './form.module.css';
 
 const ThirdStep = props => {
-  const [isSubmitLoading, triggerLoading] = React.useState(false);
   const {
     submittedValues,
     handleBack,
