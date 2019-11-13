@@ -98,12 +98,19 @@ const ThirdStep = props => {
         <FormAnt.Item>
           <Button
             htmlType="submit"
-            className={`${styles.white} ${styles['ml-0']}`}
+            className={`prevButton  ${styles.white} ${styles['ml-0']}`}
             onClick={storeValues}
+            size="large"
           >
             Previous
           </Button>
-          <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+          <Button
+            type="primary"
+            htmlType="submit"
+            onClick={handleSubmit}
+            className="nextButton"
+            size="large"
+          >
             Submit
           </Button>
         </FormAnt.Item>

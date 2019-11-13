@@ -22,17 +22,6 @@
   color: var(--main-white);
 }
 
-.action {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 5%;
-  width: 100%;
-  left: 0;
-  padding: 0px 3.4rem;
-}
-
 .ml-0 {
-  margin-left: 0 !important ;
+  margin-left: 0;
 }

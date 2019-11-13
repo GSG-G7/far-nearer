@@ -1,5 +1,5 @@
 .report {
-  background-color: rgba(30,71,102, .05);
+  background-color: rgba(30, 71, 102, 0.05);
   padding: 2rem 0;
 }
 
@@ -10,10 +10,10 @@
 }
 
 .leaflet-container {
-  height: 400px;
+  height: 300px;
   width: 100%;
   margin: 0 auto;
-} 
+}
 
 .header {
   width: 100%;
@@ -33,7 +33,7 @@
 }
 
 .form--container {
-  min-height: 93vh;
+  min-height: 80vh;
   width: 100%;
   display: flex;
   justify-content: space-between;

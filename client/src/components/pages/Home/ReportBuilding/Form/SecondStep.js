@@ -111,12 +111,18 @@ const SecondStep = props => {
       </FormAnt.Item>
       <FormAnt.Item>
         <Button
-          className={`${styles.white} ${styles['ml-0']}`}
+          className={`prevButton  ${styles.white} ${styles['ml-0']}`}
           onClick={storeValues}
+          size="large"
         >
           Previous
         </Button>
-        <Button type="primary" onClick={validateInput}>
+        <Button
+          type="primary"
+          size="large"
+          onClick={validateInput}
+          className="nextButton"
+        >
           Next
         </Button>
       </FormAnt.Item>

@@ -106,8 +106,8 @@ const FirstStep = props => {
             </Radio.Group>,
           )}
         </FormAnt.Item>
-        <FormAnt.Item>
-          <Button type="primary" htmlType="submit">
+        <FormAnt.Item className="next">
+          <Button type="primary" htmlType="submit" size="large">
             Next
           </Button>
         </FormAnt.Item>
