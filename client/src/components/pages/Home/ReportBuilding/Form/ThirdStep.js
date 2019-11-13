@@ -77,7 +77,8 @@ const ThirdStep = props => {
           {getFieldDecorator('shareData', {
             rules: [
               {
-                required: false,
+                required: true,
+                message: 'You must agree to share your data with us',
               },
             ],
             initialValue: shareData,
@@ -86,11 +87,6 @@ const ThirdStep = props => {
         </FormAnt.Item>
         <FormAnt.Item>
           {getFieldDecorator('receiveNotifications', {
-            rules: [
-              {
-                required: false,
-              },
-            ],
             initialValue: receiveNotifications,
             valuePropName: 'checked',
           })(<Checkbox>I would like to receive updates</Checkbox>)}

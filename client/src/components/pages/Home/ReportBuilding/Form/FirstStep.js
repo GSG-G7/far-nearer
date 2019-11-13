@@ -98,7 +98,15 @@ const FirstStep = props => {
         </FormAnt.Item>
 
         <FormAnt.Item label="Are they local ?">
-          {getFieldDecorator('isOwnerLocal', { initialValue: isOwnerLocal })(
+          {getFieldDecorator('isOwnerLocal', {
+            initialValue: isOwnerLocal,
+            rules: [
+              {
+                required: true,
+                message: 'This field is required',
+              },
+            ],
+          })(
             <Radio.Group key="$owner.local" name="owner-local">
               <Radio value="Yes">Yes</Radio>
               <Radio value="No">No</Radio>
