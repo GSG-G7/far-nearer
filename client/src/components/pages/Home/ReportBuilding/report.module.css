@@ -38,3 +38,21 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 600px) {
+  .form--container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 4rem;
+    margin-top: 1.5rem;
+  }
+
+  .description {
+    font-size: 3rem;
+  }
+}

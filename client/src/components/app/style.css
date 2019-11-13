@@ -57,21 +57,9 @@ body {
 }
 
 .next {
-  display: flex;
-  flex-flow: row-reverse;
+  float: right;
 }
 
 .nextButton {
   float: right;
-}
-
-@media (max-width: 600px) {
-  .nextButton,
-  .prevButton {
-    display: flex;
-    margin: auto !important;
-    justify-content: center;
-    float: none;
-    line-height: 1rem;
-  }
 }
