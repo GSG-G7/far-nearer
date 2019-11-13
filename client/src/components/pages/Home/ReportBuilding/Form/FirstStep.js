@@ -102,7 +102,7 @@ const FirstStep = props => {
             <Radio.Group key="$owner.local" name="owner-local">
               <Radio value="Yes">Yes</Radio>
               <Radio value="No">No</Radio>
-              <Radio value="Don’t know">Don’t know</Radio>
+              <Radio value="N/A">Don’t know</Radio>
             </Radio.Group>,
           )}
         </FormAnt.Item>
