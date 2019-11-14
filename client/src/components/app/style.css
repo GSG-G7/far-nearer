@@ -63,3 +63,10 @@ body {
 .nextButton {
   float: right;
 }
+
+@media (max-width: 600px) {
+  .ant-table {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+}

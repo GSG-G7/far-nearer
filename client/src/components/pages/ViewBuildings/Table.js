@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Table, Tag } from 'antd';
 import PropTypes from 'prop-types';
 
+import styles from './view.module.css';
+
 class TableInfo extends Component {
   state = { filteredInfo: {} };
 
@@ -57,9 +59,13 @@ class TableInfo extends Component {
         key: 'approved',
         render: record =>
           record ? (
-            <Tag color="green">Approved</Tag>
+            <Tag className={styles.approved__tag} color="green">
+              Approved
+            </Tag>
           ) : (
-            <Tag color="red">Pending</Tag>
+            <Tag className={styles.approved__tag} color="red">
+              Pending
+            </Tag>
           ),
       },
     ];

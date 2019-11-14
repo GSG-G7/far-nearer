@@ -13,7 +13,7 @@ const FirstStep = props => {
     city,
     submittedValues,
     handleNext,
-    stepOneValues: { previousUse, owner, isOwnerLocal },
+    stepOneValues: { previousUse, isOwnerLocal },
     form: { getFieldDecorator, validateFields },
   } = props;
 
@@ -93,8 +93,8 @@ const FirstStep = props => {
                 message: 'Please add the owner',
               },
             ],
-            initialValue: '',
             // defaultValue: owner,
+            initialValue: '',
           })(<Input placeholder="Please input the owner" />)}
         </FormAnt.Item>
 
