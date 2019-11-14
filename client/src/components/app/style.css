@@ -73,4 +73,17 @@ body {
   .ant-steps-horizontal.ant-steps-label-horizontal {
     display: inline-flex;
   }
+
+  .ant-steps-horizontal.ant-steps-label-horizontal
+    > .ant-steps-item
+    > .ant-steps-item-container
+    > .ant-steps-item-tail::after {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    display: inline-flex;
+    width: 20vw;
+    height: 1px;
+    padding: 0;
+  }
 }
