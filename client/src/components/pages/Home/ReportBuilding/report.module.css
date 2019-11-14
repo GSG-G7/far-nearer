@@ -1,6 +1,6 @@
 .report {
   background-color: rgba(30, 71, 102, 0.05);
-  padding: 2rem 0;
+  padding: 4rem 0;
 }
 
 .container {
@@ -37,4 +37,22 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .form--container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 4rem;
+    margin-top: 1.5rem;
+  }
+
+  .description {
+    font-size: 3rem;
+  }
 }

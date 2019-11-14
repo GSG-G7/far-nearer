@@ -25,3 +25,9 @@
 .ml-0 {
   margin-left: 0;
 }
+
+@media (max-width: 600px) {
+  .form {
+    flex-basis: 100%;
+  }
+}

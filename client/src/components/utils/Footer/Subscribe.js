@@ -64,11 +64,22 @@ class SubscribeForm extends Component {
               },
             ],
             initialValue: '',
-          })(<Input placeholder="Enter your email" size="large" />)}
+          })(
+            <Input
+              placeholder="Enter your email"
+              size="large"
+              className={styles.subscribe__input}
+            />,
+          )}
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" size="large">
+          <Button
+            type="primary"
+            htmlType="submit"
+            size="large"
+            className={styles.subscribe__input}
+          >
             Subscribe
           </Button>
         </Form.Item>

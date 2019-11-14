@@ -13,7 +13,7 @@ const FirstStep = props => {
     city,
     submittedValues,
     handleNext,
-    stepOneValues: { previousUse, owner, isOwnerLocal },
+    stepOneValues: { previousUse, isOwnerLocal },
     form: { getFieldDecorator, validateFields },
   } = props;
 
@@ -66,7 +66,7 @@ const FirstStep = props => {
         <FormAnt.Item label="Previous use " hasFeedback>
           {getFieldDecorator('previousUse', {
             rules: [{ required: true, message: 'Please select previous use ' }],
-            defaultValue: previousUse,
+            initialValue: previousUse,
           })(
             <Select placeholder="Previous Use">
               <Option value="Residential building">Residential building</Option>
@@ -93,7 +93,8 @@ const FirstStep = props => {
                 message: 'Please add the owner',
               },
             ],
-            defaultValue: owner,
+            // defaultValue: owner,
+            initialValue: '',
           })(<Input placeholder="Please input the owner" />)}
         </FormAnt.Item>
 

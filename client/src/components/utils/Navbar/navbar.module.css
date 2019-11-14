@@ -91,3 +91,29 @@
 .fixed {
   position: fixed;
 }
+
+@media (max-width: 600px) {
+  .menu {
+    width: 50vw;
+  }
+
+  .list {
+    font-size: 2rem;
+  }
+
+  .list--link {
+    padding: 0 1rem;
+  }
+
+  .container {
+    height: 50px;
+  }
+
+  .logo {
+    width: 70%;
+  }
+
+  .hidden {
+    top: -30px;
+  }
+}

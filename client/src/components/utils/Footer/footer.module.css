@@ -79,5 +79,36 @@
 
   .section {
     width: 100%;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .heading {
+    font-size: 3.75rem;
+  }
+
+  .content {
+    font-size: 3rem;
+    width: 100%;
+  }
+
+  .icon,
+  .link {
+    font-size: 3rem;
+  }
+
+  .form {
+    display: flex;
+  }
+
+  .sociallinks,
+  .contact {
+    font-size: 3rem;
+  }
+
+  .subscribe__input {
+    height: 32px;
+    padding: 4px 11px;
+    font-size: 14px;
   }
 }

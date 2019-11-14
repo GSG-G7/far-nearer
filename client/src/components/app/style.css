@@ -57,8 +57,7 @@ body {
 }
 
 .next {
-  display: flex;
-  flex-flow: row-reverse;
+  float: right;
 }
 
 .nextButton {
@@ -66,12 +65,25 @@ body {
 }
 
 @media (max-width: 600px) {
-  .nextButton,
-  .prevButton {
+  .ant-table {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .ant-steps-horizontal.ant-steps-label-horizontal {
+    display: inline-flex;
+  }
+
+  .ant-steps-horizontal.ant-steps-label-horizontal
+    > .ant-steps-item
+    > .ant-steps-item-container
+    > .ant-steps-item-tail::after {
+    position: absolute;
+    top: 16px;
+    left: 20px;
     display: flex;
-    margin: auto !important;
-    justify-content: center;
-    float: none;
-    line-height: 1rem;
+    width: 23vw;
+    height: 1px;
+    padding: 0;
   }
 }
