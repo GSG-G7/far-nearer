@@ -17,11 +17,14 @@ const ThirdStep = props => {
       shareData,
     },
     form: { getFieldDecorator, validateFields, getFieldsValue },
+    enterLoading,
+    loading,
   } = props;
 
   const handleSubmit = e => {
     e.preventDefault();
     validateFields((err, values) => {
+      enterLoading();
       if (!err) {
         handleConfirm(values);
       }
@@ -103,7 +106,8 @@ const ThirdStep = props => {
             htmlType="submit"
             onClick={handleSubmit}
             className="nextButton"
-            size="large"
+            size="laenterLoadingrge"
+            loading={loading}
           >
             Submit
           </Button>
@@ -118,6 +122,8 @@ ThirdStep.propTypes = {
   submittedValues: PropTypes.func.isRequired,
   handleBack: PropTypes.func.isRequired,
   handleConfirm: PropTypes.func.isRequired,
+  enterLoading: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
   stepThreeValues: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
