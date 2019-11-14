@@ -45,6 +45,12 @@ class Form extends Component {
       receiveNotifications: false,
       shareData: false,
     },
+    loading: false,
+    iconLoading: false,
+  };
+
+  enterLoading = () => {
+    this.setState({ loading: true });
   };
 
   getStepOneValues = values => {
@@ -144,7 +150,12 @@ class Form extends Component {
   };
 
   getStep = current => {
-    const { stepOneValues, stepTwoValues, stepThreeValues } = this.state;
+    const {
+      stepOneValues,
+      stepTwoValues,
+      stepThreeValues,
+      loading,
+    } = this.state;
 
     const { city, address, onCityChange } = this.props;
 
@@ -176,6 +187,8 @@ class Form extends Component {
             submittedValues={this.getStepThreeValues}
             handleBack={() => this.prev()}
             handleConfirm={this.handleConfirm}
+            enterLoading={this.enterLoading}
+            loading={loading}
           />
         );
       default:
