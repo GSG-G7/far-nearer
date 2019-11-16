@@ -121,7 +121,7 @@ class Navbar extends Component {
                     !!(match && match.isExact && hash)
                   }
                 >
-                  Sharing Buildings
+                  Report Buildings
                 </NavLink>
               </li>
               <li className={styles['list--item']}>
