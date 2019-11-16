@@ -94,7 +94,6 @@ const FirstStep = props => {
                 message: 'Please add the owner',
               },
             ],
-            // defaultValue: owner,
             initialValue: '',
           })(
             <Input placeholder="E.g. Dan Jones. Has lived overseas since 2014. Last contacted in 2015" />,
@@ -106,7 +105,7 @@ const FirstStep = props => {
             initialValue: isOwnerLocal,
             rules: [
               {
-                required: true,
+                required: false,
                 message: 'This field is required',
               },
             ],
