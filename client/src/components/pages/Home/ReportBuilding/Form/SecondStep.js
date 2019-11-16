@@ -96,7 +96,7 @@ const SecondStep = props => {
         className={styles.item}
         label={
           <span>
-            Upload building picture
+            Upload a picture of the building
             <span style={{ color: '#888' }}> (Optional)</span>
           </span>
         }
