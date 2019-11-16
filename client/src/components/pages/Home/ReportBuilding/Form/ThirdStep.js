@@ -95,7 +95,11 @@ const ThirdStep = props => {
           {getFieldDecorator('receiveNotifications', {
             initialValue: receiveNotifications,
             valuePropName: 'checked',
-          })(<Checkbox>I would like to receive updates</Checkbox>)}
+          })(
+            <Checkbox>
+              I would like to receive updates from Who Owns Your Neighbourhood
+            </Checkbox>,
+          )}
         </FormAnt.Item>
         <FormAnt.Item>
           <Button
