@@ -15,12 +15,10 @@ const About = () => {
             steadily rising. Long-term vacant homes now account for £53.6
             billion of property in England.
             <br />
-            <br />
             Coastal towns and cities have suffered the biggest rise in long-term
             empty homes. In many coastal towns, the number of empty homes has
             doubled in 2018 alone, hitting 939 in Portsmouth, 726 in Hartlepool
             and 518 in Eastbourne.
-            <br />
             <br />
             There are now more than 216,000 long-term empty homes in England,
             equivalent to 72 per cent of the government’s annual new homes
@@ -28,11 +26,9 @@ const About = () => {
             waiting lists for local authority housing and homelessness it at its
             highest level for over a decade.
             <br />
-            <br />
             While councils blame poor quality housing and overseas landlords,
             there is no clear evidence about why the number of empty homes in
             England is rising.
-            <br />
             <br />
             Who Owns My Neighbourhood is an independent website built by the
             Community Interest Company Far Nearer. We wanted to make it easier
@@ -43,7 +39,6 @@ const About = () => {
             building, this information is made available to community groups who
             might be interested in buying the property and opening it up for the
             community.
-            <br />
             <br />
           </p>
         </div>
