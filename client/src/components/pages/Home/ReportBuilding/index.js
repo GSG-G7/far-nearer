@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { notification } from 'antd';
 import * as geocoder from 'esri-leaflet-geocoder';
@@ -47,9 +48,16 @@ class ReportBuilding extends Component {
           <header className={styles.header}>
             <h1 className={styles.title}>Report a building</h1>
             <p className={styles.description}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus
-              consequat convallis in venenatis quam phasellus pharetra, viverra
-              ante. Sollicitudin orci, ac velit ultricies.
+              We wanted to make it easier to report empty and at risk buildings
+              in your community. Who Owns Your Neighbourhood is a way to report,
+              view and investigate empty and at risk buildings. Once you have
+              reported a building, this information is made available to
+              community groups who might be interested in buying the property
+              and opening it up for the community. We are piloting this project
+              in partnership with community groups in Morecambe and Hastings.
+              <Link className={styles.readmore} to="/about">
+                ... read more
+              </Link>
             </p>
           </header>
           <div className={styles['form--container']}>
