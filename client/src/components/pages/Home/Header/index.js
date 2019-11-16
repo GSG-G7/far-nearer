@@ -27,7 +27,7 @@ const Header = ({ onCityChange }) => {
         join us in sharing information about empty buildings
         <Dropdown overlay={menu}>
           <Button className={styles['share-btn']}>
-            Share Building <Icon type="down" />
+            Report Building <Icon type="down" />
           </Button>
         </Dropdown>
       </p>
