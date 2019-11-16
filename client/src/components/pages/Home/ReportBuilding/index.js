@@ -45,7 +45,7 @@ class ReportBuilding extends Component {
       <section id="sharingBuildings" className={styles.report}>
         <div className={`${styles.container} container`}>
           <header className={styles.header}>
-            <h1 className={styles.title}>Share an empty building</h1>
+            <h1 className={styles.title}>Report a building</h1>
             <p className={styles.description}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus
               consequat convallis in venenatis quam phasellus pharetra, viverra
