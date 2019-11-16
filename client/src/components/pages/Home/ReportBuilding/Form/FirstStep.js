@@ -59,7 +59,6 @@ const FirstStep = props => {
               },
             ],
             initialValue: address,
-            // hidden: true,
           })(<Input disabled placeholder="Click on map to have address" />)}
         </FormAnt.Item>
 
@@ -72,7 +71,9 @@ const FirstStep = props => {
               <Option value="Residential building">Residential building</Option>
               <Option value="Retail building">Retail building</Option>
               <Option value="Office building">Office building</Option>
-              <Option value="community building">Community building</Option>
+              <Option value="Community building">Community building</Option>
+              <Option value="Industrial building">Industrial building</Option>
+              <Option value="Other">Other</Option>
             </Select>,
           )}
         </FormAnt.Item>
