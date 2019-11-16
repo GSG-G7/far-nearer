@@ -38,10 +38,8 @@ class viewBuildings extends Component {
           <div className={styles.view}>
             <h1 className={styles.heading}>View Buildings</h1>
             <p className={styles.content}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s. Lorem ipsum, dolor sit amet consectetur
-              adipisicing elit. Temporibus, aliquam!
+              These buildings have been reported as empty or at risk by the
+              community. Some may be in the process of verification.
             </p>
           </div>
           <MapComponent buildingInfo={buildingInfo} />
