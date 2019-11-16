@@ -36,7 +36,7 @@ class viewBuildings extends Component {
         <Navbar />
         <div className="container">
           <div className={styles.view}>
-            <h1 className={styles.heading}>Empty Buildings Location</h1>
+            <h1 className={styles.heading}>View Buildings</h1>
             <p className={styles.content}>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industrys standard dummy text
