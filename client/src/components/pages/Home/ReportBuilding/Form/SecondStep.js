@@ -85,7 +85,12 @@ const SecondStep = props => {
         {getFieldDecorator('preferredUse', {
           rules: [{ required: false, message: 'Please add the prefered use' }],
           initialValue: preferredUse,
-        })(<TextArea rows={3} placeholder="" />)}
+        })(
+          <TextArea
+            rows={3}
+            placeholder="E.g. health centre, meeting space, cafe."
+          />,
+        )}
       </FormAnt.Item>
       <FormAnt.Item
         className={styles.item}
