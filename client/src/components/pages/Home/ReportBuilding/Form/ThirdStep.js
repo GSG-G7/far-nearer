@@ -84,7 +84,12 @@ const ThirdStep = props => {
             ],
             initialValue: shareData,
             valuePropName: 'checked',
-          })(<Checkbox>I agree to sharing this data</Checkbox>)}
+          })(
+            <Checkbox>
+              I consent to share my name and email with Far Nearer and their
+              local community partners: Heart of Hastings and The Exchange CIC
+            </Checkbox>,
+          )}
         </FormAnt.Item>
         <FormAnt.Item>
           {getFieldDecorator('receiveNotifications', {
@@ -106,7 +111,7 @@ const ThirdStep = props => {
             htmlType="submit"
             onClick={handleSubmit}
             className="nextButton"
-            size="laenterLoadingrge"
+            size="large"
             loading={loading}
           >
             Submit
