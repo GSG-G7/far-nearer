@@ -87,7 +87,7 @@ const FirstStep = props => {
             </span>
           }
         >
-          {getFieldDecorator('owner', {
+          {getFieldDecorator('Who owns the building?', {
             rules: [
               {
                 required: false,
@@ -96,7 +96,9 @@ const FirstStep = props => {
             ],
             // defaultValue: owner,
             initialValue: '',
-          })(<Input placeholder="Please input the owner" />)}
+          })(
+            <Input placeholder="E.g. Dan Jones. Has lived overseas since 2014. Last contacted in 2015" />,
+          )}
         </FormAnt.Item>
 
         <FormAnt.Item label="Are they local ?">
