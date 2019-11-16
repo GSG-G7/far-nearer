@@ -66,7 +66,12 @@ const SecondStep = props => {
         {getFieldDecorator('extraInfo', {
           rules: [{ required: false, message: 'Please add extra information' }],
           initialValue: extraInfo,
-        })(<TextArea rows={3} placeholder="" />)}
+        })(
+          <TextArea
+            rows={3}
+            placeholder="Broken window on first floor, corner street unit, compulsory purchased at some point, previously tried to contact owner."
+          />,
+        )}
       </FormAnt.Item>
       <FormAnt.Item
         className={styles.item}
