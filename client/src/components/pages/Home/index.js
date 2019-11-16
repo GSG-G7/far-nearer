@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Header from './Header';
-import About from './About';
 import ReportBuilding from './ReportBuilding';
 import { Navbar } from '../../utils';
 
@@ -40,7 +39,6 @@ class Home extends Component {
       <>
         <Navbar transparent />
         <Header onCityChange={this.handleCityChange} />
-        <About />
         <ReportBuilding
           longitude={longitude}
           latitude={latitude}
