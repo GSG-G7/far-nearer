@@ -82,12 +82,12 @@ const FirstStep = props => {
           className={styles.item}
           label={
             <span>
-              Owner
+              Who owns the building ?
               <span style={{ color: '#888' }}> (Optional)</span>
             </span>
           }
         >
-          {getFieldDecorator('Who owns the building?', {
+          {getFieldDecorator('owner', {
             rules: [
               {
                 required: false,
