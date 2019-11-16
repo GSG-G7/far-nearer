@@ -52,7 +52,7 @@ const SecondStep = props => {
             },
           ],
           initialValue: emptyPeriod,
-        })(<Input placeholder="" />)}
+        })(<Input placeholder="Approximately. Feel free to take a guess." />)}
       </FormAnt.Item>
       <FormAnt.Item
         className={styles.item}
