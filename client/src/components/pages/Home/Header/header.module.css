@@ -9,7 +9,7 @@
 
 .title {
   color: var(--main-white);
-  margin: auto auto 0;
+  margin: 30vh auto 0;
   text-transform: capitalize;
   font-size: 3rem;
 }
@@ -51,5 +51,9 @@
 
   .select > div {
     font-size: 2rem;
+  }
+
+  .title {
+    margin: 12vh auto 0;
   }
 }
