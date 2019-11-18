@@ -16,6 +16,7 @@ module.exports = yup.object({
     .max(180)
     .required(),
   address: yup.string().required(),
+  location: yup.string(),
   thumbnail: yup.string().default('house.jpg'),
   owner: yup.string().default('N/A'),
   isOwnerLocal: yup
