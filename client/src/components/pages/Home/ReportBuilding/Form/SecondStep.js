@@ -69,7 +69,7 @@ const SecondStep = props => {
         })(
           <TextArea
             rows={3}
-            placeholder="Broken window on first floor, corner street unit, compulsory purchased at some point, previously tried to contact owner."
+            placeholder="E.g. Broken window on first floor, corner street unit, compulsory purchased at some point, previously tried to contact owner."
           />,
         )}
       </FormAnt.Item>
