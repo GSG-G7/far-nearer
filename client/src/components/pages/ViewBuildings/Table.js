@@ -54,7 +54,7 @@ class TableInfo extends Component {
         key: 'owner',
       },
       {
-        title: 'Empty period',
+        title: 'Empty Since',
         dataIndex: 'emptyPeriod',
         key: 'emptyPeriod',
       },
