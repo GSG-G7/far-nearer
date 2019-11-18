@@ -44,6 +44,11 @@ class TableInfo extends Component {
         },
       },
       {
+        title: 'Preferred Use',
+        dataIndex: 'preferredUse',
+        key: 'preferredUse',
+      },
+      {
         title: 'Owner',
         dataIndex: 'owner',
         key: 'owner',
