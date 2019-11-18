@@ -24,8 +24,8 @@ const ThirdStep = props => {
   const handleSubmit = e => {
     e.preventDefault();
     validateFields((err, values) => {
-      enterLoading();
       if (!err) {
+        enterLoading();
         handleConfirm(values);
       }
     });
