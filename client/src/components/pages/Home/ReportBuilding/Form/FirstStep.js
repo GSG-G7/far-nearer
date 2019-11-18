@@ -76,6 +76,12 @@ class FirstStep extends React.Component {
           })(<Input disabled placeholder="Click on map to have location" />)}
         </FormAnt.Item>
 
+        <FormAnt.Item label="Address">
+          {getFieldDecorator('knownAddress', {
+            initialValue: '',
+          })(<Input placeholder="Enter detailed address" />)}
+        </FormAnt.Item>
+
         <FormAnt.Item label="Previous use " hasFeedback>
           {getFieldDecorator('previousUse', {
             rules: [{ required: true, message: 'Please select previous use ' }],
