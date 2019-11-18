@@ -18,7 +18,10 @@ module.exports = yup.object({
   address: yup.string().required(),
   thumbnail: yup.string().default('house.jpg'),
   owner: yup.string().default('N/A'),
-  isOwnerLocal: yup.mixed().oneOf(['Yes', 'No', 'N/A']),
+  isOwnerLocal: yup
+    .mixed()
+    .oneOf(['Yes', 'No', 'N/A'])
+    .default('N/A'),
   previousUse: yup.string().default('N/A'),
   preferredUse: yup.string().default('N/A'),
   emptyPeriod: yup.string().default('N/A'),
