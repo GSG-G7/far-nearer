@@ -6,20 +6,23 @@ import styles from './form.module.css';
 
 const { Option } = Select;
 
-const FirstStep = props => {
-  const {
-    onCityChange,
-    location,
-    knownAddress,
-    city,
-    submittedValues,
-    handleNext,
-    stepOneValues: { previousUse, isOwnerLocal },
-    form: { getFieldDecorator, validateFields },
-  } = props;
+class FirstStep extends React.Component {
+  componentDidUpdate(prevProps) {
+    const {
+      form: { setFieldsValue },
+      location,
+    } = this.props;
+    if (prevProps.location !== location) setFieldsValue({ location });
+  }
 
-  const validateInput = e => {
+  validateInput = e => {
+    const {
+      submittedValues,
+      handleNext,
+      form: { validateFields },
+    } = this.props;
     e.preventDefault();
+
     validateFields((err, values) => {
       const val = { ...values };
       if (!err) {
@@ -30,9 +33,18 @@ const FirstStep = props => {
     });
   };
 
-  return (
-    <FormAnt onSubmit={validateInput} layout="vertical">
-      <>
+  render() {
+    const {
+      onCityChange,
+      location,
+      knownAddress,
+      city,
+      stepOneValues: { previousUse, isOwnerLocal },
+      form: { getFieldDecorator },
+    } = this.props;
+
+    return (
+      <FormAnt onSubmit={this.validateInput} layout="vertical">
         <FormAnt.Item
           labelCol={{ span: 6 }}
           wrapperCol={{ span: 14 }}
@@ -58,14 +70,14 @@ const FirstStep = props => {
             rules: [
               {
                 required: true,
-                message: 'Please pin on the map the address',
+                message: 'Please pin on the map the location',
               },
             ],
             initialValue: location,
           })(<Input disabled placeholder="Click on map to have location" />)}
         </FormAnt.Item>
 
-        <FormAnt.Item label="Known address">
+        <FormAnt.Item label="Address">
           {getFieldDecorator('knownAddress', {
             initialValue: knownAddress,
           })(<Input placeholder="Enter detailed address" />)}
@@ -131,10 +143,10 @@ const FirstStep = props => {
             Next
           </Button>
         </FormAnt.Item>
-      </>
-    </FormAnt>
-  );
-};
+      </FormAnt>
+    );
+  }
+}
 
 FirstStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,

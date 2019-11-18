@@ -27,7 +27,7 @@ class Form extends Component {
     current: 0,
     stepOneValues: {
       city: '',
-      address: '',
+      location: 'gaza',
       previousUse: '',
       owner: 'N/A',
       isOwnerLocal: '',
@@ -158,7 +158,7 @@ class Form extends Component {
       loading,
     } = this.state;
 
-    const { city, address, onCityChange } = this.props;
+    const { city, location, onCityChange } = this.props;
 
     switch (current) {
       case 0:
@@ -166,7 +166,7 @@ class Form extends Component {
           <FirstStep
             stepOneValues={stepOneValues}
             city={city}
-            address={address}
+            location={location}
             onCityChange={onCityChange}
             submittedValues={this.getStepOneValues}
             handleNext={() => this.next()}
@@ -226,7 +226,7 @@ class Form extends Component {
 
 Form.propTypes = {
   city: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
   redirectToView: PropTypes.func.isRequired,
   longitude: PropTypes.number.isRequired,

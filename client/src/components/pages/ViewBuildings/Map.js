@@ -18,7 +18,7 @@ const buildMarkers = buildingInfo => {
       position,
       thumbnail,
       city,
-      address,
+      location,
       previousUse,
       owner,
       emptyPeriod,
@@ -45,7 +45,8 @@ const buildMarkers = buildingInfo => {
             </h2>
 
             <h4>
-              <span className={styles.building__title}>Address:</span> {address}
+              <span className={styles.building__title}>location:</span>
+              {location}
             </h4>
             <h4>
               <span className={styles.building__title}>Previous Use:</span>{' '}

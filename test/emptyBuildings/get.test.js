@@ -19,7 +19,7 @@ const app = require('../../server/app');
 //           latitude: 54.06835,
 //           longitude: -2.86108,
 //           thumbnail: 'house.jpg',
-//           address: 'Morecambe',
+//           location: 'Morecambe',
 //           owner: 'Someone',
 //           isOwnerLocal: 'Yes',
 //           previousUse: 'N/A',
@@ -38,7 +38,7 @@ const app = require('../../server/app');
 //         t.deepEqual(
 //           actual,
 //           expected,
-//           'The object keys that received should be city, latitude, longitude, thumbnail, address, owner, isOwnerLocal, previousUse, preferredUse, emptyPeriod, extraInfo, approved, receiveNotifications, reporterName, reporterEmail, reporterAddress',
+//           'The object keys that received should be city, latitude, longitude, thumbnail, location, owner, isOwnerLocal, previousUse, preferredUse, emptyPeriod, extraInfo, approved, receiveNotifications, reporterName, reporterEmail, reporterAddress',
 //         );
 //         t.end();
 //       }

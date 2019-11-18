@@ -18,15 +18,15 @@ class TableInfo extends Component {
     const { buildingInfo } = this.props;
     const columns = [
       {
-        title: 'Address',
-        dataIndex: 'address',
-        key: 'address',
+        title: 'Location',
+        dataIndex: 'location',
+        key: 'location',
         filters: [
           { text: 'Morecambe', value: 'Morecambe' },
           { text: 'Hastings', value: 'Hastings' },
         ],
-        filteredValue: filteredInfo.address || null,
-        onFilter: (value, record) => record.address.includes(value),
+        filteredValue: filteredInfo.location || null,
+        onFilter: (value, record) => record.location.includes(value),
       },
       {
         title: 'Previous use',

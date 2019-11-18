@@ -13,12 +13,12 @@ import { Morecambe, Hastings } from './cityBounds.json';
 import styles from './map.module.css';
 
 const Map = props => {
-  const createMarker = (latlng, address) => (
+  const createMarker = (latlng, location) => (
     <Marker position={latlng}>
-      <Popup className={styles.popup}>{address}</Popup>
+      <Popup className={styles.popup}>{location}</Popup>
     </Marker>
   );
-  const { city, onCityClick, markerCoordinates, address } = props;
+  const { city, onCityClick, markerCoordinates, location } = props;
   const cityBoundary = city === 'Morecambe' ? Morecambe : Hastings;
   const zoom = city === 'Morecambe' ? 13 : 12;
   return (
@@ -42,7 +42,7 @@ const Map = props => {
         {markerCoordinates &&
           markerCoordinates.lat &&
           markerCoordinates.lng &&
-          createMarker(markerCoordinates, address)}
+          createMarker(markerCoordinates, location)}
       </LeafletMap>
     </div>
   );
@@ -51,13 +51,13 @@ const Map = props => {
 Map.propTypes = {
   city: PropTypes.string.isRequired,
   onCityClick: PropTypes.func.isRequired,
-  address: PropTypes.string,
+  location: PropTypes.string,
   markerCoordinates: PropTypes.objectOf(PropTypes.number),
 };
 
 Map.defaultProps = {
   markerCoordinates: undefined,
-  address: undefined,
+  location: undefined,
 };
 
 export default Map;
