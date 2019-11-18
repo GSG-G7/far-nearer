@@ -10,7 +10,7 @@ import styles from './report.module.css';
 
 class ReportBuilding extends Component {
   handleCityClick = ({ latlng }) => {
-    const { handleAddressChange } = this.props;
+    const { handleLocationChange } = this.props;
     const openNotificationWithIcon = (type, message) => {
       notification[type]({
         message,
@@ -28,7 +28,7 @@ class ReportBuilding extends Component {
             'error',
             'Something went wrong !! Check your connection and try again',
           );
-        else handleAddressChange(latlng, result.address.Match_addr);
+        else handleLocationChange(latlng, result.address.Match_addr);
       });
   };
 
@@ -37,7 +37,7 @@ class ReportBuilding extends Component {
       city,
       onCityChange,
       markerCoordinates,
-      address,
+      location,
       longitude,
       redirectToView,
       latitude,
@@ -64,12 +64,12 @@ class ReportBuilding extends Component {
             <Map
               city={city}
               onCityClick={this.handleCityClick}
-              address={address}
+              location={location}
               markerCoordinates={markerCoordinates}
             />
             <Form
               city={city}
-              address={address}
+              location={location}
               onCityChange={onCityChange}
               longitude={longitude}
               latitude={latitude}
@@ -85,10 +85,10 @@ class ReportBuilding extends Component {
 ReportBuilding.propTypes = {
   city: PropTypes.string.isRequired,
   markerCoordinates: PropTypes.objectOf(PropTypes.number).isRequired,
-  address: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
   redirectToView: PropTypes.func.isRequired,
-  handleAddressChange: PropTypes.func.isRequired,
+  handleLocationChange: PropTypes.func.isRequired,
   longitude: PropTypes.number.isRequired,
   latitude: PropTypes.number.isRequired,
 };
