@@ -85,7 +85,7 @@ const ThirdStep = props => {
             initialValue: shareData,
             valuePropName: 'checked',
           })(
-            <Checkbox>
+            <Checkbox required>
               I consent to share my name and email with Far Nearer and their
               local community partners: Heart of Hastings and The Exchange CIC
             </Checkbox>,

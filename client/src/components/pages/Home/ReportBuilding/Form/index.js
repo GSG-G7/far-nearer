@@ -28,6 +28,7 @@ class Form extends Component {
     stepOneValues: {
       city: '',
       location: 'gaza',
+      knownAddress: '',
       previousUse: '',
       owner: 'N/A',
       isOwnerLocal: '',

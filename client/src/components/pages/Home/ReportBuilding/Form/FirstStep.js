@@ -37,9 +37,8 @@ class FirstStep extends React.Component {
     const {
       onCityChange,
       location,
-      knownAddress,
       city,
-      stepOneValues: { previousUse, isOwnerLocal },
+      stepOneValues: { previousUse, isOwnerLocal, knownAddress },
       form: { getFieldDecorator },
     } = this.props;
 
@@ -151,7 +150,6 @@ class FirstStep extends React.Component {
 FirstStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,
   location: PropTypes.string.isRequired,
-  knownAddress: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
   submittedValues: PropTypes.func.isRequired,
