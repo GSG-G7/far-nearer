@@ -10,7 +10,7 @@ const FirstStep = props => {
   const {
     onCityChange,
     location,
-    address,
+    knownAddress,
     city,
     submittedValues,
     handleNext,
@@ -54,20 +54,20 @@ const FirstStep = props => {
           )}
         </FormAnt.Item>
         <FormAnt.Item label="Location">
-          {getFieldDecorator('address', {
+          {getFieldDecorator('location', {
             rules: [
               {
                 required: true,
                 message: 'Please pin on the map the address',
               },
             ],
-            initialValue: address,
+            initialValue: location,
           })(<Input disabled placeholder="Click on map to have location" />)}
         </FormAnt.Item>
 
-        <FormAnt.Item label="Address">
-          {getFieldDecorator('location', {
-            initialValue: location,
+        <FormAnt.Item label="Known address">
+          {getFieldDecorator('knownAddress', {
+            initialValue: knownAddress,
           })(<Input placeholder="Enter detailed address" />)}
         </FormAnt.Item>
 
@@ -139,7 +139,7 @@ const FirstStep = props => {
 FirstStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,
   location: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
+  knownAddress: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
   submittedValues: PropTypes.func.isRequired,
