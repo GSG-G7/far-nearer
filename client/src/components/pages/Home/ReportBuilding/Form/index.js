@@ -30,7 +30,7 @@ class Form extends Component {
       address: '',
       previousUse: '',
       owner: 'N/A',
-      isOwnerLocal: 'N/A',
+      isOwnerLocal: '',
     },
     stepTwoValues: {
       emptyPeriod: '',
@@ -145,6 +145,7 @@ class Form extends Component {
         openNotificationWithIcon('info', 'The building is already exist');
       }
     } catch (err) {
+      this.setState({ loading: false });
       openNotificationWithIcon('error', 'Something went wrong !! Try again');
     }
   };
