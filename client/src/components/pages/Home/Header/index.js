@@ -24,7 +24,7 @@ const Header = ({ onCityChange }) => {
     <header className={styles.header}>
       <h1 className={styles.title}>who owns your neighborhood</h1>
       <p className={styles.description}>
-        join us in sharing information about empty buildings
+        Report, view, and investigate empty and at risk buildings
         <Dropdown overlay={menu}>
           <Button className={styles['share-btn']}>
             Report Building <Icon type="down" />

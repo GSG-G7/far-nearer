@@ -1,10 +1,18 @@
 import React from 'react';
-import { Form as FormAnt, Button, Upload, Icon, Input } from 'antd';
+import { Form as FormAnt, Button, Upload, Icon, Input, Select } from 'antd';
+
 import PropTypes from 'prop-types';
 
 import styles from './form.module.css';
 
+const { Option } = Select;
+
 const { TextArea } = Input;
+
+const years = [];
+for (let year = 2019; year >= 2000; year -= 1) {
+  years.push(year);
+}
 
 const SecondStep = props => {
   const {
@@ -52,7 +60,24 @@ const SecondStep = props => {
             },
           ],
           initialValue: emptyPeriod,
-        })(<Input placeholder="Approximately. Feel free to take a guess." />)}
+        })(
+          <Select
+            showSearch
+            placeholder="Approximately. Feel free to take a guess."
+            optionFilterProp="children"
+            filterOption={(input, option) =>
+              option.props.children
+                .toLowerCase()
+                .indexOf(input.toLowerCase()) >= 0
+            }
+          >
+            {years.map(year => (
+              <Option value={`${year} `} key={year}>
+                {year}
+              </Option>
+            ))}
+          </Select>,
+        )}
       </FormAnt.Item>
       <FormAnt.Item
         className={styles.item}
@@ -69,7 +94,7 @@ const SecondStep = props => {
         })(
           <TextArea
             rows={3}
-            placeholder="Broken window on first floor, corner street unit, compulsory purchased at some point, previously tried to contact owner."
+            placeholder="E.g. Broken window on first floor, corner street unit, compulsory purchased at some point, previously tried to contact owner."
           />,
         )}
       </FormAnt.Item>

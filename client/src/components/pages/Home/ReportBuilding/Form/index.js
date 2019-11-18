@@ -145,6 +145,7 @@ class Form extends Component {
         openNotificationWithIcon('info', 'The building is already exist');
       }
     } catch (err) {
+      this.setState({ loading: false });
       openNotificationWithIcon('error', 'Something went wrong !! Try again');
     }
   };

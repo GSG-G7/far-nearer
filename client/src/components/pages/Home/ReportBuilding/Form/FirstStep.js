@@ -20,8 +20,10 @@ const FirstStep = props => {
   const validateInput = e => {
     e.preventDefault();
     validateFields((err, values) => {
+      const val = { ...values };
       if (!err) {
-        submittedValues(values);
+        if (!val.isOwnerLocal) val.isOwnerLocal = 'N/A';
+        submittedValues(val);
         handleNext();
       }
     });

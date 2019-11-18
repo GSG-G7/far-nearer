@@ -65,7 +65,7 @@ class TableInfo extends Component {
         render: record =>
           record ? (
             <Tag className={styles.approved__tag} color="green">
-              Approved
+              Recieved
             </Tag>
           ) : (
             <Tag className={styles.approved__tag} color="red">
