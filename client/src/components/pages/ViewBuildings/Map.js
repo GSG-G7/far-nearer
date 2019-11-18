@@ -23,6 +23,7 @@ const buildMarkers = buildingInfo => {
       owner,
       emptyPeriod,
       isOwnerLocal,
+      extraInfo,
       approved,
     } = element;
     return (
@@ -57,6 +58,15 @@ const buildMarkers = buildingInfo => {
               <span className={styles.building__title}>Empty Period: </span>
               {emptyPeriod}
             </h4>
+            {extraInfo !== 'N/A' || !extraInfo ? (
+              <h4>
+                <span className={styles.building__title}>
+                  Other Information:{' '}
+                </span>
+                <br />
+                <div className={styles.building__extra}>{extraInfo}</div>
+              </h4>
+            ) : null}
             <h4>
               <span className={styles.approved}>
                 {approved ? (
