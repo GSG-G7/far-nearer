@@ -20,6 +20,7 @@ const About = () => {
             doubled in 2018 alone, hitting 939 in Portsmouth, 726 in Hartlepool
             and 518 in Eastbourne.
             <br />
+            <br />
             There are now more than 216,000 long-term empty homes in England,
             equivalent to 72 per cent of the government’s annual new homes
             target. At the same time, there are more than a million families on
@@ -33,6 +34,7 @@ const About = () => {
             Who Owns My Neighbourhood is an independent website built by the
             Community Interest Company Far Nearer. We wanted to make it easier
             to report empty and at risk buildings in your community.
+            <br />
             <br />
             So we made Who Owns My Neighbourhood, a way to report, view and
             investigate empty and at risk buildings.Once you have reported a
