@@ -9,6 +9,7 @@ const { Option } = Select;
 const FirstStep = props => {
   const {
     onCityChange,
+    location,
     address,
     city,
     submittedValues,
@@ -52,7 +53,7 @@ const FirstStep = props => {
             </Radio.Group>,
           )}
         </FormAnt.Item>
-        <FormAnt.Item label="Address">
+        <FormAnt.Item label="Location">
           {getFieldDecorator('address', {
             rules: [
               {
@@ -61,7 +62,13 @@ const FirstStep = props => {
               },
             ],
             initialValue: address,
-          })(<Input disabled placeholder="Click on map to have address" />)}
+          })(<Input disabled placeholder="Click on map to have location" />)}
+        </FormAnt.Item>
+
+        <FormAnt.Item label="Address">
+          {getFieldDecorator('location', {
+            initialValue: location,
+          })(<Input placeholder="Enter detailed address" />)}
         </FormAnt.Item>
 
         <FormAnt.Item label="Previous use " hasFeedback>
@@ -131,6 +138,7 @@ const FirstStep = props => {
 
 FirstStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,
+  location: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
