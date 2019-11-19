@@ -74,6 +74,21 @@
   margin-top: 1rem;
 
 }
+.subscribe__btn {
+  background-color: var(--main-color--dark);
+  border-color: var(--main-color--dark);
+  box-shadow: 0.1rem 0.1rem var(--main-black--hover);
+}
+
+.subscribe__btn:not([disabled]):hover, 
+.subscribe__btn:not([disabled]):active,
+.subscribe__btn:not([disabled]):visited,
+.subscribe__btn:focus
+{
+  background-color: var(--main-color--dark);
+  border-color: var(--main-color--dark);
+  box-shadow: none;
+}
 
 @media (max-width: 600px) {
   .container {
@@ -109,7 +124,8 @@
     font-size: 3rem;
   }
 
-  .subscribe__input {
+  .subscribe__input 
+  ,.subscribe__btn {
     height: 32px;
     padding: 4px 11px;
     font-size: 14px;

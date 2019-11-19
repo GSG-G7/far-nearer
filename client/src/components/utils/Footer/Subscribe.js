@@ -73,13 +73,8 @@ class SubscribeForm extends Component {
           )}
         </Form.Item>
 
-        <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            size="large"
-            className={styles.subscribe__input}
-          >
+        <Form.Item className={styles.subscribe__btn}>
+          <Button type="primary" htmlType="submit" size="large">
             Subscribe
           </Button>
         </Form.Item>
