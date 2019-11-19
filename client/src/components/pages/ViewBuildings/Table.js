@@ -59,13 +59,13 @@ class TableInfo extends Component {
         key: 'emptyPeriod',
       },
       {
-        title: 'Approved',
+        title: 'Received',
         dataIndex: 'approved',
         key: 'approved',
         render: record =>
           record ? (
             <Tag className={styles.approved__tag} color="green">
-              Recieved
+              Received
             </Tag>
           ) : (
             <Tag className={styles.approved__tag} color="red">
