@@ -26,8 +26,9 @@ const SecondStep = props => {
   const validateInput = e => {
     e.preventDefault();
     validateFields((err, values) => {
+      const val = { ...values };
       if (!err) {
-        submittedValues(values);
+        submittedValues(val);
         handleNext();
       }
     });
@@ -50,7 +51,7 @@ const SecondStep = props => {
     <FormAnt onSubmit={validateInput} layout="vertical">
       <FormAnt.Item
         className={styles.item}
-        label={<span>How Long has it been empty ?</span>}
+        label={<span>Since when has it been empty?</span>}
       >
         {getFieldDecorator('emptyPeriod', {
           rules: [

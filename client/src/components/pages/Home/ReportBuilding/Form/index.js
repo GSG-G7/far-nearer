@@ -123,6 +123,12 @@ class Form extends Component {
       ...stepThreeValues,
     };
 
+    Object.keys(building).forEach(key => {
+      if (typeof building[key] === 'string')
+        building[key] = building[key].trim();
+      if (building[key] === '') delete building[key];
+    });
+
     formData.append('data', JSON.stringify(building));
     if (thumbnail && thumbnail[0])
       formData.append('thumbnail', thumbnail[0].originFileObj);
