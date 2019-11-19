@@ -59,7 +59,7 @@ class TableInfo extends Component {
         key: 'emptyPeriod',
       },
       {
-        title: 'Approved',
+        title: 'Recieved',
         dataIndex: 'approved',
         key: 'approved',
         render: record =>
