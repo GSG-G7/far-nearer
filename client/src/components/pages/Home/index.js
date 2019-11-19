@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Header from './Header';
-import About from './About';
 import ReportBuilding from './ReportBuilding';
 import { Navbar } from '../../utils';
 
 class Home extends Component {
   state = {
     city: 'Morecambe',
-    address: '',
+    location: '',
     longitude: 0,
     latitude: 0,
   };
@@ -19,10 +18,10 @@ class Home extends Component {
     if (history) history.push('/view-buildings');
   };
 
-  handleAddressChange = (markerCoordinates, address) => {
-    if (markerCoordinates && address) {
+  handleLocationChange = (markerCoordinates, location) => {
+    if (markerCoordinates && location) {
       const { lat: latitude, lng: longitude } = markerCoordinates;
-      this.setState({ latitude, longitude, address });
+      this.setState({ latitude, longitude, location });
     }
   };
 
@@ -34,22 +33,21 @@ class Home extends Component {
   };
 
   render() {
-    const { city, latitude, longitude, address } = this.state;
+    const { city, latitude, longitude, location } = this.state;
 
     return (
       <>
         <Navbar transparent />
         <Header onCityChange={this.handleCityChange} />
-        <About />
         <ReportBuilding
           longitude={longitude}
           latitude={latitude}
           redirectToView={this.redirectToView}
           city={city}
-          address={address}
+          location={location}
           markerCoordinates={{ lat: latitude, lng: longitude }}
           onCityChange={this.handleCityChange}
-          handleAddressChange={this.handleAddressChange}
+          handleLocationChange={this.handleLocationChange}
         />
       </>
     );

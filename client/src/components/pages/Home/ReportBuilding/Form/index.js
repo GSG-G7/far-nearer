@@ -27,7 +27,8 @@ class Form extends Component {
     current: 0,
     stepOneValues: {
       city: '',
-      address: '',
+      location: 'gaza',
+      knownAddress: '',
       previousUse: '',
       owner: 'N/A',
       isOwnerLocal: '',
@@ -122,6 +123,12 @@ class Form extends Component {
       ...stepThreeValues,
     };
 
+    Object.keys(building).forEach(key => {
+      if (typeof building[key] === 'string')
+        building[key] = building[key].trim();
+      if (building[key] === '') delete building[key];
+    });
+
     formData.append('data', JSON.stringify(building));
     if (thumbnail && thumbnail[0])
       formData.append('thumbnail', thumbnail[0].originFileObj);
@@ -145,6 +152,7 @@ class Form extends Component {
         openNotificationWithIcon('info', 'The building is already exist');
       }
     } catch (err) {
+      this.setState({ loading: false });
       openNotificationWithIcon('error', 'Something went wrong !! Try again');
     }
   };
@@ -157,7 +165,7 @@ class Form extends Component {
       loading,
     } = this.state;
 
-    const { city, address, onCityChange } = this.props;
+    const { city, location, onCityChange } = this.props;
 
     switch (current) {
       case 0:
@@ -165,7 +173,7 @@ class Form extends Component {
           <FirstStep
             stepOneValues={stepOneValues}
             city={city}
-            address={address}
+            location={location}
             onCityChange={onCityChange}
             submittedValues={this.getStepOneValues}
             handleNext={() => this.next()}
@@ -225,7 +233,7 @@ class Form extends Component {
 
 Form.propTypes = {
   city: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
   redirectToView: PropTypes.func.isRequired,
   longitude: PropTypes.number.isRequired,

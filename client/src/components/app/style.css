@@ -1,17 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap');
+@font-face {
+  font-family: 'Nexa';
+  src: url(../../assets/Fonts/NexaLight.otf);
+}
+
+@font-face {
+  font-family: 'Nexa bold';
+  src: url(../../assets/Fonts/NexaBold.otf);
+}
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Nexa';
 }
 
 html {
   font-size: 1vw;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
 }
 
 :root {
@@ -21,8 +26,8 @@ body {
   --main-black: #000000;
   --main-black--hover: #555555;
   --content-grey: #333333;
-  --header-font: 'Roboto', sans-serif;
-  --content-font: 'Lato', sans-serif;
+  --header-font: 'Nexa bold';
+  --content-font: 'Nexa';
 }
 
 .container {
@@ -46,6 +51,7 @@ body {
 
 .leaflet-popup-content {
   margin: 0;
+  padding: 0.5rem;
 }
 
 .leaflet-popup-close-button {
@@ -62,6 +68,10 @@ body {
 
 .nextButton {
   float: right;
+}
+
+.ant-form-item {
+  margin-bottom: 1rem !important; 
 }
 
 @media (max-width: 600px) {

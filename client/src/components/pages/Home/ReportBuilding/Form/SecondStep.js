@@ -1,10 +1,18 @@
 import React from 'react';
-import { Form as FormAnt, Button, Upload, Icon, Input } from 'antd';
+import { Form as FormAnt, Button, Upload, Icon, Input, Select } from 'antd';
+
 import PropTypes from 'prop-types';
 
 import styles from './form.module.css';
 
+const { Option } = Select;
+
 const { TextArea } = Input;
+
+const years = [];
+for (let year = 2019; year >= 2000; year -= 1) {
+  years.push(year);
+}
 
 const SecondStep = props => {
   const {
@@ -18,8 +26,9 @@ const SecondStep = props => {
   const validateInput = e => {
     e.preventDefault();
     validateFields((err, values) => {
+      const val = { ...values };
       if (!err) {
-        submittedValues(values);
+        submittedValues(val);
         handleNext();
       }
     });
@@ -42,7 +51,7 @@ const SecondStep = props => {
     <FormAnt onSubmit={validateInput} layout="vertical">
       <FormAnt.Item
         className={styles.item}
-        label={<span>How Long has it been empty ?</span>}
+        label={<span>Since when has it been empty?</span>}
       >
         {getFieldDecorator('emptyPeriod', {
           rules: [
@@ -52,7 +61,24 @@ const SecondStep = props => {
             },
           ],
           initialValue: emptyPeriod,
-        })(<Input placeholder="" />)}
+        })(
+          <Select
+            showSearch
+            placeholder="Approximately. Feel free to take a guess."
+            optionFilterProp="children"
+            filterOption={(input, option) =>
+              option.props.children
+                .toLowerCase()
+                .indexOf(input.toLowerCase()) >= 0
+            }
+          >
+            {years.map(year => (
+              <Option value={`${year} `} key={year}>
+                {year}
+              </Option>
+            ))}
+          </Select>,
+        )}
       </FormAnt.Item>
       <FormAnt.Item
         className={styles.item}
@@ -66,7 +92,12 @@ const SecondStep = props => {
         {getFieldDecorator('extraInfo', {
           rules: [{ required: false, message: 'Please add extra information' }],
           initialValue: extraInfo,
-        })(<TextArea rows={3} placeholder="" />)}
+        })(
+          <TextArea
+            rows={3}
+            placeholder="E.g. Broken window on first floor, corner street unit, compulsory purchased at some point, previously tried to contact owner."
+          />,
+        )}
       </FormAnt.Item>
       <FormAnt.Item
         className={styles.item}
@@ -80,13 +111,18 @@ const SecondStep = props => {
         {getFieldDecorator('preferredUse', {
           rules: [{ required: false, message: 'Please add the prefered use' }],
           initialValue: preferredUse,
-        })(<TextArea rows={3} placeholder="" />)}
+        })(
+          <TextArea
+            rows={3}
+            placeholder="E.g. health centre, meeting space, cafe."
+          />,
+        )}
       </FormAnt.Item>
       <FormAnt.Item
         className={styles.item}
         label={
           <span>
-            Upload building picture
+            Upload a picture of the building
             <span style={{ color: '#888' }}> (Optional)</span>
           </span>
         }

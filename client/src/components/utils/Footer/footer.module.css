@@ -70,6 +70,8 @@
   text-align: center;
   background: var(--main-color--dark);
   padding: 1.5rem;
+  margin-top: 1rem;
+
 }
 
 @media (max-width: 600px) {

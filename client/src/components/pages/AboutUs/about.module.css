@@ -2,7 +2,8 @@
   font-family: var(--header-font);
   font-size: 3rem;
   font-weight: 700;
-  padding: 1.5rem 0;
+  margin-top: 3rem;
+
 }
 
 .content {
@@ -10,20 +11,20 @@
   padding-bottom: 3rem;
 }
 
-.title {
-  font-weight: 700;
-}
-
 .description {
-  line-height: 3rem;
+  line-height: 2rem;
+  font-size: 1.2rem;
+
 }
 
 @media (max-width: 600px) {
   .heading {
     font-size: 6rem;
+    margin-top: 6rem;
   }
 
   .description {
-    line-height: 5rem;
+    line-height: 7rem;
+    font-size: 3.3rem;
   }
 }

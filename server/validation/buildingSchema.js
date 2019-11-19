@@ -15,20 +15,43 @@ module.exports = yup.object({
     .min(-180)
     .max(180)
     .required(),
-  address: yup.string().required(),
-  thumbnail: yup.string().default('house.jpg'),
-  owner: yup.string().default('N/A'),
-  isOwnerLocal: yup.mixed().oneOf(['Yes', 'No', 'N/A']),
-  previousUse: yup.string().default('N/A'),
-  preferredUse: yup.string().default('N/A'),
+  thumbnail: yup.string().default('building.png'),
+  location: yup.string().required(),
+  knownAddress: yup
+    .string()
+    .trim()
+    .default('N/A'),
+  owner: yup
+    .string()
+    .trim()
+    .default('N/A'),
+  isOwnerLocal: yup
+    .mixed()
+    .oneOf(['Yes', 'No', 'N/A'])
+    .default('N/A'),
+  previousUse: yup.string().required(),
+  preferredUse: yup
+    .string()
+    .trim()
+    .default('N/A'),
   emptyPeriod: yup.string().default('N/A'),
-  extraInfo: yup.string(),
+  extraInfo: yup
+    .string()
+    .trim()
+    .default('N/A'),
   approved: yup.bool().default(false),
   receiveNotifications: yup.bool().default(false),
-  reporterName: yup.string().required(),
+  reporterName: yup
+    .string()
+    .trim()
+    .required(),
   reporterEmail: yup
     .string()
+    .trim()
     .email()
     .required(),
-  reporterAddress: yup.string().required(),
+  reporterAddress: yup
+    .string()
+    .trim()
+    .required(),
 });

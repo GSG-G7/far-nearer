@@ -18,15 +18,15 @@ class TableInfo extends Component {
     const { buildingInfo } = this.props;
     const columns = [
       {
-        title: 'Address',
-        dataIndex: 'address',
-        key: 'address',
+        title: 'Location',
+        dataIndex: 'location',
+        key: 'location',
         filters: [
           { text: 'Morecambe', value: 'Morecambe' },
           { text: 'Hastings', value: 'Hastings' },
         ],
-        filteredValue: filteredInfo.address || null,
-        onFilter: (value, record) => record.address.includes(value),
+        filteredValue: filteredInfo.location || null,
+        onFilter: (value, record) => record.location.includes(value),
       },
       {
         title: 'Previous use',
@@ -44,23 +44,28 @@ class TableInfo extends Component {
         },
       },
       {
+        title: 'Preferred Use',
+        dataIndex: 'preferredUse',
+        key: 'preferredUse',
+      },
+      {
         title: 'Owner',
         dataIndex: 'owner',
         key: 'owner',
       },
       {
-        title: 'Empty period',
+        title: 'Empty Since',
         dataIndex: 'emptyPeriod',
         key: 'emptyPeriod',
       },
       {
-        title: 'Approved',
+        title: 'Received',
         dataIndex: 'approved',
         key: 'approved',
         render: record =>
           record ? (
             <Tag className={styles.approved__tag} color="green">
-              Approved
+              Received
             </Tag>
           ) : (
             <Tag className={styles.approved__tag} color="red">

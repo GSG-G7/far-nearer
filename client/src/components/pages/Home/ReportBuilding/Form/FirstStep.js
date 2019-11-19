@@ -6,30 +6,44 @@ import styles from './form.module.css';
 
 const { Option } = Select;
 
-const FirstStep = props => {
-  const {
-    onCityChange,
-    address,
-    city,
-    submittedValues,
-    handleNext,
-    stepOneValues: { previousUse, isOwnerLocal },
-    form: { getFieldDecorator, validateFields },
-  } = props;
+class FirstStep extends React.Component {
+  componentDidUpdate(prevProps) {
+    const {
+      form: { setFieldsValue },
+      location,
+    } = this.props;
+    if (prevProps.location !== location) setFieldsValue({ location });
+  }
 
-  const validateInput = e => {
+  validateInput = e => {
+    const {
+      submittedValues,
+      handleNext,
+      form: { validateFields },
+    } = this.props;
     e.preventDefault();
+
     validateFields((err, values) => {
+      const val = { ...values };
       if (!err) {
-        submittedValues(values);
+        if (!val.isOwnerLocal) val.isOwnerLocal = 'N/A';
+        submittedValues(val);
         handleNext();
       }
     });
   };
 
-  return (
-    <FormAnt onSubmit={validateInput} layout="vertical">
-      <>
+  render() {
+    const {
+      onCityChange,
+      location,
+      city,
+      stepOneValues: { previousUse, isOwnerLocal, knownAddress },
+      form: { getFieldDecorator },
+    } = this.props;
+
+    return (
+      <FormAnt onSubmit={this.validateInput} layout="vertical">
         <FormAnt.Item
           labelCol={{ span: 6 }}
           wrapperCol={{ span: 14 }}
@@ -50,29 +64,36 @@ const FirstStep = props => {
             </Radio.Group>,
           )}
         </FormAnt.Item>
-        <FormAnt.Item label="Address">
-          {getFieldDecorator('address', {
+        <FormAnt.Item label="Location">
+          {getFieldDecorator('location', {
             rules: [
               {
                 required: true,
-                message: 'Please pin on the map the address',
+                message: 'Please pin on the map the location',
               },
             ],
-            initialValue: address,
-            // hidden: true,
-          })(<Input disabled placeholder="Click on map to have address" />)}
+            initialValue: location,
+          })(<Input disabled placeholder="Click on map to have location" />)}
+        </FormAnt.Item>
+
+        <FormAnt.Item label="Address">
+          {getFieldDecorator('knownAddress', {
+            initialValue: knownAddress,
+          })(<Input placeholder="Enter detailed address" />)}
         </FormAnt.Item>
 
         <FormAnt.Item label="Previous use " hasFeedback>
           {getFieldDecorator('previousUse', {
             rules: [{ required: true, message: 'Please select previous use ' }],
-            initialValue: previousUse,
+            initialValue: previousUse || undefined,
           })(
-            <Select placeholder="Previous Use">
+            <Select placeholder="What was the building used for">
+              <Option value="N/A">I don&apos;t konw</Option>
               <Option value="Residential building">Residential building</Option>
               <Option value="Retail building">Retail building</Option>
               <Option value="Office building">Office building</Option>
-              <Option value="community building">Community building</Option>
+              <Option value="Community building">Community building</Option>
+              <Option value="Industrial building">Industrial building</Option>
             </Select>,
           )}
         </FormAnt.Item>
@@ -81,7 +102,7 @@ const FirstStep = props => {
           className={styles.item}
           label={
             <span>
-              Owner
+              Who owns the building ?
               <span style={{ color: '#888' }}> (Optional)</span>
             </span>
           }
@@ -93,9 +114,10 @@ const FirstStep = props => {
                 message: 'Please add the owner',
               },
             ],
-            // defaultValue: owner,
             initialValue: '',
-          })(<Input placeholder="Please input the owner" />)}
+          })(
+            <Input placeholder="E.g. Dan Jones. Has lived overseas since 2014. Last contacted in 2015" />,
+          )}
         </FormAnt.Item>
 
         <FormAnt.Item label="Are they local ?">
@@ -103,7 +125,7 @@ const FirstStep = props => {
             initialValue: isOwnerLocal,
             rules: [
               {
-                required: true,
+                required: false,
                 message: 'This field is required',
               },
             ],
@@ -120,14 +142,14 @@ const FirstStep = props => {
             Next
           </Button>
         </FormAnt.Item>
-      </>
-    </FormAnt>
-  );
-};
+      </FormAnt>
+    );
+  }
+}
 
 FirstStep.propTypes = {
   form: PropTypes.objectOf(PropTypes.any).isRequired,
-  address: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   onCityChange: PropTypes.func.isRequired,
   submittedValues: PropTypes.func.isRequired,

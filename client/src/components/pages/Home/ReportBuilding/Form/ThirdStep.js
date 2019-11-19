@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form as FormAnt, Checkbox, Input, Button } from 'antd';
+import { Form as FormAnt, Checkbox, Input, Button, notification } from 'antd';
 import PropTypes from 'prop-types';
 
 import styles from './form.module.css';
@@ -23,10 +23,21 @@ const ThirdStep = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    const openNotificationWithIcon = (type, message) => {
+      notification[type]({
+        message,
+        duration: 3,
+      });
+    };
+
     validateFields((err, values) => {
-      enterLoading();
       if (!err) {
-        handleConfirm(values);
+        if (values.shareData === false)
+          openNotificationWithIcon('info', 'You have to agree on sharing data');
+        else {
+          enterLoading();
+          handleConfirm(values);
+        }
       }
     });
   };
@@ -84,13 +95,22 @@ const ThirdStep = props => {
             ],
             initialValue: shareData,
             valuePropName: 'checked',
-          })(<Checkbox>I agree to sharing this data</Checkbox>)}
+          })(
+            <Checkbox required>
+              I consent to share my name and email with Far Nearer and their
+              local community partners: Heart of Hastings and The Exchange CIC
+            </Checkbox>,
+          )}
         </FormAnt.Item>
         <FormAnt.Item>
           {getFieldDecorator('receiveNotifications', {
             initialValue: receiveNotifications,
             valuePropName: 'checked',
-          })(<Checkbox>I would like to receive updates</Checkbox>)}
+          })(
+            <Checkbox>
+              I would like to receive updates from Who Owns Your Neighbourhood
+            </Checkbox>,
+          )}
         </FormAnt.Item>
         <FormAnt.Item>
           <Button
@@ -106,7 +126,7 @@ const ThirdStep = props => {
             htmlType="submit"
             onClick={handleSubmit}
             className="nextButton"
-            size="laenterLoadingrge"
+            size="large"
             loading={loading}
           >
             Submit

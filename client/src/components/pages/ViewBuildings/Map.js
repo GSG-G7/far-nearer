@@ -18,11 +18,12 @@ const buildMarkers = buildingInfo => {
       position,
       thumbnail,
       city,
-      address,
+      location,
       previousUse,
       owner,
       emptyPeriod,
       isOwnerLocal,
+      extraInfo,
       approved,
     } = element;
     return (
@@ -44,7 +45,8 @@ const buildMarkers = buildingInfo => {
             </h2>
 
             <h4>
-              <span className={styles.building__title}>Address:</span> {address}
+              <span className={styles.building__title}>location:</span>
+              {location}
             </h4>
             <h4>
               <span className={styles.building__title}>Previous Use:</span>{' '}
@@ -54,9 +56,18 @@ const buildMarkers = buildingInfo => {
               <span className={styles.building__title}>Owner: </span> {owner}
             </h4>
             <h4>
-              <span className={styles.building__title}>Empty Period: </span>
+              <span className={styles.building__title}>Empty Since: </span>
               {emptyPeriod}
             </h4>
+            {extraInfo !== 'N/A' || !extraInfo ? (
+              <h4>
+                <span className={styles.building__title}>
+                  Other Information:{' '}
+                </span>
+                <br />
+                <div className={styles.building__extra}>{extraInfo}</div>
+              </h4>
+            ) : null}
             <h4>
               <span className={styles.approved}>
                 {approved ? (

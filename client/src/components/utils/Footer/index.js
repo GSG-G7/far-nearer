@@ -12,8 +12,9 @@ const Footer = () => {
         <section className={styles.section}>
           <h2 className={styles.heading}>About Us</h2>
           <p className={styles.content}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-            velit ex maxime ipsum amet recusandae Lorem, ipsum dolor.
+            Who Owns My Neighbourhood is an independent website built by the
+            Community Interest Company Far Nearer. We wanted to make it easier
+            to report empty and at risk buildings in your community.
           </p>
           <Icon type="global" className={styles.icon} />
           <a href="http://www.farnearer.org/" className={styles.link}>
