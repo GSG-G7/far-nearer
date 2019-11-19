@@ -2,6 +2,7 @@
   background: var(--main-color--light);
   color: var(--main-white);
   display: flex;
+  padding-top: 1rem ;
   flex-direction: column;
 }
 
@@ -69,7 +70,7 @@
 .bottom {
   text-align: center;
   background: var(--main-color--dark);
-  padding: 1.5rem;
+  padding: 1rem;
   margin-top: 1rem;
 
 }
