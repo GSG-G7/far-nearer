@@ -2,7 +2,7 @@
   flex-basis: 48%;
   height: 100%;
   background-color: var(--main-white);
-  padding: 2% 4% 7%;
+  padding: 2% 4% 0;
   position: relative;
 }
 

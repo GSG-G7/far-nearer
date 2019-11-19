@@ -70,6 +70,10 @@ html {
   float: right;
 }
 
+.ant-form-item {
+  margin-bottom: 1rem !important; 
+}
+
 @media (max-width: 600px) {
   .ant-table {
     font-size: 1.4rem;

@@ -27,9 +27,9 @@
 .share-btn {
   display: block;
   margin: 15% auto;
-  background-color: var(--main-color--light);
+  background-color: var(--main-color--dark);
   color: var(--main-white);
-  border-color: var(--main-color--light);
+  border-color: var(--main-color--dark);
 }
 
 .share-btn:hover {
