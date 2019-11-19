@@ -75,23 +75,6 @@ class Navbar extends Component {
           </div>
           <div className={styles.menu}>
             <ul className={styles.list}>
-              <li key="home" className={styles['list--item']}>
-                <NavLink
-                  exact
-                  className={`${
-                    styles['list--link']
-                  } ${this.getTransparentClass(transparent)}`}
-                  activeClassName={
-                    transparent ? styles['transparent--active'] : styles.active
-                  }
-                  to="/"
-                  isActive={(match, { hash }) =>
-                    !!(match && match.isExact && !hash)
-                  }
-                >
-                  Home
-                </NavLink>
-              </li>
               <li className={styles['list--item']}>
                 <NavLink
                   exact
