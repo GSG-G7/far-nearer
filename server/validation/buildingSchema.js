@@ -17,8 +17,11 @@ module.exports = yup.object({
     .required(),
   thumbnail: yup.string().default('building.png'),
   location: yup.string().required(),
-  knownAddress: yup.string(),
-  owner: yup.string().default('N/A'),
+  knownAddress: yup.string().trim(),
+  owner: yup
+    .string()
+    .trim()
+    .default('N/A'),
   isOwnerLocal: yup
     .mixed()
     .oneOf(['Yes', 'No', 'N/A'])
@@ -26,13 +29,20 @@ module.exports = yup.object({
   previousUse: yup.string().default('N/A'),
   preferredUse: yup.string().default('N/A'),
   emptyPeriod: yup.string().default('N/A'),
-  extraInfo: yup.string(),
+  extraInfo: yup.string().trim(),
   approved: yup.bool().default(false),
   receiveNotifications: yup.bool().default(false),
-  reporterName: yup.string().required(),
+  reporterName: yup
+    .string()
+    .trim()
+    .required(),
   reporterEmail: yup
     .string()
+    .trim()
     .email()
     .required(),
-  reporterAddress: yup.string().required(),
+  reporterAddress: yup
+    .string()
+    .trim()
+    .required(),
 });

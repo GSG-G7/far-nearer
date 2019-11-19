@@ -78,20 +78,6 @@ class Navbar extends Component {
               <li className={styles['list--item']}>
                 <NavLink
                   exact
-                  className={`${
-                    styles['list--link']
-                  } ${this.getTransparentClass(transparent)}`}
-                  activeClassName={
-                    transparent ? styles['transparent--active'] : styles.active
-                  }
-                  to="/about"
-                >
-                  About
-                </NavLink>
-              </li>
-              <li className={styles['list--item']}>
-                <NavLink
-                  exact
                   smooth
                   className={`${
                     styles['list--link']
@@ -116,7 +102,21 @@ class Navbar extends Component {
                   activeClassName={
                     transparent ? styles['transparent--active'] : styles.active
                   }
-                  to="/view-buildings"
+                  to="/about#about"
+                >
+                  About
+                </NavLink>
+              </li>
+              <li className={styles['list--item']}>
+                <NavLink
+                  exact
+                  className={`${
+                    styles['list--link']
+                  } ${this.getTransparentClass(transparent)}`}
+                  activeClassName={
+                    transparent ? styles['transparent--active'] : styles.active
+                  }
+                  to="/view-buildings#view"
                 >
                   View Buildings
                 </NavLink>
