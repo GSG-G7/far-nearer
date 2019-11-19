@@ -8,7 +8,7 @@ const About = () => {
     <>
       <Navbar />
       <div className="container">
-        <h1 className={styles.heading} id="#about">
+        <h1 className={styles.heading} id="about">
           About Us
         </h1>
         <div className={styles.content}>

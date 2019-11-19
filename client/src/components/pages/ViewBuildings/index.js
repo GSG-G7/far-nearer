@@ -34,11 +34,9 @@ class viewBuildings extends Component {
     return (
       <>
         <Navbar />
-        <div className="container">
+        <div className="container" id="view">
           <div className={styles.view}>
-            <h1 className={styles.heading} id="#view">
-              View Buildings
-            </h1>
+            <h1 className={styles.heading}>View Buildings</h1>
             <p className={styles.content}>
               These buildings have been reported as empty or at risk by the
               community. Some may be in the process of verification.
