@@ -33,7 +33,7 @@ class Navbar extends Component {
     let visible = true;
 
     if (initialStatus) {
-      if (currentScrollPos > windowHeight * 0.7 - navbarHeight) {
+      if (currentScrollPos > windowHeight * 0.3 - navbarHeight) {
         visible = prevScrollpos > currentScrollPos;
         this.setState({ transparent: false });
       } else {
