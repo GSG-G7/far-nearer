@@ -15,6 +15,7 @@ class Navbar extends Component {
     prevScrollpos: window.pageYOffset,
     visible: true,
     showMenu: false,
+    showLogo: true,
   };
 
   componentDidMount() {
@@ -62,16 +63,28 @@ class Navbar extends Component {
   };
 
   showHideMenu = () => {
-    const { showMenu } = this.state;
-    this.setState({ showMenu: !showMenu });
+    const { showMenu, showLogo } = this.state;
+    this.setState({ showMenu: !showMenu, showLogo: !showLogo });
   };
 
+  getLogoClass = showLogo => (!showLogo ? ` ${styles.hide__logo}` : '');
+
   render() {
-    const { initialStatus, transparent, visible, showMenu } = this.state;
+    const {
+      initialStatus,
+      transparent,
+      visible,
+      showMenu,
+      showLogo,
+    } = this.state;
     return (
       <nav className={this.getNavbarClass(initialStatus, transparent, visible)}>
         <div className={`${styles.container} container`}>
-          <div className={styles['image-container']}>
+          <div
+            className={`${styles['image-container']} ${this.getLogoClass(
+              showLogo,
+            )}`}
+          >
             <Link to="/">
               <img
                 className={styles.logo}
@@ -96,7 +109,8 @@ class Navbar extends Component {
                 <path d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z" />
               </svg>
             </button>
-            {showMenu ? (
+            {console.log(showLogo)}
+            {showMenu && this.getLogoClass(showLogo) ? (
               <SlideMenu showHideMenu={this.showHideMenu} />
             ) : (
               <div className={styles.menu}>

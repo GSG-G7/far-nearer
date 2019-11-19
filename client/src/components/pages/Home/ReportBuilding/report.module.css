@@ -22,12 +22,13 @@
 .title {
   text-align: center;
   font-size: 3rem;
+  font-weight: bold;
   color: var(--main-black);
 }
 
 .description {
   font-family: var(--content-font);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--content-grey);
   text-align: center;
   padding: 1rem 3rem;
