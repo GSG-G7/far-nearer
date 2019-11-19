@@ -29,7 +29,7 @@ module.exports = yup.object({
     .mixed()
     .oneOf(['Yes', 'No', 'N/A'])
     .default('N/A'),
-  previousUse: yup.string().default('N/A'),
+  previousUse: yup.string().required(),
   preferredUse: yup
     .string()
     .trim()
