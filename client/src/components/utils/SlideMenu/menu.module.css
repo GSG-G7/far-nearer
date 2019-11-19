@@ -31,6 +31,10 @@
   margin: 15rem;
 }
 
+.list__item:hover {
+  color: var(--main-color--dark);
+}
+
 .list__item > a {
   font-size: 5rem;
   font-weight: bold;
@@ -54,4 +58,5 @@
   border: none;
   outline: none;
   float: right;
+  cursor: pointer;
 }
