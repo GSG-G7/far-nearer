@@ -88,12 +88,12 @@ class FirstStep extends React.Component {
             initialValue: previousUse || undefined,
           })(
             <Select placeholder="What was the building used for">
-              <Option value="N/A">I don&apos;t konw</Option>
               <Option value="Residential building">Residential building</Option>
               <Option value="Retail building">Retail building</Option>
               <Option value="Office building">Office building</Option>
               <Option value="Community building">Community building</Option>
               <Option value="Industrial building">Industrial building</Option>
+              <Option value="N/A">I don&apos;t konw</Option>
             </Select>,
           )}
         </FormAnt.Item>
