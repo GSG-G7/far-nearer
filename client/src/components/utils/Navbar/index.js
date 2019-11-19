@@ -100,7 +100,7 @@ class Navbar extends Component {
               onClick={this.showHideMenu}
             >
               <svg
-                fill="#fffffff"
+                fill="#ffffff"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 30 30"
                 width="30px"
