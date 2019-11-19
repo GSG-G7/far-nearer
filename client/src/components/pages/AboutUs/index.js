@@ -8,7 +8,9 @@ const About = () => {
     <>
       <Navbar />
       <div className="container">
-        <h1 className={styles.heading}>About Us</h1>
+        <h1 className={styles.heading} id="#about">
+          About Us
+        </h1>
         <div className={styles.content}>
           <p className={styles.description}>
             Since 2012, the number of empty buildings across England has been

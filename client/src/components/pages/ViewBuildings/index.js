@@ -22,8 +22,8 @@ class viewBuildings extends Component {
       const {
         data: { data },
       } = await axios.get('/api/v1/empty-buildings');
-      if (data) this.setState({ buildingInfo: data });
-      else throw new Error();
+      if (data && data[0].latitude && data[0].longitude)
+        this.setState({ buildingInfo: data });
     } catch (err) {
       openNotificationWithIcon('error', 'Something went wrong !! Try again');
     }
@@ -36,7 +36,9 @@ class viewBuildings extends Component {
         <Navbar />
         <div className="container">
           <div className={styles.view}>
-            <h1 className={styles.heading}>View Buildings</h1>
+            <h1 className={styles.heading} id="#view">
+              View Buildings
+            </h1>
             <p className={styles.content}>
               These buildings have been reported as empty or at risk by the
               community. Some may be in the process of verification.
