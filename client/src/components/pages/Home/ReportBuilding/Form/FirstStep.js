@@ -85,9 +85,10 @@ class FirstStep extends React.Component {
         <FormAnt.Item label="Previous use " hasFeedback>
           {getFieldDecorator('previousUse', {
             rules: [{ required: true, message: 'Please select previous use ' }],
-            initialValue: previousUse,
+            initialValue: previousUse || 'N/A',
           })(
             <Select placeholder="Previous Use">
+              <Option value="N/A">I don&apos;t konw</Option>
               <Option value="Residential building">Residential building</Option>
               <Option value="Retail building">Retail building</Option>
               <Option value="Office building">Office building</Option>
