@@ -22,7 +22,8 @@ class viewBuildings extends Component {
       const {
         data: { data },
       } = await axios.get('/api/v1/empty-buildings');
-      if (data && data[0].latitude && data[0].longitude)
+
+      if (data && data[0] && data[0].latitude && data[0].longitude)
         this.setState({ buildingInfo: data });
     } catch (err) {
       openNotificationWithIcon('error', 'Something went wrong !! Try again');
