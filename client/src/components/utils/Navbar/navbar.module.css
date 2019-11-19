@@ -117,4 +117,8 @@
   .hidden {
     top: -30px;
   }
+
+  .image-container {
+    display: none;
+  }
 }
