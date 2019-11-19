@@ -27,13 +27,18 @@
 .share-btn {
   display: block;
   margin: 15% auto;
-  background-color: var(--main-color--dark);
+  background-color: var(--main-color--light);
   color: var(--main-white);
-  border-color: var(--main-color--dark);
+  border-color: var(--main-color--light);
 }
 
-.share-btn:hover {
+.share-btn:not([disabled]):hover,
+.share-btn:focus ,
+.share-btn:active {
   color: var(--main-white);
+  background-color: var(--main-color--light);
+  border-color: var(--main-color--light);
+  box-shadow: 1rem 1rem gray;
 }
 
 .select > div {
