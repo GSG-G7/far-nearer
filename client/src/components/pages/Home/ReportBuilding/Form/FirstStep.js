@@ -38,7 +38,7 @@ class FirstStep extends React.Component {
       onCityChange,
       location,
       city,
-      stepOneValues: { previousUse, isOwnerLocal, knownAddress },
+      stepOneValues: { previousUse, isOwnerLocal, knownAddress, owner },
       form: { getFieldDecorator },
     } = this.props;
 
@@ -114,7 +114,7 @@ class FirstStep extends React.Component {
                 message: 'Please add the owner',
               },
             ],
-            initialValue: '',
+            initialValue: owner,
           })(
             <Input placeholder="E.g. Dan Jones. Has lived overseas since 2014. Last contacted in 2015" />,
           )}

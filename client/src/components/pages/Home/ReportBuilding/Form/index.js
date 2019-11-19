@@ -30,7 +30,7 @@ class Form extends Component {
       location: 'gaza',
       knownAddress: '',
       previousUse: '',
-      owner: 'N/A',
+      owner: '',
       isOwnerLocal: '',
     },
     stepTwoValues: {
