@@ -56,7 +56,7 @@ const buildMarkers = buildingInfo => {
               <span className={styles.building__title}>Owner: </span> {owner}
             </h4>
             <h4>
-              <span className={styles.building__title}>Empty Period: </span>
+              <span className={styles.building__title}>Empty Since: </span>
               {emptyPeriod}
             </h4>
             {extraInfo !== 'N/A' || !extraInfo ? (
