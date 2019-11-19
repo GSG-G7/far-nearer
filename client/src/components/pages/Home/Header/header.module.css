@@ -1,7 +1,9 @@
 .header {
   height: 70vh;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=747&q=80s');
+    url('https://i.imgur.com/ILIYRwK.jpg');
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,12 +14,14 @@
   margin: 30vh auto 0;
   text-transform: capitalize;
   font-size: 3rem;
+  font-family: var(--header-font);
 }
 
 .description {
   color: var(--main-white);
   margin: 0 auto auto;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .share-btn {
