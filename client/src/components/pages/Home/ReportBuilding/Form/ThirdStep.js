@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form as FormAnt, Checkbox, Input, Button } from 'antd';
+import { Form as FormAnt, Checkbox, Input, Button, notification } from 'antd';
 import PropTypes from 'prop-types';
 
 import styles from './form.module.css';
@@ -23,10 +23,21 @@ const ThirdStep = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    const openNotificationWithIcon = (type, message) => {
+      notification[type]({
+        message,
+        duration: 3,
+      });
+    };
+
     validateFields((err, values) => {
       if (!err) {
-        enterLoading();
-        handleConfirm(values);
+        if (values.shareData === false)
+          openNotificationWithIcon('info', 'You have to agree on sharing data');
+        else {
+          enterLoading();
+          handleConfirm(values);
+        }
       }
     });
   };
