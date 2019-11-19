@@ -14,11 +14,11 @@ const ThirdStep = props => {
       reporterEmail,
       reporterAddress,
       receiveNotifications,
-      shareData
+      shareData,
     },
     form: { getFieldDecorator, validateFields, getFieldsValue },
     enterLoading,
-    loading
+    loading,
   } = props;
 
   const handleSubmit = e => {
@@ -26,7 +26,7 @@ const ThirdStep = props => {
     const openNotificationWithIcon = (type, message) => {
       notification[type]({
         message,
-        duration: 3
+        duration: 3,
       });
     };
 
@@ -56,10 +56,10 @@ const ThirdStep = props => {
             rules: [
               {
                 required: true,
-                message: 'This field is required'
-              }
+                message: 'This field is required',
+              },
             ],
-            initialValue: reporterName
+            initialValue: reporterName,
           })(<Input placeholder="Write your name" />)}
         </FormAnt.Item>
         <FormAnt.Item label="Email">
@@ -68,10 +68,10 @@ const ThirdStep = props => {
               {
                 required: true,
                 message: 'Please enter a valid email',
-                type: 'email'
-              }
+                type: 'email',
+              },
             ],
-            initialValue: reporterEmail
+            initialValue: reporterEmail,
           })(<Input placeholder="Write your email" />)}
         </FormAnt.Item>
         <FormAnt.Item label="Address">
@@ -79,10 +79,10 @@ const ThirdStep = props => {
             rules: [
               {
                 required: true,
-                message: 'This field is required'
-              }
+                message: 'This field is required',
+              },
             ],
-            initialValue: reporterAddress
+            initialValue: reporterAddress,
           })(<Input placeholder="Write your address" />)}
         </FormAnt.Item>
         <FormAnt.Item>
@@ -90,26 +90,26 @@ const ThirdStep = props => {
             rules: [
               {
                 required: true,
-                message: 'You must agree to share your data with us'
-              }
+                message: 'You must agree to share your data with us',
+              },
             ],
             initialValue: shareData,
-            valuePropName: 'checked'
+            valuePropName: 'checked',
           })(
             <Checkbox required>
               I consent to share my name and email with Far Nearer and their
               local community partners: Heart of Hastings and The Exchange CIC
-            </Checkbox>
+            </Checkbox>,
           )}
         </FormAnt.Item>
         <FormAnt.Item>
           {getFieldDecorator('receiveNotifications', {
             initialValue: receiveNotifications,
-            valuePropName: 'checked'
+            valuePropName: 'checked',
           })(
             <Checkbox>
               I would like to receive updates from Who Owns Your Neighbourhood
-            </Checkbox>
+            </Checkbox>,
           )}
         </FormAnt.Item>
         <FormAnt.Item>
@@ -144,7 +144,7 @@ ThirdStep.propTypes = {
   handleConfirm: PropTypes.func.isRequired,
   enterLoading: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  stepThreeValues: PropTypes.objectOf(PropTypes.any).isRequired
+  stepThreeValues: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 const WrappedStep = FormAnt.create({ name: 'validate_other' })(ThirdStep);
