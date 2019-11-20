@@ -2,7 +2,6 @@
   background: var(--main-color--light);
   color: var(--main-white);
   display: flex;
-  padding-top: 1rem ;
   flex-direction: column;
 }
 
@@ -17,6 +16,7 @@
 
 .heading {
   padding: 1rem 0;
+  margin-top: 1.5rem;
   font-family: var(--header-font);
   color: var(--main-white);
   font-weight: 700;
@@ -70,7 +70,7 @@
 .bottom {
   text-align: center;
   background: var(--main-color--dark);
-  padding: 1rem;
+  padding: 1.5rem;
   margin-top: 1rem;
 
 }
