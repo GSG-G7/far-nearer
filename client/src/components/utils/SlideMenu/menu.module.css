@@ -8,6 +8,17 @@
   top: 0px;
   right: 0;
   height: -webkit-fill-available;
+  animation-name: slideLeft;
+  animation-duration: 800ms;
+}
+
+@keyframes slideLeft {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 72%;
+  }
 }
 
 .menu__nav {
@@ -59,4 +70,5 @@
   outline: none;
   float: right;
   cursor: pointer;
+  padding: 2rem;
 }

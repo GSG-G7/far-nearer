@@ -17,6 +17,7 @@ class Navbar extends Component {
     showMenu: false,
     showLogo: true,
     overlay: false,
+    isShow: true,
   };
 
   componentDidMount() {
@@ -64,11 +65,12 @@ class Navbar extends Component {
   };
 
   showHideMenu = () => {
-    const { showMenu, showLogo, overlay } = this.state;
+    const { showMenu, showLogo, overlay, isShow } = this.state;
     this.setState({
       showMenu: !showMenu,
       showLogo: !showLogo,
       overlay: !overlay,
+      isShow: !isShow,
     });
   };
 
@@ -82,6 +84,7 @@ class Navbar extends Component {
       showMenu,
       showLogo,
       overlay,
+      isShow,
     } = this.state;
     return (
       <div className={overlay ? ` ${styles.overlay}` : ''}>
@@ -119,7 +122,7 @@ class Navbar extends Component {
                 </svg>
               </button>
               {showMenu && this.getLogoClass(showLogo) ? (
-                <SlideMenu showHideMenu={this.showHideMenu} />
+                <SlideMenu showHideMenu={this.showHideMenu} showMenu={isShow} />
               ) : (
                 <div className={styles.menu}>
                   <ul className={styles.list}>
