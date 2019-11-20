@@ -12,15 +12,17 @@ import Home from 'components/pages/Home';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route path="/view-buildings" component={viewBuildings} />
-        <Route component={Error} />
-      </Switch>
-      <Footer />
-    </Router>
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route path="/view-buildings" component={viewBuildings} />
+          <Route component={Error} />
+        </Switch>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 

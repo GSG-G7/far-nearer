@@ -71,7 +71,11 @@ html {
 }
 
 .ant-form-item {
-  margin-bottom: 1rem !important; 
+  margin-bottom: 1rem !important;
+}
+
+a:hover {
+  color: var(--main-color--dark);
 }
 
 @media (max-width: 600px) {
