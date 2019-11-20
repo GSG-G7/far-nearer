@@ -2,16 +2,6 @@
 
 ![alt text](https://imgur.com/dlagXPw.png)
 
-## **Team Leader**
-
-Ahmed Abdellatif
-
-## **Team Members**
-
-- Fadi Alamassi
-- Rana Obaid
-- Mai Ubeid
-
 ## **The Challenges** :warning:
 
 - The End user needs a way to report potentially empty buildings in their area so that they can bring them into community ownership before they are bought by commercial buyers.
@@ -115,3 +105,10 @@ To contribute our project, follow these instructions:
 - Back-End: **Node JS** & **Express JS**
 - Styling: **CSS** & **Ant Design**
 - Database: **airtable**
+
+## **Team Members**
+
+- [Ahmed Abdellatif](https://github.com/ahmedisam99) (Team Leader)
+- [Fadi Alamassi](https://github.com/FadiAlamassi)
+- [Rana Obaid](https://github.com/ranasobeid95)
+- [Mai Ubeid](https://github.com/MaiUbeid)
