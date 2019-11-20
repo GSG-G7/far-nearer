@@ -1,5 +1,7 @@
 # **Who owns our neighbourhood?**
 
+![alt text](https://imgur.com/dlagXPw.png)
+
 ## **Team Leader**
 
 Ahmed Abdellatif
@@ -21,7 +23,58 @@ FAR NEARER website enables users to report about any empty buildings and the com
 
 ## **Design Sprint** :art:
 
+![alt text](https://imgur.com/VyiQXWt.png)
+
 #### [Our Prototype](https://www.figma.com/proto/3p0arBhByl0QwtLyjqumke/Far-Nearer?node-id=11%3A0&scaling=min-zoom)
+
+## Installation Guide :wrench:
+
+1. Clone this repo
+2. Navigate to the cloned repo
+
+### Project setup
+
+1. Create a `.env` file in the project root folder.
+2. Add the following in it **This step is so important!!**
+
+```
+AIRTABLE_BASE_ID
+AIRTABLE_API_KEY
+```
+
+3. To install the dependecies, only for the first time:
+
+```
+ npm i && cd client && npm i --only the first time--
+
+```
+
+### Running the project:
+
+1. To run the server, Open your terminal and run:
+
+```
+
+npm run dev
+
+```
+
+2. To run the React Development server, Open another terminal and run:
+
+```
+
+cd client
+npm start
+
+```
+
+3. To run the tests:
+
+```
+
+npm test
+
+```
 
 ## **User Journey**
 
@@ -34,6 +87,27 @@ The user can visit the web-app to report buildings that are believed to be empty
 - As a user, I can subscribe to the mailing list.
 - As a user, I can view information about the project so that I can deal with the displayed data.
 - As a user, I can subscribe in the mailing list and recive emails with all updates.
+
+## Challenges Achieved :tada:
+
+- [x] Finding a way for the community to find empty buildings easily :100:
+- [x] Gave people oportuinty to report an empty building
+- [x] Reduced the time and effort spent on finding empty buildings :fire:
+- [x] Made a simple and easy to understand system
+- [x] Making a good user experience for our users to use the app
+- [x] Developed a strong :muscle: backend and authentication system
+
+## Contribution To The Project :sparkles:
+
+To contribute our project, follow these instructions:
+
+- Fork the repo on GitHub
+- Clone the project to your own machine
+- Commit changes to your own branch
+- Push your work back up to your fork
+- Submit a Pull request so that we can review your changes
+
+:point_right: NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
 ## **Technologies** :computer:
 
