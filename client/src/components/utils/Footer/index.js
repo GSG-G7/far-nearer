@@ -44,9 +44,7 @@ const Footer = () => {
         <section className={styles.section}>
           <h2 className={styles.heading}>Join Our Mailing List</h2>
           <Subscribe />
-          <p className={styles.content}>
-            Subscribe to our website and recieve updated news and emails
-          </p>
+          <p>Subscribe to our website and recieve updated news and emails</p>
         </section>
       </div>
       <div className={styles.bottom}>

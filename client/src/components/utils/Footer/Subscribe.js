@@ -78,7 +78,7 @@ class SubscribeForm extends Component {
             type="primary"
             htmlType="submit"
             size="large"
-            className={styles.subscribe__input}
+            className={styles.subscribe__btn}
           >
             Subscribe
           </Button>

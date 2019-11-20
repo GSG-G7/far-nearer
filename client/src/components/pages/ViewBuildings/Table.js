@@ -5,7 +5,15 @@ import PropTypes from 'prop-types';
 import styles from './view.module.css';
 
 class TableInfo extends Component {
-  state = { filteredInfo: {} };
+  state = { filteredInfo: {}, scrollVisable: false };
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    this.setState({ scrollVisable: window.innerWidth < 700 });
+  };
 
   handleChange = (pagination, filters) => {
     this.setState({
@@ -14,7 +22,7 @@ class TableInfo extends Component {
   };
 
   render() {
-    const { filteredInfo = {} } = this.state;
+    const { filteredInfo = {}, scrollVisable } = this.state;
     const { buildingInfo } = this.props;
     const columns = [
       {
@@ -80,6 +88,7 @@ class TableInfo extends Component {
         dataSource={buildingInfo}
         onChange={this.handleChange}
         rowKey={record => record.id}
+        scroll={scrollVisable ? { x: 700 } : false}
       />
     );
   }
