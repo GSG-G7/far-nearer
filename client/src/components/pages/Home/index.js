@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
 
 import Header from './Header';
-import ReportBuilding from './ReportBuilding';
-import { Navbar } from '../../utils';
+import { Navbar, Loading } from '../../utils';
+
+const ReportBuilding = lazy(() => import('./ReportBuilding'));
 
 class Home extends Component {
   state = {
@@ -39,16 +40,18 @@ class Home extends Component {
       <>
         <Navbar transparent />
         <Header onCityChange={this.handleCityChange} />
-        <ReportBuilding
-          longitude={longitude}
-          latitude={latitude}
-          redirectToView={this.redirectToView}
-          city={city}
-          location={location}
-          markerCoordinates={{ lat: latitude, lng: longitude }}
-          onCityChange={this.handleCityChange}
-          handleLocationChange={this.handleLocationChange}
-        />
+        <Suspense fallback={<Loading />}>
+          <ReportBuilding
+            longitude={longitude}
+            latitude={latitude}
+            redirectToView={this.redirectToView}
+            city={city}
+            location={location}
+            markerCoordinates={{ lat: latitude, lng: longitude }}
+            onCityChange={this.handleCityChange}
+            handleLocationChange={this.handleLocationChange}
+          />
+        </Suspense>
       </>
     );
   }

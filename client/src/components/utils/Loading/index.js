@@ -14,7 +14,11 @@ const Loading = ({ className = '' }) => {
 };
 
 Loading.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
+};
+
+Loading.defaultProps = {
+  className: '',
 };
 
 export default Loading;

@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 import axios from 'axios';
 import { notification } from 'antd';
 
-import { Navbar } from 'components/utils';
-import MapComponent from './Map';
-import TableInfo from './Table';
+import { Navbar, Loading } from 'components/utils';
 
 import styles from './view.module.css';
+
+const MapComponent = lazy(() => import('./Map'));
+const TableInfo = lazy(() => import('./Table'));
 
 class viewBuildings extends Component {
   state = { buildingInfo: [] };
@@ -43,9 +44,13 @@ class viewBuildings extends Component {
               community. Some may be in the process of verification.
             </p>
           </div>
-          <MapComponent buildingInfo={buildingInfo} />
+          <Suspense fallback={<Loading />}>
+            <MapComponent buildingInfo={buildingInfo} />
+          </Suspense>
           <div className={styles.table}>
-            <TableInfo buildingInfo={buildingInfo} />
+            <Suspense fallback={<Loading />}>
+              <TableInfo buildingInfo={buildingInfo} />
+            </Suspense>
           </div>
         </div>
       </>
