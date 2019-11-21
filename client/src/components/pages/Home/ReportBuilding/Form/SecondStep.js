@@ -65,12 +65,6 @@ const SecondStep = props => {
           <Select
             showSearch
             placeholder="Approximately. Feel free to take a guess."
-            optionFilterProp="children"
-            filterOption={(input, option) =>
-              option.props.children
-                .toLowerCase()
-                .indexOf(input.toLowerCase()) >= 0
-            }
           >
             {years.map(year => (
               <Option value={`${year} `} key={year}>
