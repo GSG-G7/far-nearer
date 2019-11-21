@@ -87,18 +87,6 @@ The user can visit the web-app to report buildings that are believed to be empty
 - [x] Making a good user experience for our users to use the app
 - [x] Developed a strong :muscle: backend and authentication system
 
-## Contribution To The Project :sparkles:
-
-To contribute our project, follow these instructions:
-
-- Fork the repo on GitHub
-- Clone the project to your own machine
-- Commit changes to your own branch
-- Push your work back up to your fork
-- Submit a Pull request so that we can review your changes
-
-:point_right: NOTE: Be sure to merge the latest from "upstream" before making a pull request!
-
 ## **Technologies** :computer:
 
 - Front-End: **React JS**
