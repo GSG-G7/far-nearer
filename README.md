@@ -74,7 +74,6 @@ The user can visit the web-app to report buildings that are believed to be empty
 
 - As a user, I can visit the website and read about it.
 - As a user, I can report buildings that I believe to be empty.
-- As a user, I can subscribe to the mailing list.
 - As a user, I can view information about the project so that I can deal with the displayed data.
 - As a user, I can subscribe in the mailing list and recive emails with all updates.
 
