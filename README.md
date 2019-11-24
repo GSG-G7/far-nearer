@@ -30,6 +30,8 @@ FAR NEARER website enables users to report about any empty buildings and the com
 ```
 AIRTABLE_BASE_ID
 AIRTABLE_API_KEY
+EMAIL
+PASSWORD
 ```
 
 3. To install the dependecies, only for the first time:
