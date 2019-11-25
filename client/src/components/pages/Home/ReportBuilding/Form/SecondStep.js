@@ -57,7 +57,7 @@ const SecondStep = props => {
           rules: [
             {
               required: true,
-              message: 'Please specify how Long has it been empty',
+              message: 'Please specify how long it has been empty',
             },
           ],
           initialValue: emptyPeriod,
@@ -97,7 +97,7 @@ const SecondStep = props => {
         className={styles.item}
         label={
           <span>
-            What would you like it used for ?
+            What would you like it to be used for?
             <span style={{ color: '#888' }}> (Optional)</span>
           </span>
         }

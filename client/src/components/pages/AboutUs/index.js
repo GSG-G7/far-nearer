@@ -30,17 +30,17 @@ const About = () => {
             waiting lists for local authority housing and homelessness it at its
             highest level for over a decade. While councils blame poor quality
             housing and overseas landlords, there is no clear evidence about why
-            the number of empty homes in England is rising. Who Owns My
+            the number of empty homes in England is rising. Who Owns Your
             Neighbourhood is an independent website built by the Community
             Interest Company Far Nearer. We wanted to make it easier to report
             empty and at risk buildings in your community.
           </p>
           <p>
-            So we made Who Owns My Neighbourhood, a way to report, view and
-            investigate empty and at risk buildings.Once you have reported a
+            So we made Who Owns Your Neighbourhood, a way to report, view and
+            investigate empty and at risk buildings. Once you have reported a
             building, this information is made available to community groups who
-            might be interested in buying the property and opening it up for the
-            community.
+            might be interested in investigating the property or buying it for
+            the community.
           </p>
         </div>
       </div>

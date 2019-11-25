@@ -12,7 +12,7 @@ const Footer = () => {
         <section className={styles.section}>
           <h2 className={styles.heading}>About Us</h2>
           <p className={styles.content}>
-            Who Owns My Neighbourhood is an independent website built by the
+            Who Owns Your Neighbourhood is an independent website built by the
             Community Interest Company Far Nearer. We wanted to make it easier
             to report empty and at risk buildings in your community.
           </p>
@@ -28,17 +28,11 @@ const Footer = () => {
               <Icon type="environment" /> <span>London, UK</span>
             </p>
             <p>
-              <Icon type="phone" /> <span>+44 01 2345 6789</span>
+              <Icon type="twitter" /> <span>@far_nearer</span>
             </p>
             <p>
-              <Icon type="mail" /> <span>example@example.com</span>
+              <Icon type="mail" /> <span>hazel@farnearer.org</span>
             </p>
-          </div>
-          <div className={styles.sociallinks}>
-            <Icon type="google" />
-            <Icon type="twitter" />
-            <Icon type="slack" />
-            <Icon type="skype" />
           </div>
         </section>
         <section className={styles.section}>

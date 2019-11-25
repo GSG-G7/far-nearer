@@ -153,7 +153,10 @@ class Form extends Component {
       }
     } catch (err) {
       this.setState({ loading: false });
-      openNotificationWithIcon('error', 'Something went wrong !! Try again');
+      openNotificationWithIcon(
+        'error',
+        'Something went wrong! Please try again',
+      );
     }
   };
 

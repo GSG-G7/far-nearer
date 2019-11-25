@@ -22,12 +22,12 @@ const Header = ({ onCityChange }) => {
   );
   return (
     <header className={styles.header}>
-      <h1 className={styles.title}>who owns your neighborhood</h1>
+      <h1 className={styles.title}>who owns your neighbourhood</h1>
       <p className={styles.description}>
         Report, view, and investigate empty and at risk buildings
         <Dropdown overlay={menu}>
           <Button className={styles['share-btn']}>
-            Report Building <Icon type="down" />
+            Choose location <Icon type="down" />
           </Button>
         </Dropdown>
       </p>

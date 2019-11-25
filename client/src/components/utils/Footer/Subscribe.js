@@ -36,7 +36,10 @@ class SubscribeForm extends Component {
           }
         }
       } catch (error) {
-        openNotificationWithIcon('error', 'Something went wrong !! Try again');
+        openNotificationWithIcon(
+          'error',
+          'Something went wrong! Please try again',
+        );
       }
     });
   };

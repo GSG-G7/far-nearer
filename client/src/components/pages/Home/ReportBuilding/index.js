@@ -26,7 +26,7 @@ class ReportBuilding extends Component {
         if (error)
           openNotificationWithIcon(
             'error',
-            'Something went wrong !! Check your connection and try again',
+            'Something went wrong! Please check your connection and try again',
           );
         else handleLocationChange(latlng, result.address.Match_addr);
       });
