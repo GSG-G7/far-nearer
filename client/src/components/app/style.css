@@ -78,7 +78,7 @@ a:hover {
   color: var(--main-color--dark);
 }
 
-.error-controller ~ .footer-error {
+.error-controller ~ .footer-controller {
   display: none;
 }
 

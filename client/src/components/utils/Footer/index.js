@@ -7,7 +7,7 @@ import styles from './footer.module.css';
 
 const Footer = () => {
   return (
-    <footer className={`${styles.footer} footer-error`}>
+    <footer className={`${styles.footer} footer-controller`}>
       <div className={`${styles.container} container`}>
         <section className={styles.section}>
           <h2 className={styles.heading}>About Us</h2>
