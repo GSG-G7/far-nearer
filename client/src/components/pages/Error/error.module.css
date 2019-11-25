@@ -16,7 +16,7 @@
   flex-direction: column;
 }
 
-.heading { 
+.heading {
   color: var(--main-color--light);
   font-size: 1.7rem;
   margin-bottom: 0.5rem;
@@ -24,7 +24,7 @@
 
 .status {
   color: var(--main-color--light);
-  font-size: 10rem; 
+  font-size: 10rem;
   margin-bottom: 0;
 }
 
@@ -32,7 +32,7 @@
   height: 6vh;
   background-color: var(--main-color--light);
   border-color: var(--main-color--light);
-  margin-left: 0.4rem;  
+  margin-left: 0.4rem;
 }
 
 .btn:hover {
@@ -43,14 +43,14 @@
   width: 30%;
   height: 45vh;
 }
-  
+
 @media (max-width: 600px) {
   .error {
     flex-direction: column-reverse;
   }
 
   .content {
-      height: 30vh;
+    height: 30vh;
   }
 
   .heading {
@@ -61,14 +61,14 @@
 
   .status {
     color: var(--main-color--light);
-    font-size: 18rem; 
+    font-size: 18rem;
     margin-bottom: 0;
   }
 
   .img {
     width: 70%;
     height: 25vh;
-  }   
+  }
 
   .ant-btn-primary {
     height: 4vh;
