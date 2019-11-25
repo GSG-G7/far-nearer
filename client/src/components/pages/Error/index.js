@@ -7,7 +7,7 @@ import styles from './error.module.css';
 
 const PageNotFound = () => {
   return (
-    <div className={styles.error}>
+    <div className={`${styles.error} error-controller`}>
       <div className={styles.content}>
         <h1 className={`${styles.heading} ${styles.status}`}>404</h1>
         <h2 className={styles.heading}>Page not found</h2>

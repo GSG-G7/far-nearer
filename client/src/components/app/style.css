@@ -78,6 +78,10 @@ a:hover {
   color: var(--main-color--dark);
 }
 
+.error-controller ~ .footer-controller {
+  display: none;
+}
+
 @media (max-width: 600px) {
   .ant-table {
     font-size: 1.4rem;
