@@ -27,7 +27,10 @@ class viewBuildings extends Component {
       if (data && data[0] && data[0].latitude && data[0].longitude)
         this.setState({ buildingInfo: data });
     } catch (err) {
-      openNotificationWithIcon('error', 'Something went wrong !! Try again');
+      openNotificationWithIcon(
+        'error',
+        'Something went wrong! Please try again',
+      );
     }
   }
 

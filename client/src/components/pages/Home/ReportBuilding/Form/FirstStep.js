@@ -47,7 +47,7 @@ class FirstStep extends React.Component {
         <FormAnt.Item
           labelCol={{ span: 6 }}
           wrapperCol={{ span: 14 }}
-          label="Choose a City:"
+          label="Choose location:"
           className={styles.cityItem}
         >
           {getFieldDecorator('city', {
@@ -69,11 +69,11 @@ class FirstStep extends React.Component {
             rules: [
               {
                 required: true,
-                message: 'Please pin on the map the location',
+                message: 'Please click location on the map',
               },
             ],
             initialValue: location,
-          })(<Input disabled placeholder="Click on map to have location" />)}
+          })(<Input disabled placeholder="Click on map to select location" />)}
         </FormAnt.Item>
 
         <FormAnt.Item label="Address">
@@ -93,7 +93,7 @@ class FirstStep extends React.Component {
               <Option value="Office building">Office building</Option>
               <Option value="Community building">Community building</Option>
               <Option value="Industrial building">Industrial building</Option>
-              <Option value="N/A">I don&apos;t konw</Option>
+              <Option value="N/A">I don&apos;t know</Option>
             </Select>,
           )}
         </FormAnt.Item>
@@ -102,7 +102,7 @@ class FirstStep extends React.Component {
           className={styles.item}
           label={
             <span>
-              Who owns the building ?
+              Who owns the building?
               <span style={{ color: '#888' }}> (Optional)</span>
             </span>
           }
@@ -120,7 +120,7 @@ class FirstStep extends React.Component {
           )}
         </FormAnt.Item>
 
-        <FormAnt.Item label="Are they local ?">
+        <FormAnt.Item label="Are they local?">
           {getFieldDecorator('isOwnerLocal', {
             initialValue: isOwnerLocal,
             rules: [

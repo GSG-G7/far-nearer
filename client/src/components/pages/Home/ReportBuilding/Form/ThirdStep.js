@@ -33,7 +33,10 @@ const ThirdStep = props => {
     validateFields((err, values) => {
       if (!err) {
         if (values.shareData === false)
-          openNotificationWithIcon('info', 'You have to agree on sharing data');
+          openNotificationWithIcon(
+            'info',
+            'Please agree to share this data to continue',
+          );
         else {
           enterLoading();
           handleConfirm(values);
@@ -56,7 +59,7 @@ const ThirdStep = props => {
             rules: [
               {
                 required: true,
-                message: 'This field is required',
+                message: 'Please enter your name',
               },
             ],
             initialValue: reporterName,
@@ -74,16 +77,16 @@ const ThirdStep = props => {
             initialValue: reporterEmail,
           })(<Input placeholder="Write your email" />)}
         </FormAnt.Item>
-        <FormAnt.Item label="Address">
+        <FormAnt.Item label="Postcode">
           {getFieldDecorator('reporterAddress', {
             rules: [
               {
                 required: true,
-                message: 'This field is required',
+                message: 'Please enter your postcode',
               },
             ],
             initialValue: reporterAddress,
-          })(<Input placeholder="Write your address" />)}
+          })(<Input placeholder="Write your postcode" />)}
         </FormAnt.Item>
         <FormAnt.Item>
           {getFieldDecorator('shareData', {

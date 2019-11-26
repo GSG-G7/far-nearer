@@ -45,11 +45,11 @@ const buildMarkers = buildingInfo => {
             </h2>
 
             <h4>
-              <span className={styles.building__title}>location:</span>
+              <span className={styles.building__title}>Location: </span>
               {location}
             </h4>
             <h4>
-              <span className={styles.building__title}>Previous Use:</span>{' '}
+              <span className={styles.building__title}>Previous Use: </span>
               {previousUse}
             </h4>
             <h4>
